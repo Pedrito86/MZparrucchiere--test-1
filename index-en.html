@@ -290,11 +290,35 @@
 
         /* ===== SEDI ===== */
         .sedi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
-        .sede-card { background:var(--card-bg); border:1px solid rgba(201,168,76,0.10); border-radius:20px; padding:40px 28px; text-align:center; transition:all 0.6s var(--ease-out-expo); backdrop-filter:blur(4px); position:relative; overflow:hidden; }
+        .sede-card { background:var(--card-bg); border:1px solid rgba(201,168,76,0.10); border-radius:20px; padding:40px 28px; text-align:center; transition:all 0.6s var(--ease-out-expo); backdrop-filter:blur(4px); position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:center; }
         .sede-card::before { content:''; position:absolute; top:0; left:0; width:100%; height:2px; background:linear-gradient(90deg,transparent,var(--gold),transparent); opacity:0; transition:opacity 0.6s; }
         .sede-card:hover { border-color:rgba(201,168,76,0.25); transform:translateY(-10px); box-shadow:0 30px 60px rgba(0,0,0,0.3); background:var(--card-bg-hover); }
         .sede-card:hover::before { opacity:1; }
         .sede-card i { font-size:1.8rem; color:var(--gold); margin-bottom:20px; display:block; opacity:0.8; }
+        .sede-icon { width:auto; height:2.4rem; max-width:3.2rem; display:block; margin:0 auto 20px; opacity:0.8; transition:transform 0.6s var(--ease-out-expo); filter:drop-shadow(0 4px 14px rgba(201,168,76,0.12)); }
+        .sede-card:hover .sede-icon { transform:scale(1.1); opacity:1; filter:drop-shadow(0 6px 22px rgba(201,168,76,0.22)); }
+        .sede-icon-original {
+            width: auto;
+            height: 3.7rem;
+            max-width: 5.1rem;
+            display: block;
+            margin: -6px auto 4px;
+            opacity: 0.8;
+            overflow: visible;
+            background: transparent !important;
+            border: 0 !important;
+            padding: 0 !important;
+            transition: transform 0.6s var(--ease-out-expo), opacity 0.6s ease, filter 0.6s ease;
+            filter: drop-shadow(0 4px 14px rgba(201,168,76,0.12));
+        }
+        .sede-card:hover .sede-icon-original { opacity: 1; transform: scale(1.1); filter: drop-shadow(0 6px 22px rgba(201,168,76,0.22)); }
+        /* Fallback per browser molto vecchi */
+        .sede-icon-original-fallback-img {
+            height:3.6rem; width:auto; max-width:5rem;
+            margin:0 auto 20px; display:none; opacity:0.8;
+            filter: invert(1) sepia(1) saturate(850%) hue-rotate(7deg) brightness(0.98) contrast(1.3);
+        }
+        .sede-fa-fallback { display:none; }
         .sedi-strip-item { transition:all 0.4s var(--ease-out-expo); }
         .sedi-strip-item:hover { background:rgba(201,168,76,0.06); }
         .sedi-strip-item:hover i { transform:scale(1.15); }
@@ -308,8 +332,8 @@
         .sede-card.sede-highlight { animation:sedeHighlight 1.8s var(--ease-out-expo); }
         .sede-card h3 { font-family:var(--font-serif); font-weight:400; font-size:1.4rem; margin-bottom:8px; min-height:3.8rem; display:flex; align-items:center; justify-content:center; text-align:center; }
         .sede-card .address { color:var(--gray); font-size:0.85rem; font-weight:200; margin-bottom:16px; }
-        .sede-card .orario { color:var(--white-dim); font-size:0.75rem; letter-spacing:1px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.08); display:block; }
-        .sede-actions { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:16px; }
+        .sede-card .orario { color:var(--white-dim); font-size:0.75rem; letter-spacing:1px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.08); display:block; margin-top:auto; }
+        .sede-actions { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:16px; padding-top:0; }
         .sede-tel { display:inline-flex; align-items:center; background:var(--gold); color:var(--black); text-decoration:none; font-size:0.68rem; letter-spacing:2px; text-transform:uppercase; font-weight:500; border:1px solid var(--gold); padding:10px 22px; border-radius:50px; transition:all 0.5s var(--ease-out-expo); position:relative; overflow:hidden; box-shadow:0 8px 40px rgba(201,168,76,0.15); }
         .sede-tel::before { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent); transition:left 0.6s; }
         .sede-tel:hover::before { left:100%; }
@@ -1028,8 +1052,8 @@
                     <div class="mosaic-tile photo"><img src="maurizio2.jpg" alt="Maurizio Zucchini — Founder MZ Parrucchieri" loading="lazy"/></div>
                     <div class="mosaic-tile photo"><img src="staff/melissa.jpg" alt="Melissa — MZ Parrucchieri staff" loading="lazy"/></div>
                     <div class="mosaic-tile photo"><img src="staff/daniele.jpg" alt="Daniele — MZ Barber Shop staff" loading="lazy"/></div>
-                    <div class="mosaic-tile photo"><img src="staff/laura.jpg" alt="Laura B. — MZ Parrucchieri staff" loading="lazy"/></div>
-                    <div class="mosaic-tile photo"><img src="staff/laura2.jpg" alt="Laura T. — MZ Parrucchieri staff" loading="lazy"/></div>
+                    <div class="mosaic-tile photo"><img src="staff/Laura.jpg" alt="Laura B. — MZ Parrucchieri staff" loading="lazy"/></div>
+                    <div class="mosaic-tile photo"><img src="staff/Laura2.jpg" alt="Laura T. — MZ Parrucchieri staff" loading="lazy"/></div>
                     <div class="mosaic-tile photo"><img src="staff/gabriele-villanova.jpg" alt="Gabriele — MZ Parrucchieri staff" loading="lazy"/></div>
                     <div class="mosaic-tile photo"><img src="staff/cinzia.jpg" alt="Cinzia — MZ Parrucchieri staff" loading="lazy"/></div>
                     <div class="mosaic-tile photo"><img src="staff/veronica.jpg" alt="Veronica — MZ Parrucchieri staff" loading="lazy"/></div>
@@ -1100,7 +1124,33 @@
                         </div>
                     </div>
                     <div class="sede-card" id="sede-barber">
-                        <i class="fas fa-cut"></i>
+                        <svg class="sede-icon-original" role="img" viewBox="0 0 520 640" preserveAspectRatio="xMidYMid meet" aria-label="Barber Shop Medicina — Gentleman Bearded Icon" onerror="this.onerror=null;this.style.display='none';var n=this.nextElementSibling;if(n){n.style.display='block';}">
+                            <defs>
+                                <filter id="barberIconGold" x="-5%" y="-5%" width="110%" height="110%">
+                                    <!-- 1️⃣ INVERT LUMINANCE: dark lines → WHITE, cream bg → BLACK -->
+                                    <feColorMatrix type="matrix" values="-1  0  0  0  1
+                                                                           0 -1  0  0  1
+                                                                           0  0 -1  0  1
+                                                                           0  0  0  1  0"/>
+                                    <!-- 2️⃣ FAT LINES (bolder disegno MARCATO) -->
+                                    <feMorphology operator="dilate" radius="2.2"/>
+                                    <!-- 3️⃣ CLAMP ALPHA (0 or 1): REMOVES "veil" gray around → CRISP ICON -->
+                                    <feComponentTransfer>
+                                        <feFuncA type="discrete" tableValues="0 0 0 0 0 1 1 1 1 1 1"/>
+                                    </feComponentTransfer>
+                                    <!-- 4️⃣ GOLD COLOR #C9A84C (R:0.788235 · G:0.658824 · B:0.298039) · PRESERVE alpha from input -->
+                                    <feColorMatrix type="matrix" values="0  0  0  0  0.788235
+                                                                           0  0  0  0  0.658824
+                                                                           0  0  0  0  0.298039
+                                                                           0  0  0  1  0"/>
+                                </filter>
+                            </defs>
+                            <image x="0" y="0" width="520" height="640" href="barber-icon-original.png"
+                                   preserveAspectRatio="xMidYMid meet"
+                                   filter="url(#barberIconGold)"/>
+                        </svg>
+                        <img class="sede-icon-original-fallback-img" src="barber-icon-original.png" alt="Barber Shop Medicina Icon" style="display:none" onerror="this.onerror=null;this.style.display='none';var fb=this.nextElementSibling;if(fb){fb.style.display='block';}">
+                        <i class="fas fa-cut sede-fa-fallback" style="display:none"></i>
                         <h3>Barber Shop Medicina</h3>
                         <p class="address">Via O. Argentesi 22, Medicina</p>
                         <span class="orario"><i class="far fa-clock" style="margin-right:6px"></i> Tue-Fri 9:30 AM-7:30 PM · Sat 9:00 AM-6:00 PM</span>
@@ -1148,12 +1198,12 @@
                             <span class="role">Hairstylist</span>
                         </div>
                         <div class="staff-card" onclick="openStaffLightbox(this)">
-                            <div class="avatar"><i class="fas fa-user"></i><img src="staff/laura.jpg" alt="Laura" loading="lazy" onerror="this.remove()"/></div>
+                            <div class="avatar"><i class="fas fa-user"></i><img src="staff/Laura.jpg" alt="Laura" loading="lazy" onerror="this.remove()"/></div>
                             <h4>Laura</h4>
                             <span class="role">Hairstylist</span>
                         </div>
                         <div class="staff-card" onclick="openStaffLightbox(this)">
-                            <div class="avatar"><i class="fas fa-user"></i><img src="staff/laura2.jpg" alt="Laura" loading="lazy" onerror="this.remove()"/></div>
+                            <div class="avatar"><i class="fas fa-user"></i><img src="staff/Laura2.jpg" alt="Laura" loading="lazy" onerror="this.remove()"/></div>
                             <h4>Laura</h4>
                             <span class="role">Hairstylist</span>
                         </div>
@@ -3027,6 +3077,32 @@ function setLang(l) {
 
 // ===== AUTO COPYRIGHT ANNO CORRENTE =====
 (function(){ var y = new Date().getFullYear(); document.querySelectorAll('.copyright-year').forEach(function(el){ el.textContent = y; }); })();
+
+// ===== FALLBACK BARBER ICON: SVG FAILS? SWITCH TO CSS GOLD IMAGE (100% SAFE) =====
+(function(){
+    setTimeout(function(){
+        document.querySelectorAll('svg.sede-icon-original').forEach(function(svg){
+            try{
+                var img = svg.querySelector('image');
+                if(!img){ svg.style.display='none'; var next=svg.nextElementSibling; if(next){ next.style.display='block'; } return; }
+                img.addEventListener('load',function(){ if(img.width===0 || img.height===0){ svg.style.display='none'; var n=svg.nextElementSibling; if(n){ n.style.display='block'; } } }, { once:true });
+                var forceCheck = function(){
+                    try{
+                        var bb = svg.getBoundingClientRect();
+                        var renderedAreaOk = bb.width > 50 && bb.height > 20;
+                        var imgEl = new Image();
+                        imgEl.onerror = function(){ svg.style.display='none'; var n=svg.nextElementSibling; if(n){ n.style.display='block'; } };
+                        imgEl.onload = function(){
+                            if(!imgEl.complete || imgEl.naturalWidth < 50){ svg.style.display='none'; var n=svg.nextElementSibling; if(n){ n.style.display='block'; } }
+                        };
+                        imgEl.src = img.getAttribute('href') || img.getAttribute('xlink:href') || '';
+                    }catch(e){ svg.style.display='none'; var n=svg.nextElementSibling; if(n){ n.style.display='block'; } }
+                };
+                if(document.readyState==='complete'){ forceCheck(); } else { window.addEventListener('load', forceCheck, { once:true }); }
+            }catch(e){ try{ svg.style.display='none'; var next=svg.nextElementSibling; if(next){ next.style.display='block'; } }catch(e2){} }
+        });
+    }, 3600);
+})();
 </script>
 </body>
 </html>

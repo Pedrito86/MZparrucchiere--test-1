@@ -9,6 +9,7 @@
     <meta name="author" content="MZ Parrucchieri - Maurizio Zucchini">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#1a1a1a">
+    <meta name="format-detection" content="telephone=no, address=no, email=no">
     <link rel="icon" type="image/png" href="logo-mz.png">
     <link rel="apple-touch-icon" href="logo-mz.png">
     <meta property="og:title" content="MZ Parrucchieri · Hair Studio">
@@ -319,6 +320,17 @@
             filter: invert(1) sepia(1) saturate(850%) hue-rotate(7deg) brightness(0.98) contrast(1.3);
         }
         .sede-fa-fallback { display:none; }
+        /* Anti auto-link phone/email/address (iOS Safari automatic detection): VAT no blue link */
+        .footer-legal, .footer-legal *, .footer-legal a, a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+            pointer-events: none !important;
+            cursor: default !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            border-bottom: 0 !important;
+            -webkit-text-fill-color: inherit !important;
+        }
         .sedi-strip-item { transition:all 0.4s var(--ease-out-expo); }
         .sedi-strip-item:hover { background:rgba(201,168,76,0.06); }
         .sedi-strip-item:hover i { transform:scale(1.15); }
@@ -552,6 +564,10 @@
         .sg-18 { grid-column:span 1; grid-row:span 1; }
         .sg-19 { grid-column:span 1; grid-row:span 2; }
         .sg-20 { grid-column:span 2; grid-row:span 1; }
+        .sg-21 { grid-column:span 2; grid-row:span 2; }
+        .sg-22 { grid-column:span 1; grid-row:span 2; }
+        .sg-23 { grid-column:span 1; grid-row:span 1; }
+        .sg-24 { grid-column:span 2; grid-row:span 1; }
         .sposa-gallery-item:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(0,0,0,0.3); border-color:rgba(201,168,76,0.15); }
         .sposa-gallery-item img { width:100%; height:100%; object-fit:cover; object-position:center 18%; transition:transform 1.2s var(--ease-out-expo); }
         /* Foto con soggetto in basso nel fotogramma: il crop parte dal centro */
@@ -1917,8 +1933,24 @@
                         <div class="overlay"><span>Nude Shades</span><span class="cat">Palette</span></div>
                     </div>
                     <div class="sposa-gallery-item sg-2" onclick="openGalleryLightbox(this)">
-                        <img src="makeup/makeup-bionda.jpg" alt="Make up luminoso con onde bionde" loading="lazy"/>
+                        <img src="makeup/makeup-bionda.jpg" alt="Luminous make up with blonde waves" loading="lazy"/>
                         <div class="overlay"><span>Luminous Waves</span><span class="cat">Finish</span></div>
+                    </div>
+                    <div class="sposa-gallery-item gm-2x2" onclick="openGalleryLightbox(this)">
+                        <img src="sposa/sposa-makeup-01.jpg" class="pos-center" alt="Perfect lipstick for the bride" loading="lazy"/>
+                        <div class="overlay"><span>Perfect Lipstick</span><span class="cat">Bridal Make Up</span></div>
+                    </div>
+                    <div class="sposa-gallery-item gm-1x2" onclick="openGalleryLightbox(this)">
+                        <img src="sposa/sposa-makeup-02.jpg" class="pos-center" alt="Bridal preparation" loading="lazy"/>
+                        <div class="overlay"><span>Bridal Prep</span><span class="cat">Backstage</span></div>
+                    </div>
+                    <div class="sposa-gallery-item" onclick="openGalleryLightbox(this)">
+                        <img src="sposa/sposa-makeup-03.jpg" class="pos-center" alt="Makeup touch up" loading="lazy"/>
+                        <div class="overlay"><span>Makeup Touch Up</span><span class="cat">Beauty</span></div>
+                    </div>
+                    <div class="sposa-gallery-item gm-2x1" onclick="openGalleryLightbox(this)">
+                        <img src="sposa/sposa-makeup-04.jpg" class="pos-center" alt="Full bridal makeup" loading="lazy"/>
+                        <div class="overlay"><span>Bridal Makeup</span><span class="cat">Bridal</span></div>
                     </div>
                 </div>
             </div>
@@ -2338,8 +2370,24 @@
                         <div class="overlay"><span>Smile in the Mirror</span><span class="cat">Backstage</span></div>
                     </div>
                     <div class="sposa-gallery-item sg-20" onclick="openGalleryLightbox(this)">
-                        <img src="sposa/velo-salone.jpg" alt="Il velo sistemato nel nostro salone" loading="lazy"/>
+                        <img src="sposa/velo-salone.jpg" alt="The veil arranged in our salon" loading="lazy"/>
                         <div class="overlay"><span>The Perfect Veil</span><span class="cat">Backstage</span></div>
+                    </div>
+                    <div class="sposa-gallery-item sg-21" onclick="openGalleryLightbox(this)">
+                        <img src="sposa/sposa-makeup-01.jpg" class="pos-center" alt="Perfect lipstick for the bride" loading="lazy"/>
+                        <div class="overlay"><span>Perfect Lipstick</span><span class="cat">Make Up</span></div>
+                    </div>
+                    <div class="sposa-gallery-item sg-22" onclick="openGalleryLightbox(this)">
+                        <img src="sposa/sposa-makeup-02.jpg" class="pos-center" alt="Bridal preparation" loading="lazy"/>
+                        <div class="overlay"><span>Bridal Prep</span><span class="cat">Backstage</span></div>
+                    </div>
+                    <div class="sposa-gallery-item sg-23" onclick="openGalleryLightbox(this)">
+                        <img src="sposa/sposa-makeup-03.jpg" class="pos-center" alt="Makeup touch up" loading="lazy"/>
+                        <div class="overlay"><span>Makeup Touch Up</span><span class="cat">Beauty</span></div>
+                    </div>
+                    <div class="sposa-gallery-item sg-24" onclick="openGalleryLightbox(this)">
+                        <img src="sposa/sposa-makeup-04.jpg" class="pos-center" alt="Full bridal makeup" loading="lazy"/>
+                        <div class="overlay"><span>Bridal Makeup</span><span class="cat">Bridal</span></div>
                     </div>
                 </div>
             </div>
@@ -2469,7 +2517,7 @@
         </div>
         <p class="tagline">Villanova di Castenaso - Villafontana di Medicina - Imola - Barber Shop Medicina</p>
         <p class="copyright">&copy; <span class="copyright-year">2026</span> MZ Parrucchieri - The art of beauty &middot; <a onclick="navigateTo('cookie-policy')" style="color:inherit;cursor:pointer;text-decoration:none;transition:color 0.4s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'">Cookie Policy</a></p>
-        <p class="copyright" style="margin-top:4px;font-size:0.72rem;color:var(--white-dim);opacity:0.85">MZ di Maurizio Zucchini &middot; P.IVA 02458221203</p>
+        <p class="copyright footer-legal" style="margin-top:4px;font-size:0.72rem;color:var(--white-dim);opacity:0.85">MZ di Maurizio Zucchini &middot; P.IVA 024&#x200B;5822&#x200B;1203</p>
         <div class="payments">
             <span class="payments-label">Accepted Payment Methods</span>
             <div class="pay-badges">

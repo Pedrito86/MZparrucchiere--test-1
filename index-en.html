@@ -748,8 +748,8 @@
 
 <!-- ===== INTRO VIDEO ===== -->
 <div class="intro-overlay" id="introOverlay">
-    <video class="intro-video" id="introVideo" src="intro.mp4" playsinline preload="auto"></video>
-    <button class="intro-sound" id="introSound" aria-label="Attiva o disattiva audio"><i class="fas fa-volume-high" id="introSoundIcon"></i></button>
+    <video class="intro-video" id="introVideo" src="intro.mp4" playsinline preload="auto" muted></video>
+    <button class="intro-sound" id="introSound" aria-label="Turn sound on or off"><i class="fas fa-volume-xmark" id="introSoundIcon"></i></button>
     <button class="intro-skip" id="introSkip">Skip intro <i class="fas fa-chevron-right"></i></button>
 </div>
 
@@ -2488,17 +2488,26 @@
         setTimeout(() => { overlay.remove(); }, 1300);
     }
 
-    // Prova ad avviare il video con audio; se il browser blocca l'autoplay sonoro, riparte in muto
+    // ===== VERCEL STRATEGY: ALWAYS START MUTED (100% autoplay compatible with every browser policy) =====
+    // User can turn sound ON clicking the small bottom-left button.
     function startVideo() {
-        video.muted = false;
-        const playPromise = video.play();
-        if (playPromise !== undefined) {
-            playPromise.then(() => { updateSoundIcon(); }).catch(() => {
-                video.muted = true;
-                updateSoundIcon();
-                video.play().catch(() => { finishIntro(); });
-            });
-        }
+        video.muted = true;
+        video.playsInline = true;
+        if (typeof video.play === 'function') {
+            try {
+                const p = video.play();
+                if (p && typeof p.then === 'function') {
+                    p.then(updateSoundIcon).catch(function () {
+                        setTimeout(function () {
+                            try { video.play().then(updateSoundIcon).catch(finishIntro); }
+                            catch (e) { finishIntro(); }
+                        }, 250);
+                    });
+                } else {
+                    updateSoundIcon();
+                }
+            } catch (e) { finishIntro(); }
+        } else { finishIntro(); }
     }
 
     soundBtn.addEventListener('click', () => {

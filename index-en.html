@@ -748,7 +748,7 @@
 
 <!-- ===== INTRO VIDEO ===== -->
 <div class="intro-overlay" id="introOverlay">
-    <video class="intro-video" id="introVideo" src="intro.mp4" playsinline preload="auto" muted></video>
+    <video class="intro-video" id="introVideo" src="intro.mp4" autoplay muted playsinline webkit-playsinline preload="auto" disablePictureInPicture controlslist="nodownload"></video>
     <button class="intro-sound" id="introSound" aria-label="Turn sound on or off"><i class="fas fa-volume-xmark" id="introSoundIcon"></i></button>
     <button class="intro-skip" id="introSkip">Skip intro <i class="fas fa-chevron-right"></i></button>
 </div>
@@ -2488,27 +2488,54 @@
         setTimeout(() => { overlay.remove(); }, 1300);
     }
 
-    // ===== VERCEL STRATEGY: ALWAYS START MUTED (100% autoplay compatible with every browser policy) =====
+    // ===== VERCEL + MOBILE STRATEGY: ALWAYS START MUTED (100% autoplay compatible every device) =====
     // User can turn sound ON clicking the small bottom-left button.
-    function startVideo() {
-        video.muted = true;
-        video.playsInline = true;
-        if (typeof video.play === 'function') {
-            try {
-                const p = video.play();
-                if (p && typeof p.then === 'function') {
-                    p.then(updateSoundIcon).catch(function () {
-                        setTimeout(function () {
-                            try { video.play().then(updateSoundIcon).catch(finishIntro); }
-                            catch (e) { finishIntro(); }
-                        }, 250);
-                    });
-                } else {
-                    updateSoundIcon();
-                }
-            } catch (e) { finishIntro(); }
-        } else { finishIntro(); }
+    // For iOS Safari / Chrome mobile we use load() + loadeddata + user-interaction fallback.
+    var started = false;
+    function startVideo(force) {
+        if (started && !force) return;
+        started = true;
+        try {
+            video.muted = true;
+            video.playsInline = true;
+            if (video.setAttribute) {
+                video.setAttribute('muted','');
+                video.setAttribute('playsinline','');
+                video.setAttribute('webkit-playsinline','');
+            }
+            if (typeof video.load === 'function') { try { video.load(); } catch(e){} }
+            var tryPlay = function() {
+                if (finished) return;
+                try {
+                    var p = video.play();
+                    if (p && typeof p.then === 'function') {
+                        p.then(updateSoundIcon).catch(function () {
+                            setTimeout(function() {
+                                if (finished) return;
+                                try { video.play().then(updateSoundIcon).catch(function(){}); }
+                                catch (err) {}
+                            }, 350);
+                        });
+                    } else {
+                        updateSoundIcon();
+                    }
+                } catch(e) { updateSoundIcon(); }
+            };
+            if (video.readyState >= 3) { tryPlay(); }
+            else {
+                var onLoaded = function() { tryPlay(); video.removeEventListener('loadeddata', onLoaded); video.removeEventListener('canplay', onLoaded); };
+                video.addEventListener('loadeddata', onLoaded, { once: true });
+                video.addEventListener('canplay', onLoaded, { once: true });
+                setTimeout(tryPlay, 900);
+            }
+        } catch(e) { finishIntro(); }
     }
+
+    // ===== MOBILE SAFARI FALLBACK: any first interaction kicks the video =====
+    var tryMobileKick = function() { startVideo(true); try { window.removeEventListener('touchstart', tryMobileKick, { once:true }); } catch(e){} try { window.removeEventListener('click', tryMobileKick, { once:true }); } catch(e){} try { window.removeEventListener('scroll', tryMobileKick, { once:true }); } catch(e){} };
+    try { window.addEventListener('touchstart', tryMobileKick, { once:true, passive:true }); } catch(e) {}
+    try { window.addEventListener('click', tryMobileKick, { once:true, passive:true }); } catch(e) {}
+    try { window.addEventListener('scroll', tryMobileKick, { once:true, passive:true }); } catch(e) {}
 
     soundBtn.addEventListener('click', () => {
         video.muted = !video.muted;
@@ -2520,10 +2547,10 @@
     video.addEventListener('ended', finishIntro);
     video.addEventListener('error', finishIntro);
 
-    // Avvia il video appena e' pronto (o subito se e' gia' caricato)
-    if (video.readyState >= 2) { startVideo(); } else { video.addEventListener('canplay', startVideo, { once: true }); }
+    // Main start
+    startVideo();
 
-    // Fallback di sicurezza: in caso di problemi l'intro si chiude comunque e si arriva alla home
+    // Safety fallback: intro closes and reaches home no matter what
     setTimeout(finishIntro, 15000);
 })();
 

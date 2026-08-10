@@ -2917,10 +2917,22 @@ window.addEventListener('scroll', () => {
     function slide() {
         if (current >= totalPages) current = totalPages - 1;
         if (current < 0) current = 0;
-        const rect = cards[0].getBoundingClientRect();
-        const gap = 28;
-        const step = rect.width + gap;
-        track.style.transform = `translateX(${-current * step}px)`;
+        const c0 = cards[0].getBoundingClientRect();
+        let step;
+        if (cards.length >= 2) {
+            const c1 = cards[1].getBoundingClientRect();
+            step = c1.left - c0.left;
+        } else {
+            step = c0.width + (window.innerWidth <= 768 ? 20 : 28);
+        }
+        let offset = -current * step;
+        if (window.innerWidth <= 768) {
+            const viewport = document.querySelector('.reviews-track-wrap').getBoundingClientRect().width;
+            const cardW = c0.width;
+            const sidePad = (viewport - cardW) / 2;
+            offset = sidePad - current * step;
+        }
+        track.style.transform = `translateX(${offset}px)`;
         updateDots();
     }
 

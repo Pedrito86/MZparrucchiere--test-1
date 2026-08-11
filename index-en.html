@@ -1077,8 +1077,8 @@
                     <div class="mosaic-tile photo"><img src="maurizio2.jpg" alt="Maurizio Zucchini — Founder MZ Parrucchieri" loading="lazy"/></div>
                     <div class="mosaic-tile photo"><img src="staff/melissa.jpg" alt="Melissa — MZ Parrucchieri staff" loading="lazy"/></div>
                     <div class="mosaic-tile photo"><img src="staff/daniele.jpg" alt="Daniele — MZ Barber Shop staff" loading="lazy"/></div>
-                    <div class="mosaic-tile photo"><img src="staff/Laura.jpg" alt="Laura B. — MZ Parrucchieri staff" loading="lazy"/></div>
-                    <div class="mosaic-tile photo"><img src="staff/Laura2.jpg" alt="Laura T. — MZ Parrucchieri staff" loading="lazy"/></div>
+                    <div class="mosaic-tile photo"><img src="staff/Laura.jpg" alt="Laura T. — MZ Parrucchieri staff" loading="lazy"/></div>
+                    <div class="mosaic-tile photo"><img src="staff/Laura2.jpg" alt="Laura B. — MZ Parrucchieri staff" loading="lazy"/></div>
                     <div class="mosaic-tile photo"><img src="staff/gabriele-villanova.jpg" alt="Gabriele — MZ Parrucchieri staff" loading="lazy"/></div>
                     <div class="mosaic-tile photo"><img src="staff/cinzia.jpg" alt="Cinzia — MZ Parrucchieri staff" loading="lazy"/></div>
                     <div class="mosaic-tile photo"><img src="staff/veronica.jpg" alt="Veronica — MZ Parrucchieri staff" loading="lazy"/></div>
@@ -1213,7 +1213,7 @@
                 <div class="staff-sede reveal">
                     <div class="staff-sede-header">
                         <h3 class="staff-sede-title"><i class="fas fa-scissors"></i> Team Villafontana di Medicina</h3>
-                        <p class="staff-sede-desc">In Villafontana di Medicina, a place where you can feel at home while we take care of your hair. You will find <strong>Veronica, Barbara, Laura T, Laura B and Gabriele</strong>, highly qualified professionals, passionate about women's total looks with special attention to the latest trends.</p>
+                        <p class="staff-sede-desc">In Villafontana di Medicina, a place where you can feel at home while we take care of your hair. You will find <strong>Veronica, Barbara, Laura B, Laura T and Gabriele</strong>, highly qualified professionals, passionate about women's total looks with special attention to the latest trends.</p>
                     </div>
                     <div class="staff-grid">
                         <div class="staff-card" onclick="openStaffLightbox(this)">
@@ -1227,13 +1227,13 @@
                             <span class="role">Hairstylist</span>
                         </div>
                         <div class="staff-card" onclick="openStaffLightbox(this)">
-                            <div class="avatar"><i class="fas fa-user"></i><img src="staff/Laura2.jpg" alt="Laura T" loading="lazy" onerror="this.remove()"/></div>
-                            <h4>Laura T</h4>
+                            <div class="avatar"><i class="fas fa-user"></i><img src="staff/Laura2.jpg" alt="Laura B" loading="lazy" onerror="this.remove()"/></div>
+                            <h4>Laura B</h4>
                             <span class="role">Hairstylist</span>
                         </div>
                         <div class="staff-card" onclick="openStaffLightbox(this)">
-                            <div class="avatar"><i class="fas fa-user"></i><img src="staff/Laura.jpg" alt="Laura B" loading="lazy" onerror="this.remove()"/></div>
-                            <h4>Laura B</h4>
+                            <div class="avatar"><i class="fas fa-user"></i><img src="staff/Laura.jpg" alt="Laura T" loading="lazy" onerror="this.remove()"/></div>
+                            <h4>Laura T</h4>
                             <span class="role">Hairstylist</span>
                         </div>
                         <div class="staff-card" onclick="openStaffLightbox(this)">
@@ -1485,6 +1485,7 @@
                     <div class="price-group">
                         <h4>Hair</h4>
                         <div class="price-row"><span>Men's Cut</span><span class="dots"></span><span class="val">21 €</span></div>
+                        <div class="price-row"><span>Boys' Cut 14-18</span><span class="dots"></span><span class="val">21 €</span></div>
                         <div class="price-row"><span>Men's Cut (sides)</span><span class="dots"></span><span class="val">16 €</span></div>
                         <div class="price-row"><span>Kids' Cut 0-14</span><span class="dots"></span><span class="val">17 €</span></div>
                     </div>
@@ -2049,8 +2050,8 @@
                     </div>
                     <div class="sposa-gallery-item" onclick="openGalleryLightbox(this)">
                         <div class="product-photo-fallback"><i class="fas fa-image"></i><span>Photo coming soon</span></div>
-                        <img src="prodotti/nashi-10.webp" data-fallback="prodotti/nashi-10.jpg" alt="Nashi Argan treatment in progress" loading="lazy" onerror="handleProductImgError(this)"/>
-                        <div class="overlay"><span>In-Progress Treatment</span><span class="cat">Nashi Argan</span></div>
+                        <img src="prodotti/nashi-10.webp" data-fallback="prodotti/nashi-10.jpg" alt="Nashi men Nashi Argan" loading="lazy" onerror="handleProductImgError(this)"/>
+                        <div class="overlay"><span>Nashi men</span><span class="cat">Nashi Argan</span></div>
                     </div>
                 </div>
             </div>
@@ -2140,7 +2141,7 @@
                     <div class="sposa-gallery-item gm-2x1" onclick="openGalleryLightbox(this)">
                         <div class="product-photo-fallback"><i class="fas fa-image"></i><span>Photo coming soon</span></div>
                         <img src="prodotti/ghd-4.webp" data-fallback="prodotti/ghd-4.jpg" alt="ghd 2-in-1 Hairdryer and Styler" loading="lazy" onerror="handleProductImgError(this)"/>
-                        <div class="overlay"><span>2-in-1 Hairdryer and Styler</span><span class="cat">ghd</span></div>
+                        <div class="overlay"><span>2-in-1: Hairdryer and Styler</span><span class="cat">ghd</span></div>
                     </div>
                     <div class="sposa-gallery-item" onclick="openGalleryLightbox(this)">
                         <div class="product-photo-fallback"><i class="fas fa-image"></i><span>Photo coming soon</span></div>
@@ -2928,8 +2929,37 @@ function showGalleryPhoto() {
     const title = item.querySelector('.overlay span:first-child')?.textContent || '';
     const cat = item.querySelector('.overlay .cat')?.textContent || '';
     const lbImg = document.getElementById('galleryLightboxImg');
-    lbImg.src = img.src;
-    lbImg.alt = img.alt;
+
+    // 1. Determina sorgente primaria e fallback (eventualmente lette dalla card, anche se onerror della card era gia' partita)
+    let primarySrc = '';
+    let fallbackSrc = '';
+    if (img) {
+        primarySrc = img.getAttribute('src') || '';
+        fallbackSrc = img.getAttribute('data-fallback') || '';
+    }
+
+    // 2. Reset stato precedente lightbox (previene che onerror della foto precedente influenzi la nuova)
+    lbImg.onerror = null;
+    lbImg.removeAttribute('src');
+
+    if (primarySrc) {
+        lbImg.src = primarySrc;
+        // 3. Fallback lightbox: se fallisce la foto (es. .webp non caricato nella card), prova .jpg interno
+        if (fallbackSrc && fallbackSrc !== primarySrc) {
+            let lbTried = false;
+            lbImg.onerror = function() {
+                if (!lbTried) {
+                    lbTried = true;
+                    this.onerror = null;
+                    this.src = fallbackSrc;
+                }
+            };
+        } else {
+            lbImg.onerror = function() { this.onerror = null; };
+        }
+    }
+
+    lbImg.alt = img ? (img.alt || '') : '';
     document.getElementById('galleryLightboxTitle').textContent = title;
     document.getElementById('galleryLightboxCat').textContent = cat;
     document.getElementById('galleryLightboxCounter').textContent = (galleryIndex + 1) + ' / ' + galleryItems.length;
@@ -3020,7 +3050,8 @@ function handleProductImgError(img) {
         img.dataset.triedFallback = '1';
         img.src = img.dataset.fallback;
     } else {
-        img.remove();
+        // Nasconde l'immagine ma la mantiene nel DOM, cosi' la lightbox non trova img=null durante next/prev
+        img.style.display = 'none';
     }
 }
 

@@ -58,6 +58,7 @@
         * { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior:smooth; }
         body { font-family:var(--font-sans); background:var(--black); color:var(--white); overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+        body.nav-switching { visibility:hidden; }
         ::-webkit-scrollbar { width:5px; }
         ::-webkit-scrollbar-track { background:var(--black); }
         ::-webkit-scrollbar-thumb { background:var(--gold); border-radius:10px; }
@@ -126,9 +127,9 @@
         }
 
         /* ===== PAGES ===== */
-        .page { display:none; opacity:0; animation:fadeInPage 1s var(--ease-out-expo) forwards; padding-top:90px; min-height:80vh; }
+        .page { display:none; opacity:0; animation:fadeInPage 0.6s var(--ease-out-expo) forwards; padding-top:90px; min-height:80vh; }
         .page.active { display:block; }
-        @keyframes fadeInPage { from{opacity:0;transform:translateY(40px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes fadeInPage { from{opacity:0;transform:translateY(15px)} to{opacity:1;transform:translateY(0)} }
 
         /* ===== HERO LUXURY — SIGNATURE PORTRAIT ===== */
         .hero { min-height:100vh; min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; position:relative; overflow:hidden; padding:140px 0 150px; }
@@ -2822,16 +2823,34 @@
 
 // ===== NAVIGATION =====
 function navigateTo(pageId) {
+    // 0. Blocca render del primo frame (nasconde TUTTO istantaneamente)
+    document.body.classList.add('nav-switching');
+    // 1. Reset istantaneo dello scroll PRIMA di cambiare pagina
+    document.documentElement.style.scrollBehavior = 'auto';
+    document.body.style.scrollBehavior = 'auto';
+    // scrollTo sincrono due volte (hack per browser che ritardano lo scroll di layout)
+    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    // 2. Cambio pagina
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     const target = document.getElementById('page-' + pageId);
-    if (target) { target.classList.add('active'); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    if (target) { target.classList.add('active'); }
+    // 3. Link attivi + chiudi menu mobile
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('onclick') === "navigateTo('" + pageId + "')") { link.classList.add('active'); }
     });
     document.getElementById('navLinks').classList.remove('open');
     document.getElementById('hamburger').classList.remove('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // 4. Prossimo repaint: scroll ancora una volta (invariato, a 0) e poi sblocca la visibilità
+    requestAnimationFrame(function() {
+        window.scrollTo(0, 0);
+        requestAnimationFrame(function() {
+            document.documentElement.style.scrollBehavior = '';
+            document.body.style.scrollBehavior = '';
+            document.body.classList.remove('nav-switching');
+        });
+    });
 }
 
 // ===== STAFF LIGHTBOX =====

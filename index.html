@@ -2967,6 +2967,7 @@ document.addEventListener('keydown', function(e) {
 /* ===== GALLERIA LIGHTBOX ===== */
 let galleryItems = [];
 let galleryIndex = 0;
+let galleryToken = 0;
 
 function collectGalleryItems(scopeEl) {
     const scope = (scopeEl && scopeEl.closest('.page')) || document;
@@ -2989,7 +2990,7 @@ function showGalleryPhoto() {
     const cat = item.querySelector('.overlay .cat')?.textContent || '';
     const lbImg = document.getElementById('galleryLightboxImg');
 
-    // 1. Determina sorgente primaria e fallback (eventualmente lette dalla card, anche se onerror della card era gia' partita)
+    // 1. Sorgenti della card
     let primarySrc = '';
     let fallbackSrc = '';
     if (img) {
@@ -2997,31 +2998,41 @@ function showGalleryPhoto() {
         fallbackSrc = img.getAttribute('data-fallback') || '';
     }
 
-    // 2. Reset stato precedente lightbox (previene che onerror della foto precedente influenzi la nuova)
-    lbImg.onerror = null;
-    lbImg.removeAttribute('src');
-
-    if (primarySrc) {
-        lbImg.src = primarySrc;
-        // 3. Fallback lightbox: se fallisce la foto (es. .webp non caricato nella card), prova .jpg interno
-        if (fallbackSrc && fallbackSrc !== primarySrc) {
-            let lbTried = false;
-            lbImg.onerror = function() {
-                if (!lbTried) {
-                    lbTried = true;
-                    this.onerror = null;
-                    this.src = fallbackSrc;
-                }
-            };
-        } else {
-            lbImg.onerror = function() { this.onerror = null; };
-        }
-    }
-
+    // 2. Aggiorna subito testo e contatore (non dipendono dal caricamento foto)
     lbImg.alt = img ? (img.alt || '') : '';
     document.getElementById('galleryLightboxTitle').textContent = title;
     document.getElementById('galleryLightboxCat').textContent = cat;
     document.getElementById('galleryLightboxCounter').textContent = (galleryIndex + 1) + ' / ' + galleryItems.length;
+
+    // 3. Token anti race-condition (se clicco next veloce, solo l'ultimo vince)
+    const myToken = ++galleryToken;
+
+    // 4. Se non c'e' sorgente, lascia la foto precedente e basta (nessun riquadrino)
+    if (!primarySrc) return;
+
+    // 5. Preload invisibile in memoria: solo quando e' caricata, sostituiamo lbImg.src
+    //    (cosi' non si vede mai il frame vuoto tra una foto e l'altra)
+    const pre = new Image();
+    let triedFallback = false;
+
+    const commit = function() {
+        if (galleryToken !== myToken) return;   // navigazione superata nel frattempo: scarta
+        // Swap diretto: la foto e' gia' in cache, nessun decode visibile, nessun riquadrino
+        lbImg.src = pre.src;
+    };
+
+    pre.onload = commit;
+    pre.onerror = function() {
+        if (!triedFallback && fallbackSrc && fallbackSrc !== primarySrc) {
+            triedFallback = true;
+            pre.src = fallbackSrc;
+        } else {
+            // Fallback totale non disponibile: evitiamo comunque di impostare src vuoto
+            // la vecchia foto rimane visibile, nessun riquadrino vuoto
+        }
+    };
+
+    pre.src = primarySrc;
 }
 
 function navGallery(dir) {

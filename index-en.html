@@ -791,6 +791,171 @@
             .nav-right > .lang-switch { padding:3px; gap:0; }
             .nav-right > .lang-switch .lang-btn { padding:5px 11px; font-size:0.6rem; letter-spacing:1.2px; }
         }
+
+        /* ===== MONTHLY PROMO ===== */
+        .promo-section { padding:120px 0 130px; position:relative; overflow:hidden; background:var(--black-2); }
+        .promo-section::before { content:''; position:absolute; inset:0; background:
+            radial-gradient(ellipse 60% 40% at 50% 0%, rgba(201,168,76,0.08), transparent 70%),
+            radial-gradient(ellipse 40% 30% at 10% 100%, rgba(201,168,76,0.05), transparent 70%),
+            radial-gradient(ellipse 40% 30% at 90% 100%, rgba(201,168,76,0.05), transparent 70%);
+            pointer-events:none; }
+        .promo-section::after { content:'PROMOTIONS'; position:absolute; top:60px; left:50%; transform:translateX(-50%);
+            font-family:var(--font-serif); font-size:clamp(4rem,14vw,12rem); font-weight:500; letter-spacing:12px;
+            color:rgba(255,255,255,0.022); white-space:nowrap; pointer-events:none; user-select:none; text-transform:uppercase; }
+        .promo-month-label { display:inline-flex; align-items:center; gap:14px; margin-bottom:24px;
+            padding:10px 28px; background:rgba(201,168,76,0.10); border:1px solid rgba(201,168,76,0.30); border-radius:999px; }
+        .promo-month-label i { color:var(--gold); font-size:0.85rem; }
+        .promo-month-label span { font-size:0.72rem; letter-spacing:3px; text-transform:uppercase; color:var(--gold); font-weight:400; }
+        .promo-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:36px; margin-top:12px; max-width:1180px; margin-left:auto; margin-right:auto; }
+        .promo-card { background:var(--card-bg); border:1px solid rgba(201,168,76,0.10); border-radius:26px; overflow:hidden;
+            display:flex; flex-direction:column; transition:all 0.6s var(--ease-out-expo); position:relative; backdrop-filter:blur(6px); }
+        .promo-card::before { content:''; position:absolute; top:0; left:0; width:100%; height:2px;
+            background:linear-gradient(90deg,transparent,var(--gold),transparent); opacity:0; transition:opacity 0.6s; }
+        .promo-card:hover { transform:translateY(-10px); border-color:rgba(201,168,76,0.28);
+            background:var(--card-bg-hover); box-shadow:0 35px 70px rgba(0,0,0,0.5), 0 0 60px rgba(201,168,76,0.08); }
+        .promo-card:hover::before { opacity:1; }
+        .promo-card.inactive { opacity:0.55; filter:grayscale(0.6); }
+        .promo-img { position:relative; aspect-ratio:16/10; overflow:hidden; background:var(--black-3); }
+        .promo-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 1.2s var(--ease-out-expo); }
+        .promo-card:hover .promo-img img { transform:scale(1.08); }
+        .promo-img::after { content:''; position:absolute; inset:0;
+            background:linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(26,26,26,0.72) 100%); pointer-events:none; }
+        .promo-badge { position:absolute; top:18px; right:18px; background:var(--gold); color:var(--black);
+            padding:9px 18px; border-radius:999px; font-size:0.72rem; letter-spacing:2.5px; font-weight:600; text-transform:uppercase;
+            z-index:2; box-shadow:0 6px 20px rgba(201,168,76,0.35); }
+        .promo-badge-tipo { position:absolute; top:18px; left:18px; background:rgba(26,26,26,0.86); border:1px solid rgba(201,168,76,0.35);
+            color:var(--gold); padding:9px 16px; border-radius:999px; font-size:0.68rem; letter-spacing:2.5px; text-transform:uppercase;
+            z-index:2; backdrop-filter:blur(10px); display:inline-flex; align-items:center; gap:8px; font-weight:400; }
+        .promo-badge-tipo i { font-size:0.8rem; }
+        .promo-sedi-img { position:absolute; bottom:18px; left:18px; right:18px; z-index:2;
+            display:flex; flex-wrap:wrap; gap:7px; align-items:center; }
+        .promo-sedi-img .chip { background:rgba(26,26,26,0.78); border:1px solid rgba(255,255,255,0.12); color:var(--white-dim);
+            padding:6px 12px; border-radius:999px; font-size:0.65rem; letter-spacing:1.2px; text-transform:uppercase;
+            display:inline-flex; align-items:center; gap:6px; font-weight:300; backdrop-filter:blur(8px); }
+        .promo-sedi-img .chip i { color:var(--gold); font-size:0.65rem; }
+        .promo-body { padding:30px 30px 32px; display:flex; flex-direction:column; flex:1; }
+        .promo-sedi-lista { color:var(--gray); font-size:0.7rem; letter-spacing:2.2px; text-transform:uppercase; font-weight:300;
+            margin-bottom:12px; display:block; }
+        .promo-sedi-lista b { color:var(--gold); font-weight:400; letter-spacing:2.8px; margin-right:6px; }
+        .promo-title { font-family:var(--font-serif); font-size:1.9rem; font-weight:400; color:var(--white); margin-bottom:10px; line-height:1.18; }
+        .promo-subtitle { color:var(--gold); font-size:0.95rem; font-weight:300; letter-spacing:0.5px; margin-bottom:18px; font-style:italic; }
+        .promo-description { color:var(--gray); font-size:0.95rem; font-weight:200; line-height:1.75; margin-bottom:24px; flex:1; }
+        .promo-prices { display:flex; align-items:baseline; gap:18px; margin-bottom:8px; }
+        .promo-price-new { font-family:var(--font-serif); font-size:2.8rem; font-weight:500; color:var(--gold); line-height:1; }
+        .promo-price-new sup { font-size:1.2rem; vertical-align:top; margin-left:1px; }
+        .promo-price-old { color:var(--gray-mid); font-size:1.05rem; text-decoration:line-through; font-weight:200; }
+        .promo-expire { display:flex; align-items:center; gap:9px; color:var(--gray-light); font-size:0.72rem;
+            letter-spacing:1.8px; text-transform:uppercase; margin-bottom:26px; padding-top:18px; border-top:1px solid rgba(255,255,255,0.06); }
+        .promo-expire i { color:var(--gold); font-size:0.76rem; }
+        .promo-btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; width:100%;
+            background:var(--gold); color:var(--black); text-decoration:none; padding:16px 24px; border-radius:50px;
+            font-size:0.72rem; letter-spacing:2.8px; text-transform:uppercase; font-weight:500; border:1px solid var(--gold);
+            transition:all 0.5s var(--ease-out-expo); position:relative; overflow:hidden; box-shadow:0 8px 30px rgba(201,168,76,0.18); }
+        .promo-btn::before { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%;
+            background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent); transition:left 0.6s; }
+        .promo-btn:hover::before { left:100%; }
+        .promo-btn:hover { background:var(--gold-light); border-color:var(--gold-light); transform:translateY(-2px);
+            box-shadow:0 15px 45px rgba(201,168,76,0.35); }
+        .promo-btn i { font-size:0.9rem; }
+        .promo-empty { grid-column:1/-1; text-align:center; padding:60px 20px; color:var(--gray);
+            border:1px dashed rgba(201,168,76,0.25); border-radius:20px; background:rgba(201,168,76,0.03); }
+        .promo-empty i { color:var(--gold); font-size:2.4rem; margin-bottom:18px; display:block; opacity:0.6; }
+        .promo-empty h4 { font-family:var(--font-serif); font-size:1.4rem; font-weight:400; color:var(--white-dim); margin-bottom:10px; }
+        .promo-empty p { font-size:0.92rem; font-weight:200; letter-spacing:1px; }
+
+        /* ===== PROMO RESPONSIVE ===== */
+        @media (max-width:980px) {
+            .promo-grid { grid-template-columns:1fr; gap:30px; max-width:540px; margin-left:auto; margin-right:auto; }
+            .promo-body { padding:26px 26px 28px; }
+            .promo-title { font-size:1.6rem; }
+        }
+        @media (max-width:600px) {
+            .promo-grid { grid-template-columns:1fr; gap:24px; max-width:100%; }
+            .promo-body { padding:24px 22px 26px; }
+            .promo-title { font-size:1.45rem; }
+            .promo-description { font-size:0.9rem; }
+        }
+        @media (max-width:480px) {
+            .promo-section { padding:70px 0 80px; }
+            .promo-month-label { padding:9px 22px; }
+            .promo-month-label span { font-size:0.66rem; letter-spacing:2.5px; }
+            .promo-badge-tipo { padding:7px 13px; font-size:0.62rem; letter-spacing:2px; top:14px; left:14px; }
+            .promo-badge { padding:7px 14px; font-size:0.66rem; top:14px; right:14px; }
+        }
+
+        /* ===== WHATSAPP LOCATION PICKER MODAL ===== */
+        .wa-modal { position:fixed; inset:0; z-index:10000; display:none; align-items:center; justify-content:center; padding:24px; }
+        .wa-modal.active { display:flex; animation: waFadeIn .45s var(--ease-out-expo); }
+        .wa-modal-overlay { position:absolute; inset:0; background:rgba(10,10,10,0.82); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
+        .wa-modal-card { position:relative; z-index:2; width:100%; max-width:520px; background:var(--card-bg);
+            border:1px solid rgba(201,168,76,0.28); border-radius:28px; overflow:hidden; box-shadow:0 50px 120px rgba(0,0,0,0.7), 0 0 90px rgba(201,168,76,0.12);
+            animation: waPopIn .55s var(--ease-out-expo); }
+        .wa-modal-head { padding:32px 32px 22px; text-align:center; background:linear-gradient(160deg, rgba(201,168,76,0.18), transparent 65%);
+            border-bottom:1px solid rgba(255,255,255,0.06); position:relative; }
+        .wa-modal-head::before { content:''; position:absolute; top:0; left:18%; right:18%; height:2px;
+            background:linear-gradient(90deg,transparent,var(--gold),transparent); opacity:.8; }
+        .wa-modal-icon { width:62px; height:62px; border-radius:50%;
+            background:linear-gradient(135deg, var(--gold), rgba(201,168,76,0.6));
+            color:var(--black); display:flex; align-items:center; justify-content:center; font-size:1.4rem;
+            margin:0 auto 16px; box-shadow:0 10px 30px rgba(201,168,76,0.35); }
+        .wa-modal-close { position:absolute; top:16px; right:16px; width:36px; height:36px; border-radius:50%;
+            border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.04); color:var(--gray-light);
+            display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all .35s var(--ease); font-size:.85rem; }
+        .wa-modal-close:hover { background:rgba(201,168,76,0.12); color:var(--gold); border-color:rgba(201,168,76,0.35); transform:rotate(90deg); }
+        .wa-modal-title { font-family:var(--font-serif); font-size:1.55rem; font-weight:400; margin-bottom:8px; }
+        .wa-modal-title span { color:var(--gold); font-style:italic; font-weight:500; }
+        .wa-modal-sub { color:var(--gray); font-size:0.86rem; letter-spacing:1.2px; font-weight:300; line-height:1.6; }
+        .wa-modal-body { padding:12px 24px 28px; }
+        .wa-promo-title { text-align:center; font-size:0.78rem; letter-spacing:3px; text-transform:uppercase;
+            color:var(--gold); padding:14px 0 20px; font-weight:400; }
+        .wa-promo-title i { margin-right:8px; font-size:.72rem; }
+        .wa-sede-btn { display:flex; align-items:center; gap:16px; padding:18px 20px; margin-bottom:12px;
+            background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:18px;
+            text-decoration:none; color:var(--white); transition:all .45s var(--ease-out-expo); cursor:pointer; width:100%;
+            text-align:left; font-family:inherit; }
+        .wa-sede-btn:last-child { margin-bottom:0; }
+        .wa-sede-btn:hover { transform:translateX(4px); background:rgba(201,168,76,0.08);
+            border-color:rgba(201,168,76,0.35); box-shadow:0 18px 40px rgba(0,0,0,0.25); }
+        .wa-sede-btn-icon { width:44px; height:44px; border-radius:14px; flex-shrink:0;
+            background:linear-gradient(135deg, rgba(201,168,76,0.22), rgba(201,168,76,0.06));
+            color:var(--gold); display:flex; align-items:center; justify-content:center; font-size:1rem;
+            border:1px solid rgba(201,168,76,0.2); }
+        .wa-sede-btn:hover .wa-sede-btn-icon { background:var(--gold); color:var(--black); }
+        .wa-sede-btn-text { flex:1; min-width:0; }
+        .wa-sede-btn-name { font-size:1rem; font-weight:500; letter-spacing:.3px; margin-bottom:4px; }
+        .wa-sede-btn-sub { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+        .wa-sede-btn-sub span { color:var(--gray); font-size:.74rem; letter-spacing:1px; font-weight:300; display:inline-flex; align-items:center; gap:5px; }
+        .wa-sede-btn-sub i { color:var(--gold); font-size:.62rem; }
+        .wa-sede-btn-arrow { color:var(--gold); font-size:1.05rem; transition:all .35s var(--ease); flex-shrink:0; opacity:.7; }
+        .wa-sede-btn:hover .wa-sede-btn-arrow { transform:translateX(4px); opacity:1; }
+        .wa-modal-foot { padding:0 32px 28px; text-align:center; color:var(--gray); font-size:.72rem; letter-spacing:1.5px; font-weight:300; }
+        .wa-modal-foot i { color:var(--gold); margin:0 5px; font-size:.65rem; }
+        @keyframes waFadeIn { from { opacity:0; } to { opacity:1; } }
+        @keyframes waPopIn { from { opacity:0; transform:translateY(20px) scale(.96); } to { opacity:1; transform:translateY(0) scale(1); } }
+        @media (max-width:540px) {
+            .wa-modal-card { border-radius:22px; }
+            .wa-modal-head { padding:26px 22px 18px; }
+            .wa-modal-body { padding:12px 18px 22px; }
+            .wa-modal-foot { padding:0 22px 24px; }
+            .wa-modal-icon { width:54px; height:54px; font-size:1.2rem; }
+            .wa-modal-title { font-size:1.3rem; }
+            .wa-sede-btn { padding:16px; }
+            .wa-sede-btn-icon { width:40px; height:40px; font-size:.92rem; }
+            .wa-sede-btn-name { font-size:.95rem; }
+        }
+
+        /* ===== DISCRETE STAFF AREA LINK IN FOOTER ===== */
+        .footer-admin-link {
+            display:inline-block; margin-top:10px;
+            font-size:0.66rem; font-weight:200; letter-spacing:1.2px;
+            color:var(--gray-mid); text-decoration:none; opacity:0.55;
+            transition:all 0.4s var(--ease-out-expo);
+        }
+        .footer-admin-link i { font-size:0.62rem; margin-right:6px; opacity:0.85; }
+        .footer-admin-link:hover { color:var(--gold); opacity:0.95; letter-spacing:1.5px; }
+        @media (max-width:768px) {
+            .footer-admin-link { font-size:0.62rem; margin-top:8px; }
+        }
     </style>
 </head>
 <body>
@@ -860,11 +1025,32 @@
                 <span>Barber Shop Medicina</span>
             </div>
         </div>
-        <div class="scroll-indicator" onclick="document.getElementById('home-sedi').scrollIntoView({behavior:'smooth'})">
-            <span>Scroll</span>
+        <div class="scroll-indicator" onclick="document.getElementById('home-promo').scrollIntoView({behavior:'smooth'})">
+            <span>Discover our deals</span>
             <div class="scroll-line"></div>
         </div>
     </section>
+
+    <section class="promo-section" id="home-promo">
+        <div class="container">
+            <div class="section-header reveal" style="margin-bottom:56px">
+                <div class="promo-month-label">
+                    <i class="fa-solid fa-calendar-star"></i>
+                    <span id="promoMeseAnno">Promo of the Month</span>
+                </div>
+                <h2 class="section-title">Exclusive <span>offers</span> for you</h2>
+                <p class="section-sub">Four promotions, one for each salon, to experience MZ excellence at a special price</p>
+            </div>
+            <div class="promo-grid" id="promoGrid">
+                <div class="promo-empty">
+                    <i class="fa-solid fa-hourglass-half"></i>
+                    <h4>Loading promotions...</h4>
+                    <p>Please wait while we load this month's offers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section marble-section" id="home-sedi" style="padding:60px 0">
         <div class="container">
             <div class="sedi-strip" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;text-align:center;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06)">
@@ -2526,6 +2712,7 @@
         <p class="tagline">Villanova di Castenaso - Villafontana di Medicina - Imola - Barber Shop Medicina</p>
         <p class="copyright">&copy; <span class="copyright-year">2026</span> MZ Parrucchieri - The art of beauty &middot; <a onclick="navigateTo('cookie-policy')" style="color:inherit;cursor:pointer;text-decoration:none;transition:color 0.4s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'">Cookie Policy</a></p>
         <p class="copyright footer-legal" style="margin-top:4px;font-size:0.72rem;color:var(--white-dim);opacity:0.85">MZ di Maurizio Zucchini &middot; P.IVA 024&#x200B;5822&#x200B;1203</p>
+        <a href="admin.html" class="footer-admin-link" aria-label="Staff area"><i class="fa-solid fa-lock"></i> Staff Area</a>
         <div class="payments">
             <span class="payments-label">Accepted Payment Methods</span>
             <div class="pay-badges">
@@ -3392,6 +3579,211 @@ function setLang(l) {
         });
     }, 3600);
 })();
+
+// ===== DYNAMIC PROMO LOADING FROM JSON =====
+(function () {
+    function formattaDataEN(dateStr) {
+        try {
+            var d = new Date(dateStr);
+            if (isNaN(d)) return dateStr;
+            var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+            return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+        } catch (e) { return dateStr; }
+    }
+    function promoScaduta(dateStr) {
+        try {
+            var oggi = new Date(); oggi.setHours(0,0,0,0);
+            var fine = new Date(dateStr); fine.setHours(23,59,59,999);
+            return fine < oggi;
+        } catch (e) { return false; }
+    }
+    function formattaNumero(n) {
+        try {
+            var s = String(n || '').replace(/\D/g,'');
+            if (!s.length) return '';
+            if (s.length === 10 && s.charAt(0)!=='3') s = '39' + s;
+            if (s.length === 12) return '+39 ' + s.substring(2,5) + ' ' + s.substring(5,8) + ' ' + s.substring(8,12);
+            if (s.length === 11 && s.charAt(0)==='3') return '+39 ' + s.substring(1,4) + ' ' + s.substring(4,7) + ' ' + s.substring(7,11);
+            return '+' + s;
+        } catch(e){ return String(n||''); }
+    }
+    function linkWa(numero, messaggio) {
+        var s = String(numero || '').replace(/\D/g,'');
+        if (!s.length) return '#';
+        var msg = messaggio ? ('?text=' + encodeURIComponent(messaggio)) : '';
+        return 'https://wa.me/' + s + msg;
+    }
+    function renderPromo(data) {
+        window._CURRENT_PROMO_DATA = data;
+        var meseLabel = document.getElementById('promoMeseAnno');
+        var grid = document.getElementById('promoGrid');
+        if (!grid) return;
+        if (meseLabel && data.meseAnno) meseLabel.textContent = data.meseAnno + ' Promo';
+        var promos = (data.promozioni || []).filter(function(p){ return p.attivo === true; });
+        if (promos.length === 0) {
+            grid.innerHTML =
+                '<div class="promo-empty">'+
+                    '<i class="fa-solid fa-gift"></i>'+
+                    '<h4>No active promotions</h4>'+
+                    '<p>Check back soon to discover our next deals</p>'+
+                '</div>';
+            return;
+        }
+        grid.innerHTML = promos.map(function (p, idx) {
+            var scaduta = promoScaduta(p.dataFine);
+            var cardClass = 'promo-card' + (scaduta ? ' inactive' : '');
+            var prezzoOld = p.prezzoOriginale ? ('€ ' + p.prezzoOriginale) : '';
+            var prezzoNew = p.prezzo != null ? ('€ ' + p.prezzo) : '';
+            var sconto = p.sconto || '';
+            var scadenza = p.dataFine ? formattaDataEN(p.dataFine) : '';
+            var img = p.immagine || '';
+            var sedi = Array.isArray(p.sedi) && p.sedi.length ? p.sedi : [];
+            var sediCount = sedi.length;
+            var tipoBadge = '';
+            if (p.tipo === 'saloni' || sediCount > 1) {
+                tipoBadge = '<div class="promo-badge-tipo"><i class="fa-solid fa-scissors"></i> ' + sediCount + ' Locations</div>';
+            } else if (p.tipo === 'barber' || sediCount === 1) {
+                var s = sedi[0] || {};
+                var txt = p.tipo === 'barber' ? 'Barber Shop' : (s.sedeShort || '');
+                var icona = p.tipo === 'barber' ? 'fa-solid fa-razor' : 'fa-solid fa-location-dot';
+                tipoBadge = '<div class="promo-badge-tipo"><i class="' + icona + '"></i> ' + txt + '</div>';
+            }
+            var chips = sedi.map(function (s) {
+                return '<span class="chip"><i class="fa-solid fa-location-dot"></i> ' + (s.sedeShort || s.sede) + '</span>';
+            }).join('');
+            var sediLista = sedi.map(function (s) { return s.sedeShort || s.sede; }).join(' &bull; ');
+            var sediTag = sediLista ? '<span class="promo-sedi-lista"><b>Valid in:</b>' + sediLista + '</span>' : '';
+            var icon = p.icona || 'fa-solid fa-tag';
+
+            var pulsanteHtml = '';
+            var isMulti = (p.tipo === 'saloni' && Array.isArray(p.waNumeriSedi) && p.waNumeriSedi.length > 0);
+            var isSingleWA = !!p.waNumero;
+            if (isMulti) {
+                pulsanteHtml = p.pulsanteTesto ?
+                    ('<button class="promo-btn" onclick="openWaModal(' + idx + ')" ' + (scaduta ? 'disabled' : '') +
+                     ' style="border:1px solid var(--gold);outline:none"><i class="fa-brands fa-whatsapp"></i> ' + p.pulsanteTesto +
+                     '<i class="fa-solid fa-caret-down" style="margin-left:4px;font-size:.72rem"></i></button>') : '';
+            } else if (isSingleWA) {
+                var href = linkWa(p.waNumero, p.waMessaggio || '');
+                pulsanteHtml = p.pulsanteTesto ?
+                    ('<a class="promo-btn" href="' + href + '" target="_blank" rel="noopener noreferrer" ' +
+                     (scaduta ? 'style="pointer-events:none;opacity:.6"' : '') +
+                     '><i class="fa-brands fa-whatsapp"></i> ' + p.pulsanteTesto + '</a>') : '';
+            } else if (p.pulsanteLink && p.pulsanteTesto) {
+                // fallback old format
+                pulsanteHtml = '<a class="promo-btn" href="'+p.pulsanteLink+'" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> '+p.pulsanteTesto+'</a>';
+            }
+
+            return (
+                '<div class="'+cardClass+'">'+
+                    '<div class="promo-img">'+
+                        (img ? '<img src="'+img+'" alt="'+(p.titolo||'Promotion')+'" loading="lazy"/>' : '')+
+                        (sconto ? '<div class="promo-badge">'+sconto+'</div>' : '')+
+                        tipoBadge+
+                        (chips ? '<div class="promo-sedi-img">' + chips + '</div>' : '')+
+                    '</div>'+
+                    '<div class="promo-body">'+
+                        sediTag+
+                        '<h3 class="promo-title">'+(p.titolo||'')+'</h3>'+
+                        '<p class="promo-subtitle">'+(p.sottotitolo||'')+'</p>'+
+                        '<p class="promo-description">'+(p.descrizione||'')+'</p>'+
+                        (prezzoNew ? '<div class="promo-prices"><span class="promo-price-new"><sup>€</sup>'+p.prezzo+'</span>'+(prezzoOld ? '<span class="promo-price-old">'+prezzoOld+'</span>' : '')+'</div>' : '')+
+                        (scadenza ? '<div class="promo-expire"><i class="fa-regular fa-clock"></i> Expires on '+scadenza+'</div>' : '')+
+                        pulsanteHtml+
+                    '</div>'+
+                '</div>'
+            );
+        }).join('');
+    }
+    function promoErrore() {
+        var grid = document.getElementById('promoGrid');
+        if (!grid) return;
+        grid.innerHTML =
+            '<div class="promo-empty">'+
+                '<i class="fa-solid fa-circle-exclamation"></i>'+
+                '<h4>Promotions temporarily unavailable</h4>'+
+                '<p>Please reload the page or contact us directly</p>'+
+            '</div>';
+    }
+    if (document.getElementById('promoGrid')) {
+        fetch('content/promo.json', { cache: 'no-store' })
+            .then(function(res){ if (!res.ok) throw new Error('HTTP'); return res.json(); })
+            .then(renderPromo)
+            .catch(promoErrore);
+    }
+
+    // ===== WHATSAPP MODAL (MULTI-LOCATION ONLY) =====
+    window.openWaModal = function (promoIdx) {
+        var data = window._CURRENT_PROMO_DATA || { promozioni: [] };
+        var attive = (data.promozioni || []).filter(function(p){ return p.attivo === true; });
+        var p = attive[promoIdx];
+        if (!p) return;
+        var sedi = Array.isArray(p.sedi) ? p.sedi : [];
+        var numeri = Array.isArray(p.waNumeriSedi) ? p.waNumeriSedi : [];
+        var msg = p.waMessaggio || '';
+        var idSediAttive = {};
+        sedi.forEach(function (s) { idSediAttive[s.id] = s; });
+        var sediVisibili = numeri.filter(function (n) { return !!idSediAttive[n.sedeId]; });
+        sediVisibili.sort(function (a, b) {
+            var ia = sedi.findIndex(function(x){ return x.id === a.sedeId; });
+            var ib = sedi.findIndex(function(x){ return x.id === b.sedeId; });
+            return ia - ib;
+        });
+        document.getElementById('waModalPromoName').textContent = p.titolo || 'Promo of the month';
+        var html = sediVisibili.map(function (info) {
+            var sedeFull = idSediAttive[info.sedeId] || {};
+            var nome = info.etichetta || sedeFull.sede || sedeFull.sedeShort || info.sedeId;
+            var numeroFormattato = formattaNumero(info.numero);
+            var orari = info.orari || '';
+            var href = linkWa(info.numero, msg);
+            return (
+                '<a class="wa-sede-btn" href="' + href + '" target="_blank" rel="noopener noreferrer">' +
+                    '<div class="wa-sede-btn-icon"><i class="fa-solid fa-location-dot"></i></div>' +
+                    '<div class="wa-sede-btn-text">' +
+                        '<div class="wa-sede-btn-name">' + nome + '</div>' +
+                        '<div class="wa-sede-btn-sub">' +
+                            (numeroFormattato ? '<span><i class="fa-brands fa-whatsapp"></i>'+numeroFormattato+'</span>' : '') +
+                            (orari ? '<span><i class="fa-regular fa-clock"></i>'+orari+'</span>' : '') +
+                        '</div>' +
+                    '</div>' +
+                    '<i class="fa-solid fa-chevron-right wa-sede-btn-arrow"></i>' +
+                '</a>'
+            );
+        }).join('');
+        var sediContainer = document.getElementById('waModalSedi');
+        sediContainer.innerHTML = html || '<p style="text-align:center;color:var(--gray);padding:18px 0">No locations available for this promotion.</p>';
+        document.getElementById('waModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+    window.closeWaModal = function () {
+        document.getElementById('waModal').classList.remove('active');
+        document.body.style.overflow = '';
+    };
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') window.closeWaModal();
+    });
+})();
 </script>
+
+<!-- ===== WHATSAPP SALON PICKER MODAL ===== -->
+<div class="wa-modal" id="waModal" role="dialog" aria-modal="true" aria-label="Choose a salon">
+    <div class="wa-modal-overlay" onclick="closeWaModal()"></div>
+    <div class="wa-modal-card">
+        <div class="wa-modal-head">
+            <button class="wa-modal-close" onclick="closeWaModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="wa-modal-icon"><i class="fa-brands fa-whatsapp"></i></div>
+            <h3 class="wa-modal-title">Choose your <span>salon</span></h3>
+            <p class="wa-modal-sub">Book your promo directly on WhatsApp</p>
+        </div>
+        <div class="wa-modal-body">
+            <div class="wa-promo-title"><i class="fa-solid fa-tag"></i> <span id="waModalPromoName">-</span></div>
+            <div id="waModalSedi"></div>
+        </div>
+        <div class="wa-modal-foot">
+            Our team will contact you <i class="fa-solid fa-heart"></i> to confirm availability and time
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

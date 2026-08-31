@@ -1,0 +1,51 @@
+{
+  "meseAnno": "Settembre 2026",
+  "promozioni": [
+    {
+      "id": "saloni",
+      "tipo": "saloni",
+      "attivo": true,
+      "sedi": [
+        { "id": "villanova",    "sede": "Villanova di Castenaso", "sedeShort": "Villanova" },
+        { "id": "villafontana", "sede": "Villafontana di Medicina", "sedeShort": "Villafontana" },
+        { "id": "imola",        "sede": "Imola", "sedeShort": "Imola" }
+      ],
+      "titolo": "Vitamin Glow",
+      "sottotitolo": "Trattamento Illuminante e Purificante",
+      "descrizione": "La bellezza dei capelli non riguarda solo le lunghezze. Un trattamento due risultati: purifica e riequilibra, dona leggerezza e volume naturale; leviga e compatta la fibra del capello, sigilla e illumina, creando un effetto specchio immediato. Scopri la tua luce, chiedilo in salone.",
+      "prezzo": null,
+      "prezzoOriginale": null,
+      "sconto": "NEW",
+      "immagine": "galleria/promo-saloni-settembre.jpg",
+      "dataFine": "2026-09-30",
+      "pulsanteTesto": "Prenota su WhatsApp",
+      "waMessaggio": "Ciao, vorrei informazioni sulla promo Vitamin Glow di Settembre. Potrei avere maggiori dettagli o prenotare un appuntamento?",
+      "waNumeriSedi": [
+        { "sedeId": "villanova",    "numero": "393755133143", "etichetta": "Villanova di Castenaso", "orari": "Lun 10-18 · Mar-Ven 9-19:30 · Mer 21:00 · Sab 8-18" },
+        { "sedeId": "villafontana", "numero": "393755133640", "etichetta": "Villafontana di Medicina", "orari": "Mar-Ven 8:30-19:30 · Mer 20:30 · Sab 8-18" },
+        { "sedeId": "imola",        "numero": "393511837023", "etichetta": "Imola", "orari": "Mar-Sab 9:00-18:30 · Mer 20:30" }
+      ],
+      "icona": "fa-solid fa-sparkles"
+    },
+    {
+      "id": "barber",
+      "tipo": "barber",
+      "attivo": true,
+      "sedi": [
+        { "id": "barber", "sede": "Barber Shop Medicina", "sedeShort": "Barber Shop" }
+      ],
+      "titolo": "Luxury Shave",
+      "sottotitolo": "Rituale barba completo 30 minuti",
+      "descrizione": "Approfitta del nostro esclusivo servizio di Luxury Shave: 30 minuti di puro relax per la tua barba. Panno caldo, oli pregiati, schiuma tradizionale e massaggio finale con prodotti Level3.",
+      "prezzo": null,
+      "prezzoOriginale": null,
+      "sconto": "NEW",
+      "immagine": "galleria/promo-barber-settembre.jpg",
+      "dataFine": "2026-09-30",
+      "pulsanteTesto": "Prenota su WhatsApp",
+      "waMessaggio": "Ciao, vorrei prenotare il trattamento Luxury Shave presso il Barber Shop. Avete posto per questa settimana?",
+      "waNumero": "393888604444",
+      "icona": "fa-solid fa-razor"
+    }
+  ]
+}

@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin · Gestione Promo MZ Parrucchieri</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="logo-mz.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --black: #1a1a1a; --black-2: #222222; --black-3: #2d2d2d;
+            --gold: #C9A84C; --gold-light: #DFC06A; --gold-pale: #F0E6C8;
+            --gold-glow: rgba(201,168,76,0.15); --gold-glow-s: rgba(201,168,76,0.35);
+            --white: #F8F5F0; --white-dim: #E8E2DA;
+            --gray: #9A8F88; --gray-light: #B5ADA5; --gray-dark: #3d3d3d; --gray-mid: #4a4a4a;
+            --red: #d46060; --green: #6bbf6b;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            --card-bg: linear-gradient(165deg, #343434 0%, #262626 100%);
+            --ease: cubic-bezier(0.16,1,0.3,1);
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:var(--font-sans); background:var(--black); color:var(--white); min-height:100vh; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+        ::-webkit-scrollbar { width:8px; } ::-webkit-scrollbar-track { background:var(--black); }
+        ::-webkit-scrollbar-thumb { background:var(--gold); border-radius:10px; }
+
+        /* ===== LOGIN ===== */
+        .login-wrap { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:40px 20px;
+            background:radial-gradient(ellipse 60% 50% at 50% 0%, var(--gold-glow), transparent 70%), var(--black); }
+        .login-box { width:100%; max-width:440px; background:var(--card-bg); border:1px solid rgba(201,168,76,0.18);
+            border-radius:24px; padding:52px 40px; text-align:center; backdrop-filter:blur(10px);
+            box-shadow:0 30px 80px rgba(0,0,0,0.5); }
+        .login-logo { margin-bottom:14px; }
+        .login-logo img { height:54px; filter:brightness(1.1) drop-shadow(0 0 14px rgba(201,168,76,0.18)); }
+        .login-title { font-family:var(--font-serif); font-size:1.8rem; font-weight:400; margin-bottom:6px; }
+        .login-title span { color:var(--gold); font-style:italic; font-weight:500; }
+        .login-sub { color:var(--gray); font-size:0.85rem; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:36px; }
+        .login-field { position:relative; margin-bottom:22px; }
+        .login-field i { position:absolute; left:18px; top:50%; transform:translateY(-50%); color:var(--gold); font-size:0.95rem; }
+        .login-field input { width:100%; padding:17px 20px 17px 48px; background:rgba(255,255,255,0.03);
+            border:1px solid rgba(255,255,255,0.08); border-radius:14px; color:var(--white);
+            font-family:var(--font-sans); font-size:0.95rem; letter-spacing:2px; font-weight:300;
+            transition:all 0.4s var(--ease); outline:none; }
+        .login-field input:focus { border-color:var(--gold); background:rgba(201,168,76,0.04);
+            box-shadow:0 0 0 3px rgba(201,168,76,0.12); }
+        .login-err { color:var(--red); font-size:0.8rem; letter-spacing:1px; min-height:20px; margin-bottom:6px; }
+        .btn { display:inline-flex; align-items:center; justify-content:center; gap:10px;
+            background:var(--gold); color:var(--black); padding:16px 40px; border:none; border-radius:50px;
+            font-family:var(--font-sans); font-weight:500; font-size:0.78rem; letter-spacing:3px; text-transform:uppercase;
+            cursor:pointer; transition:all 0.5s var(--ease); text-decoration:none; position:relative; overflow:hidden;
+            box-shadow:0 8px 30px rgba(201,168,76,0.18); }
+        .btn::before { content:''; position:absolute; inset:0; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent); transform:translateX(-100%); transition:transform 0.7s var(--ease); }
+        .btn:hover::before { transform:translateX(100%); }
+        .btn:hover { background:var(--gold-light); transform:translateY(-2px); box-shadow:0 15px 50px rgba(201,168,76,0.32); }
+        .btn-ghost { background:transparent; color:var(--gold); border:1px solid rgba(201,168,76,0.35); box-shadow:none; }
+        .btn-ghost:hover { background:rgba(201,168,76,0.08); }
+        .btn-danger { background:linear-gradient(135deg,#d46060,#b84848); color:#fff; box-shadow:0 8px 30px rgba(212,96,96,0.25); }
+        .btn-danger:hover { background:linear-gradient(135deg,#e07070,#c85050); }
+        .btn-small { padding:11px 22px; font-size:0.68rem; letter-spacing:2px; }
+
+        /* ===== DASHBOARD ===== */
+        .dashboard { display:none; }
+        .dashboard.active { display:block; }
+        .topbar { position:sticky; top:0; z-index:100; background:rgba(26,26,26,0.88); backdrop-filter:blur(22px);
+            border-bottom:1px solid rgba(201,168,76,0.12); padding:18px 0; }
+        .topbar-inner { max-width:1280px; margin:0 auto; padding:0 32px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+        .brand { display:flex; align-items:center; gap:14px; text-decoration:none; color:var(--white); }
+        .brand img { height:38px; }
+        .brand-name { font-family:var(--font-serif); font-size:1.15rem; letter-spacing:2px; }
+        .brand-name span { color:var(--gold); font-weight:500; }
+        .topbar-actions { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+        .save-status { display:inline-flex; align-items:center; gap:8px; font-size:0.72rem; letter-spacing:2px;
+            text-transform:uppercase; padding:8px 18px; border-radius:999px; color:var(--gray-light);
+            border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); }
+        .save-status.dirty { color:var(--gold); border-color:rgba(201,168,76,0.35); background:rgba(201,168,76,0.06); }
+        .save-status i { font-size:0.75rem; }
+        .container { max-width:1280px; margin:0 auto; padding:48px 32px 80px; }
+
+        .page-head { text-align:center; margin-bottom:48px; }
+        .eyebrow { display:inline-flex; align-items:center; gap:10px; padding:8px 22px; border-radius:999px;
+            background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); margin-bottom:18px; }
+        .eyebrow i { color:var(--gold); font-size:0.8rem; }
+        .eyebrow span { font-size:0.72rem; letter-spacing:3px; text-transform:uppercase; color:var(--gold); font-weight:400; }
+        .page-head h1 { font-family:var(--font-serif); font-size:clamp(1.8rem,3.4vw,2.6rem); font-weight:300; line-height:1.15; margin-bottom:12px; }
+        .page-head h1 span { color:var(--gold); font-weight:500; font-style:italic; }
+        .page-head p { color:var(--gray); font-weight:200; font-size:1rem; max-width:640px; margin:0 auto; line-height:1.7; }
+
+        /* ===== NOTICE BOX ===== */
+        .notice { margin-bottom:40px; padding:24px 28px; border-radius:18px;
+            background:linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.02));
+            border:1px solid rgba(201,168,76,0.28); position:relative; overflow:hidden; }
+        .notice::before { content:'\f05a'; font-family:'Font Awesome 6 Free'; font-weight:900; position:absolute;
+            right:-10px; top:-18px; font-size:8rem; color:rgba(201,168,76,0.05); }
+        .notice-title { display:flex; align-items:center; gap:12px; font-family:var(--font-serif); font-size:1.2rem; font-weight:500; margin-bottom:10px; color:var(--gold); }
+        .notice-title i { font-size:1.05rem; }
+        .notice ol { padding-left:20px; color:var(--white-dim); font-weight:200; font-size:0.92rem; line-height:1.9; }
+        .notice ol li { margin-bottom:6px; }
+        .notice ol li strong { color:var(--white); font-weight:400; }
+        .notice code { background:rgba(0,0,0,0.35); padding:2px 8px; border-radius:6px; color:var(--gold-pale); font-size:0.85rem; border:1px solid rgba(201,168,76,0.2); }
+
+        /* ===== MESE RIFERIMENTO ===== */
+        .month-bar { display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-bottom:36px; padding:22px 26px;
+            background:var(--card-bg); border:1px solid rgba(201,168,76,0.15); border-radius:18px; }
+        .month-bar label { font-size:0.72rem; letter-spacing:3px; text-transform:uppercase; color:var(--gold); font-weight:400; flex-shrink:0; }
+        .month-bar input { flex:1; min-width:220px; padding:12px 18px; background:rgba(255,255,255,0.03); color:var(--white);
+            border:1px solid rgba(255,255,255,0.08); border-radius:12px; font-family:var(--font-sans); font-size:0.95rem;
+            outline:none; transition:all 0.35s var(--ease); font-weight:300; letter-spacing:0.5px; }
+        .month-bar input:focus { border-color:var(--gold); background:rgba(201,168,76,0.04); box-shadow:0 0 0 3px rgba(201,168,76,0.10); }
+
+        /* ===== PROMO LIST (2 BOX) ===== */
+        .promo-list { display:grid; grid-template-columns:1fr; gap:40px; margin-bottom:40px; }
+        @media (min-width:1100px) {
+            .promo-list { grid-template-columns:1fr 1fr; gap:36px; align-items:start; }
+        }
+        .promo-edit-card { background:var(--card-bg); border:1px solid rgba(201,168,76,0.14); border-radius:24px; overflow:hidden; transition:all 0.4s var(--ease); }
+        .promo-edit-card:hover { border-color:rgba(201,168,76,0.28); box-shadow:0 25px 60px rgba(0,0,0,0.4); }
+        .promo-edit-card.type-saloni { border-top:3px solid var(--gold); }
+        .promo-edit-card.type-barber { border-top:3px solid #A88B3A; }
+        .promo-edit-head { padding:26px 30px; display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;
+            background:linear-gradient(135deg, rgba(201,168,76,0.10), transparent);
+            border-bottom:1px solid rgba(255,255,255,0.06); }
+        .promo-edit-head-left { display:flex; align-items:center; gap:16px; min-width:0; }
+        .promo-n {
+            width:50px; height:50px; border-radius:18px; flex-shrink:0;
+            display:flex; align-items:center; justify-content:center; font-size:1.4rem;
+            background:linear-gradient(135deg, var(--gold), rgba(201,168,76,0.55));
+            color:var(--black); box-shadow:0 8px 20px rgba(201,168,76,0.28);
+        }
+        .promo-edit-card.type-barber .promo-n { background:linear-gradient(135deg, #7a6838, #50401f); color:var(--gold-light); }
+        .promo-block-name { font-family:var(--font-serif); font-size:1.35rem; font-weight:400; color:var(--white); min-width:0; }
+        .promo-block-name small { display:block; font-family:var(--font-sans); font-size:0.68rem; letter-spacing:2.5px;
+            text-transform:uppercase; color:var(--gold); font-weight:400; margin-top:6px; }
+        .promo-toggle { display:inline-flex; align-items:center; gap:10px; cursor:pointer; user-select:none; flex-shrink:0; }
+        .promo-toggle input { display:none; }
+        .promo-toggle .switch { position:relative; width:54px; height:30px; background:var(--gray-mid); border-radius:999px; transition:all 0.4s var(--ease); flex-shrink:0; }
+        .promo-toggle .switch::before { content:''; position:absolute; top:3px; left:3px; width:24px; height:24px; border-radius:50%;
+            background:var(--white); transition:all 0.4s var(--ease); box-shadow:0 3px 10px rgba(0,0,0,0.3); }
+        .promo-toggle input:checked + .switch { background:var(--gold); }
+        .promo-toggle input:checked + .switch::before { left:27px; background:var(--black); }
+        .promo-toggle span { font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:var(--gray-light); font-weight:400; }
+        .promo-toggle input:checked ~ span { color:var(--green); }
+        .promo-edit-card.disabled { opacity:0.6; }
+
+        /* Sub-sedi checkboxes (per Promo Saloni) */
+        .sedi-incluse { padding:16px 30px; background:rgba(0,0,0,0.22); border-bottom:1px solid rgba(255,255,255,0.05);
+            display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+        .sedi-incluse > span { font-size:0.66rem; letter-spacing:2.5px; text-transform:uppercase; color:var(--gold); font-weight:400; margin-right:6px; }
+        .sedi-incluse label { display:inline-flex; align-items:center; gap:8px; cursor:pointer; user-select:none;
+            padding:8px 14px; border-radius:999px; background:rgba(255,255,255,0.03);
+            border:1px solid rgba(255,255,255,0.08); font-size:0.76rem; letter-spacing:1.5px; color:var(--gray-light);
+            font-weight:300; transition:all 0.35s var(--ease); }
+        .sedi-incluse label:hover { background:rgba(201,168,76,0.06); border-color:rgba(201,168,76,0.25); color:var(--white); }
+        .sedi-incluse input { accent-color:var(--gold); width:14px; height:14px; }
+        .sedi-incluse label:has(input:checked) { background:rgba(201,168,76,0.12); border-color:var(--gold); color:var(--gold); font-weight:400; }
+
+        .promo-edit-body { padding:28px 30px 30px; display:flex; flex-direction:column; gap:18px; }
+        .field-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+        .field { display:flex; flex-direction:column; gap:8px; }
+        .field.full { grid-column:1/-1; }
+        .field label { font-size:0.68rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); font-weight:400; padding-left:4px; }
+        .field label i { margin-right:6px; font-size:0.75rem; opacity:0.85; }
+        .field input, .field textarea, .field select { width:100%; padding:13px 16px; background:rgba(255,255,255,0.03); color:var(--white);
+            border:1px solid rgba(255,255,255,0.08); border-radius:12px; font-family:var(--font-sans); font-size:0.9rem;
+            outline:none; transition:all 0.35s var(--ease); font-weight:300; resize:vertical; }
+        .field input::placeholder, .field textarea::placeholder { color:var(--gray-dark); }
+        .field textarea { min-height:92px; line-height:1.6; }
+        .field input:focus, .field textarea:focus, .field select:focus { border-color:var(--gold); background:rgba(201,168,76,0.04);
+            box-shadow:0 0 0 3px rgba(201,168,76,0.10); }
+        .field-hint { font-size:0.7rem; color:var(--gray); padding-left:4px; margin-top:-3px; letter-spacing:0.5px; }
+        .price-row { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+        .price-row .field:nth-child(3) input { color:var(--green); }
+        .price-row .field:nth-child(2) input { color:var(--gray); text-decoration:line-through; }
+
+        /* ===== SEZIONE WHATSAPP ===== */
+        .wa-section { margin-top:6px; padding:22px 22px 24px; border-radius:18px;
+            background:linear-gradient(135deg, rgba(201,168,76,0.08), rgba(37,211,102,0.04));
+            border:1px solid rgba(201,168,76,0.22); position:relative; }
+        .wa-section::before { content:'\f232'; font-family:'Font Awesome 6 Brands'; font-weight:400;
+            position:absolute; right:-6px; top:-18px; font-size:6.5rem; color:rgba(37,211,102,0.06); }
+        .wa-section-title { display:flex; align-items:center; gap:10px; margin-bottom:16px;
+            font-family:var(--font-serif); font-size:1rem; font-weight:500; color:var(--gold); }
+        .wa-section-title i { font-size:0.95rem; }
+        .wa-sede-row { display:grid; grid-template-columns:150px 1fr 1fr; gap:12px; align-items:end;
+            padding:14px 14px 14px 16px; margin-bottom:10px; border-radius:14px;
+            background:rgba(0,0,0,0.22); border:1px solid rgba(255,255,255,0.05); }
+        .wa-sede-row:last-child { margin-bottom:0; }
+        .wa-sede-label { display:flex; align-items:center; gap:10px; font-size:0.78rem;
+            letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); font-weight:500; }
+        .wa-sede-label i { font-size:0.85rem; opacity:0.8; }
+        @media (max-width:768px) {
+            .wa-sede-row { grid-template-columns:1fr; gap:10px; padding:14px; }
+        }
+
+        /* ===== IMMAGINE ANTEPRIMA ===== */
+        .img-preview-wrap { display:grid; grid-template-columns:170px 1fr; gap:18px; align-items:stretch; }
+        .img-preview { width:170px; height:130px; border-radius:16px; background:var(--black-3); border:1px solid rgba(255,255,255,0.08);
+            overflow:hidden; flex-shrink:0; position:relative; }
+        .img-preview img { width:100%; height:100%; object-fit:cover; display:block; }
+        .img-preview .empty { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
+            gap:8px; color:var(--gray-dark); font-size:0.65rem; letter-spacing:1.5px; text-transform:uppercase; text-align:center; padding:8px; }
+        .img-preview .empty i { font-size:1.8rem; opacity:0.4; }
+
+        /* ===== DOWNLOAD + RESET ===== */
+        .action-bar { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; padding:34px;
+            background:var(--card-bg); border:1px solid rgba(201,168,76,0.18); border-radius:22px; position:relative; overflow:hidden; }
+        .action-bar::before { content:''; position:absolute; top:0; left:0; right:0; height:2px;
+            background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+        .btn .dl-icon { font-size:0.9rem; }
+
+        /* ===== JSON RAW ===== */
+        .json-box { margin-top:40px; }
+        .json-head { display:flex; align-items:center; justify-content:space-between; gap:14px; margin-bottom:14px; flex-wrap:wrap; }
+        .json-head h3 { font-family:var(--font-serif); font-size:1.15rem; font-weight:400; color:var(--white-dim); }
+        .json-head h3 i { color:var(--gold); margin-right:10px; font-size:0.95rem; }
+        .json-box textarea { width:100%; min-height:320px; padding:22px; background:#0f0f0f; color:var(--gold-pale);
+            border:1px solid rgba(255,255,255,0.08); border-radius:16px; font-family:'SF Mono', Menlo, Consolas, monospace;
+            font-size:0.82rem; line-height:1.7; outline:none; resize:vertical; }
+        .json-box textarea:focus { border-color:var(--gold); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width:768px) {
+            .topbar-inner { padding:0 20px; }
+            .container { padding:36px 20px 60px; }
+            .login-box { padding:40px 26px; }
+            .field-row { grid-template-columns:1fr; }
+            .price-row { grid-template-columns:repeat(2,1fr); }
+            .img-preview-wrap { grid-template-columns:1fr; }
+            .img-preview { width:100%; height:200px; }
+            .notice { padding:20px; }
+            .promo-edit-head { padding:22px 24px; }
+            .sedi-incluse { padding:16px 24px; }
+            .promo-edit-body { padding:24px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== LOGIN ===== -->
+<div class="login-wrap" id="loginWrap">
+    <div class="login-box">
+        <div class="login-logo"><img src="logo-site.png" alt="MZ Parrucchieri" onerror="this.style.display='none'"></div>
+        <h2 class="login-title">Area <span>Riservata</span></h2>
+        <p class="login-sub">Gestione Promozioni</p>
+        <div class="login-err" id="loginErr"></div>
+        <div class="login-field">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="pwdInput" placeholder="PASSWORD" autocomplete="off" autofocus>
+        </div>
+        <button class="btn" style="width:100%" onclick="provaLogin()">
+            <i class="fa-solid fa-right-to-bracket"></i> Accedi
+        </button>
+    </div>
+</div>
+
+<!-- ===== DASHBOARD ===== -->
+<div class="dashboard" id="dashboard">
+    <div class="topbar">
+        <div class="topbar-inner">
+            <a href="index.html" class="brand">
+                <img src="logo-site.png" alt="MZ" onerror="this.style.display='none'">
+                <div class="brand-name">MZ <span>Parrucchieri</span></div>
+            </a>
+            <div class="topbar-actions">
+                <div class="save-status" id="saveStatus"><i class="fa-solid fa-circle-check"></i> <span>Dati caricati</span></div>
+                <button class="btn-ghost btn btn-small" onclick="location.reload()"><i class="fa-solid fa-rotate-left"></i> Ricarica JSON</button>
+                <button class="btn-ghost btn btn-small" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> Esci</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="page-head">
+            <div class="eyebrow"><i class="fa-solid fa-calendar-star"></i><span>Gestione Promozioni</span></div>
+            <h1>Modifica le <span>2 Offerte</span> del Mese</h1>
+            <p>1 promozione valida per i 3 saloni (o un sottoinsieme) + 1 promozione dedicata al Barber Shop.</p>
+        </div>
+
+        <div class="notice">
+            <div class="notice-title"><i class="fa-solid fa-circle-info"></i> Come aggiornare le promozioni</div>
+            <ol>
+                <li>Modifica i campi delle due sezioni qui sotto (titoli, prezzi, date...)</li>
+                <li>Seleziona quali saloni includere nella Promo 3 Sedi (selezionati = promo disponibile in quella sede)</li>
+                <li>Compila la sezione <strong>"Configurazione WhatsApp"</strong>: per la Promo Multi-Sede inserisci <strong>i 3 numeri diversi</strong> (Villanova / Villafontana / Imola) + il messaggio predefinito. Per il Barber usa un singolo numero diretto.</li>
+                <li>Clicca <strong>Scarica promo.json</strong> per scaricare il file aggiornato</li>
+                <li>Carica via FTP / Pannello Hosting il file nella cartella <code>app/content/</code> sostituendo quello vecchio</li>
+                <li><strong>Per le immagini</strong>: carica prima la foto via FTP (es. in <code>app/galleria/</code>), poi inserisci il percorso qui (es. <code>galleria/nuova-foto.jpg</code>)</li>
+            </ol>
+        </div>
+
+        <div class="month-bar">
+            <label for="meseAnno"><i class="fa-solid fa-calendar" style="margin-right:8px;color:var(--gold)"></i> Mese di riferimento</label>
+            <input type="text" id="meseAnno" placeholder="es. Settembre 2026" oninput="segnaModificato()">
+        </div>
+
+        <div class="promo-list" id="promoEditor"></div>
+
+        <div class="action-bar">
+            <button class="btn" onclick="generaEScarica()"><i class="fa-solid fa-file-arrow-down dl-icon"></i> Scarica promo.json</button>
+            <button class="btn-ghost btn" onclick="copiaJSON()"><i class="fa-solid fa-copy"></i> Copia JSON</button>
+            <button class="btn-danger btn" onclick="ripristinaAttuali()"><i class="fa-solid fa-rotate"></i> Ripristina valori attuali</button>
+        </div>
+
+        <div class="json-box">
+            <div class="json-head">
+                <h3><i class="fa-solid fa-code"></i> Anteprima JSON generato</h3>
+                <div style="display:flex;gap:10px;flex-wrap:wrap">
+                    <button class="btn-ghost btn btn-small" onclick="caricaDaTextarea()"><i class="fa-solid fa-upload"></i> Carica da box</button>
+                    <span id="copyHint" style="font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--green);display:none;align-self:center"><i class="fa-solid fa-check"></i> Copiato</span>
+                </div>
+            </div>
+            <textarea id="jsonTextarea" spellcheck="false" placeholder="Il JSON generato apparirà qui..."></textarea>
+        </div>
+    </div>
+</div>
+
+<script>
+/* =========================================================
+   AREA ADMIN - PASSWORD E GESTIONE PROMO
+   =========================================================
+   ⚠️  PER CAMBIARE LA PASSWORD:
+   Modifica la riga qua sotto, tra le virgolette:
+   const PASSWORD = 'admin123';   ←  cambia 'admin123'
+   ========================================================= */
+const PASSWORD = 'admin123';
+
+const SEDI_SALONI = [
+    { id: 'villanova',    sede: 'Villanova di Castenaso', sedeShort: 'Villanova' },
+    { id: 'villafontana', sede: 'Villafontana di Medicina', sedeShort: 'Villafontana' },
+    { id: 'imola',        sede: 'Imola', sedeShort: 'Imola' }
+];
+const SEDI_BARBER = [
+    { id: 'barber', sede: 'Barber Shop Medicina', sedeShort: 'Barber Shop' }
+];
+
+function meseCorrenteLabel() {
+    var mesi=['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
+    var d=new Date(); return mesi[d.getMonth()]+' '+d.getFullYear();
+}
+function promoBlank(tipo, sediList, iconaDefault) {
+    var base = {
+        id: tipo,
+        tipo: tipo,
+        attivo: true,
+        sedi: sediList.slice(),
+        titolo: '',
+        sottotitolo: '',
+        descrizione: '',
+        prezzo: null,
+        prezzoOriginale: null,
+        sconto: '',
+        immagine: '',
+        dataFine: '',
+        pulsanteTesto: 'Prenota su WhatsApp',
+        pulsanteLink: '',
+        icona: iconaDefault,
+        waMessaggio: ''
+    };
+    if (tipo === 'saloni') {
+        base.waNumeriSedi = SEDI_SALONI.map(function(s){
+            return { sedeId: s.id, numero: '', etichetta: s.sede, orari: '' };
+        });
+    } else {
+        base.waNumero = '';
+    }
+    return base;
+}
+const DEFAULT_PROMO = {
+    meseAnno: meseCorrenteLabel(),
+    promozioni: [
+        promoBlank('saloni', SEDI_SALONI, 'fa-solid fa-scissors'),
+        promoBlank('barber', SEDI_BARBER, 'fa-solid fa-razor')
+    ]
+};
+
+var DATA = JSON.parse(JSON.stringify(DEFAULT_PROMO));
+var DATA_ORIGINALE = null;
+var dirty = false;
+
+/* helper: trova una promo per tipo */
+function byTipo(tipo) { return DATA.promozioni.find(function(p){ return p.tipo === tipo; }); }
+
+// ===== LOGIN =====
+function provaLogin() {
+    var val = document.getElementById('pwdInput').value || '';
+    var err = document.getElementById('loginErr');
+    if (val === PASSWORD) {
+        sessionStorage.setItem('mz_admin_logged','1');
+        mostraDashboard();
+    } else {
+        err.textContent = 'Password errata. Riprova.';
+        setTimeout(function(){ err.textContent=''; }, 3500);
+    }
+}
+document.getElementById('pwdInput').addEventListener('keydown', function(e){ if (e.key==='Enter') provaLogin(); });
+function logout() { sessionStorage.removeItem('mz_admin_logged'); location.reload(); }
+
+function mostraDashboard() {
+    document.getElementById('loginWrap').style.display = 'none';
+    document.getElementById('dashboard').classList.add('active');
+    caricaEStruttura();
+}
+
+// ===== CARICAMENTO E NORMALIZZAZIONE =====
+async function caricaEStruttura() {
+    try {
+        var res = await fetch('content/promo.json?_=' + Date.now());
+        if (res.ok) {
+            var json = await res.json();
+            if (json) DATA = normalizza(json);
+        }
+    } catch (e) { /* usa DEFAULT */ }
+    DATA_ORIGINALE = JSON.parse(JSON.stringify(DATA));
+    document.getElementById('meseAnno').value = DATA.meseAnno || '';
+    disegnaEditor();
+    aggiornaJSONBox();
+    setStatus(false);
+}
+
+/* Estrae solo cifre da una stringa (per normalizzare numeri WA/link) */
+function soloCifre(s) { return String(s||'').replace(/\D/g,''); }
+/* Data una stringa qualsiasi (link wa.me oppure numero scritto a mano), restituisce solo cifre con prefisso 39 se mancante */
+function estraiNumeroWA(s) {
+    if (!s) return '';
+    var cifre = soloCifre(s);
+    // Se inizia con 00, togliamo i leading 00
+    if (cifre.substring(0,2)==='00') cifre = cifre.substring(2);
+    // Se sono 10 cifre (italiano senza prefisso), aggiungiamo 39
+    if (/^\d{10}$/.test(cifre)) cifre = '39' + cifre;
+    return cifre;
+}
+/* Messaggio predefinito di default se l'utente non ne mette uno */
+function messaggioWADefault(titoloPromo, meseAnno) {
+    var t = titoloPromo || 'la promo del mese';
+    var m = meseAnno ? ' di ' + meseAnno : '';
+    return 'Ciao, vorrei informazioni su ' + t + m + '. Potete darmi maggiori dettagli? Grazie!';
+}
+
+/* Garantisce SEMPRE struttura a 2 promozioni (tipo saloni + tipo barber) con array sedi */
+function normalizza(d) {
+    var out = { meseAnno: d.meseAnno || meseCorrenteLabel(), promozioni: [] };
+    var lista = Array.isArray(d.promozioni) ? d.promozioni : [];
+
+    // ===== PROMO SALONI =====
+    var promoSaloni = lista.find(function(p){ return p.tipo==='saloni' || p.id==='saloni' || (p.sede && p.sede.toLowerCase().indexOf('barber')<0 && p.id!=='barber'); });
+    // Se era nel vecchio formato a 4 promo, cerchiamo la prima non-barber come fallback titolo
+    var merge = promoBlank('saloni', SEDI_SALONI, 'fa-solid fa-scissors');
+    if (promoSaloni) {
+        // Campi diretti base
+        ['titolo','sottotitolo','descrizione','prezzoOriginale','sconto','immagine','dataFine','pulsanteTesto','pulsanteLink','icona','attivo','waMessaggio']
+            .forEach(function(k){ if (promoSaloni[k]!==undefined) merge[k]=promoSaloni[k]; });
+        if (promoSaloni.prezzo !== undefined) merge.prezzo = promoSaloni.prezzo;
+        // Sedi: se già array ok, altrimenti creiamo lista selezionata
+        if (Array.isArray(promoSaloni.sedi) && promoSaloni.sedi.length) {
+            merge.sedi = promoSaloni.sedi;
+        } else {
+            merge.sedi = SEDI_SALONI.slice();
+        }
+        // waNumeriSedi: se già presente array, usalo + sovrascrivi etichette standard e sistema numero
+        if (Array.isArray(promoSaloni.waNumeriSedi) && promoSaloni.waNumeriSedi.length) {
+            merge.waNumeriSedi = SEDI_SALONI.map(function(s){
+                var trovato = promoSaloni.waNumeriSedi.find(function(x){ return x && x.sedeId===s.id; });
+                if (trovato) {
+                    return {
+                        sedeId: s.id,
+                        numero: estraiNumeroWA(trovato.numero||''),
+                        etichetta: trovato.etichetta || s.sede,
+                        orari: trovato.orari || ''
+                    };
+                }
+                // sede non trovata nel vecchio array → nuovo entry vuota
+                return { sedeId: s.id, numero: '', etichetta: s.sede, orari: '' };
+            });
+        } else {
+            // Nuovo formato assente → proviamo a migrare da pulsanteLink
+            var numVecchio = estraiNumeroWA(promoSaloni.pulsanteLink||'');
+            merge.waNumeriSedi = SEDI_SALONI.map(function(s){
+                return { sedeId: s.id, numero: numVecchio, etichetta: s.sede, orari: '' };
+            });
+        }
+        // Messaggio WA: se vuoto proviamo a fare default
+        if (!merge.waMessaggio) merge.waMessaggio = messaggioWADefault(merge.titolo, out.meseAnno);
+    } else {
+        // nessuna promo saloni trovata → messaggio default
+        merge.waMessaggio = messaggioWADefault('', out.meseAnno);
+    }
+    // Deduplica e assicurati che solo le sedi valide siano presenti (subset di SEDI_SALONI)
+    var idsOk = SEDI_SALONI.map(function(s){ return s.id; });
+    merge.sedi = SEDI_SALONI.filter(function(s){
+        var trovato = merge.sedi.find(function(x){ return x && (x.id===s.id || x.sedeShort===s.sedeShort || x.sede===s.sede); });
+        return !!trovato;
+    });
+    if (!merge.sedi.length) merge.sedi = SEDI_SALONI.slice();
+    out.promozioni.push(merge);
+
+    // ===== PROMO BARBER =====
+    var promoBarber = lista.find(function(p){ return p.tipo==='barber' || p.id==='barber' || (p.sede && p.sede.toLowerCase().indexOf('barber')>=0); });
+    var mergeB = promoBlank('barber', SEDI_BARBER, 'fa-solid fa-razor');
+    if (promoBarber) {
+        ['titolo','sottotitolo','descrizione','prezzoOriginale','sconto','immagine','dataFine','pulsanteTesto','pulsanteLink','icona','attivo','waMessaggio']
+            .forEach(function(k){ if (promoBarber[k]!==undefined) mergeB[k]=promoBarber[k]; });
+        if (promoBarber.prezzo !== undefined) mergeB.prezzo = promoBarber.prezzo;
+        // waNumero: se presente usa, altrimenti estrai da pulsanteLink
+        if (promoBarber.waNumero) {
+            mergeB.waNumero = estraiNumeroWA(promoBarber.waNumero);
+        } else if (promoBarber.pulsanteLink) {
+            mergeB.waNumero = estraiNumeroWA(promoBarber.pulsanteLink);
+        }
+        // Messaggio WA default se vuoto
+        if (!mergeB.waMessaggio) mergeB.waMessaggio = messaggioWADefault(mergeB.titolo, out.meseAnno);
+    } else {
+        mergeB.waMessaggio = messaggioWADefault('', out.meseAnno);
+    }
+    mergeB.sedi = SEDI_BARBER.slice();
+    out.promozioni.push(mergeB);
+
+    return out;
+}
+
+/* Controlla se un id sede è selezionato all'interno della promozione saloni */
+function sedeSelezionata(promo, sedeId) {
+    return !!(promo && Array.isArray(promo.sedi) && promo.sedi.find(function(s){ return s.id===sedeId; }));
+}
+function impostaSede(promo, sedeId, checked) {
+    var sedeFull = SEDI_SALONI.find(function(s){ return s.id===sedeId; });
+    if (!sedeFull) return;
+    if (checked) {
+        if (!sedeSelezionata(promo, sedeId)) promo.sedi.push(sedeFull);
+    } else {
+        promo.sedi = promo.sedi.filter(function(s){ return s.id !== sedeId; });
+    }
+    // Se tutte le sedi rimosse, forziamo almeno la prima così la promo non ha 0 sedi
+    if (promo.sedi.length === 0 && promo.tipo === 'saloni') promo.sedi.push(SEDI_SALONI[0]);
+    afterChange();
+}
+
+// ===== DISEGNA EDITOR CON 2 BOX =====
+function disegnaEditor() {
+    var wrap = document.getElementById('promoEditor');
+    var pSaloni = byTipo('saloni');
+    var pBarber = byTipo('barber');
+    wrap.innerHTML = [
+        disegnaCard(pSaloni, 0, 'saloni'),
+        disegnaCard(pBarber, 1, 'barber')
+    ].join('');
+}
+function disegnaCard(p, idx, tipo) {
+    var isBarber = tipo==='barber';
+    var nIcon = isBarber ? '<i class="fa-solid fa-razor"></i>' : '<i class="fa-solid fa-scissors"></i>';
+    var subTit = isBarber ? 'Sezione Barber Shop' : 'Villanova • Villafontana • Imola';
+    var tit = isBarber ? 'Promo Barber Shop' : 'Promo 3 Sedi';
+    var cardClass = 'promo-edit-card type-' + tipo + (p.attivo ? '' : ' disabled');
+    var sedeCheckboxes = '';
+    if (!isBarber) {
+        sedeCheckboxes = '<div class="sedi-incluse"><span>Sedi incluse:</span>' +
+            SEDI_SALONI.map(function(s){
+                var checked = sedeSelezionata(p, s.id) ? 'checked' : '';
+                return '<label><input type="checkbox" '+checked+' onchange="impostaSede(byTipo(\'saloni\'),\''+s.id+'\', this.checked); refreshSediChips(\'saloni\')">'+s.sedeShort+'</label>';
+            }).join('') + '</div>';
+    } else {
+        sedeCheckboxes = '<div class="sedi-incluse"><span>Sede:</span>'+
+            '<label style="background:rgba(201,168,76,0.10);border-color:var(--gold);color:var(--gold);font-weight:400"><i class="fa-solid fa-check"></i> '+SEDI_BARBER[0].sedeShort+'</label></div>';
+    }
+    var imgTag = p.immagine ? '<img src="'+p.immagine+'" alt="preview" onerror="this.parentNode.querySelector(\'.empty\').style.display=\'flex\';this.style.display=\'none\'">' : '';
+
+    // ===== SEZIONE WHATSAPP =====
+    var waHtml = '';
+    if (!isBarber) {
+        // ===== PROMO 3 SEDI: messaggio condiviso + 3 righe sede =====
+        var righeSedi = SEDI_SALONI.map(function(s){
+            var numeriObj = (Array.isArray(p.waNumeriSedi) ? p.waNumeriSedi.find(function(x){ return x && x.sedeId===s.id; }) : null) || {numero:'', orari:''};
+            return (
+                '<div class="wa-sede-row">'+
+                    '<div class="wa-sede-label"><i class="fa-solid fa-location-dot"></i>'+s.sedeShort+'</div>'+
+                    '<div class="field" style="gap:6px">'+
+                        '<label style="font-size:0.62rem;letter-spacing:1.5px"><i class="fa-brands fa-whatsapp"></i>Numero WhatsApp</label>'+
+                        '<input type="tel" value="'+escapeAttr(numeriObj.numero)+'" oninput="aggWaSedeNum(\''+tipo+'\',\''+s.id+'\',this.value)" placeholder="es. +39 333 123 4567">'+
+                    '</div>'+
+                    '<div class="field" style="gap:6px">'+
+                        '<label style="font-size:0.62rem;letter-spacing:1.5px"><i class="fa-regular fa-clock"></i>Orari (visualizzati)</label>'+
+                        '<input type="text" value="'+escapeAttr(numeriObj.orari)+'" oninput="aggWaSedeOrari(\''+tipo+'\',\''+s.id+'\',this.value)" placeholder="es. Lun - Sab 09:00 • 19:00">'+
+                    '</div>'+
+                '</div>'
+            );
+        }).join('');
+        waHtml = (
+            '<div class="wa-section">'+
+                '<div class="wa-section-title"><i class="fa-brands fa-whatsapp" style="color:#25D366"></i>Configurazione WhatsApp · Promo Multi-Sede</div>'+
+                '<div class="field full" style="margin-bottom:16px">'+
+                    '<label><i class="fa-regular fa-comment-dots"></i>Messaggio predefinito (inviato a TUTTE le sedi)</label>'+
+                    '<textarea oninput="aggWaMessaggio(\''+tipo+'\',this.value)" placeholder="Ciao, vorrei informazioni sulla promo [Nome Promo] di Settembre...">'+escapeHtml(p.waMessaggio||'')+'</textarea>'+
+                    '<div class="field-hint">Questo messaggio verrà precompilato in WhatsApp quando l\'utente sceglierà una sede nel popup</div>'+
+                '</div>'+
+                righeSedi +
+            '</div>'
+        );
+    } else {
+        // ===== BARBER: messaggio + singolo numero =====
+        waHtml = (
+            '<div class="wa-section">'+
+                '<div class="wa-section-title"><i class="fa-brands fa-whatsapp" style="color:#25D366"></i>Configurazione WhatsApp · Barber Shop</div>'+
+                '<div class="field full" style="margin-bottom:14px">'+
+                    '<label><i class="fa-regular fa-comment-dots"></i>Messaggio predefinito</label>'+
+                    '<textarea oninput="aggWaMessaggio(\''+tipo+'\',this.value)" placeholder="Ciao, vorrei prenotare il taglio barber...">'+escapeHtml(p.waMessaggio||'')+'</textarea>'+
+                '</div>'+
+                '<div class="field-row" style="grid-template-columns:1fr">'+
+                    '<div class="field">'+
+                        '<label><i class="fa-brands fa-whatsapp"></i>Numero WhatsApp Barber</label>'+
+                        '<input type="tel" value="'+escapeAttr(p.waNumero||'')+'" oninput="aggWaNumeroBarber(this.value)" placeholder="es. +39 333 123 4567">'+
+                        '<div class="field-hint">Link diretto singolo — nessun popup intermedio</div>'+
+                    '</div>'+
+                '</div>'+
+            '</div>'
+        );
+    }
+
+    return (
+    '<div class="'+cardClass+'" data-tipo="'+tipo+'">'+
+        '<div class="promo-edit-head">'+
+            '<div class="promo-edit-head-left">'+
+                '<div class="promo-n">'+nIcon+'</div>'+
+                '<div class="promo-block-name">'+tit+'<small>'+subTit+'</small></div>'+
+            '</div>'+
+            '<label class="promo-toggle">'+
+                '<input type="checkbox" '+(p.attivo?'checked':'')+' onchange="cambiaAttivo(\''+tipo+'\', this.checked)">'+
+                '<div class="switch"></div>'+
+                '<span>'+(p.attivo?'ATTIVA':'DISATTIVA')+'</span>'+
+            '</label>'+
+        '</div>'+
+        sedeCheckboxes+
+        '<div class="promo-edit-body">'+
+            '<div class="field-row">'+
+                '<div class="field"><label><i class="fa-solid fa-heading"></i>Titolo Promo</label>'+
+                    '<input type="text" value="'+escapeAttr(p.titolo)+'" oninput="aggCampo(\''+tipo+'\',\'titolo\',this.value)" placeholder="es. Ritocco Colore + Piega">'+
+                '</div>'+
+                '<div class="field"><label><i class="fa-solid fa-bookmark"></i>Sottotitolo</label>'+
+                    '<input type="text" value="'+escapeAttr(p.sottotitolo)+'" oninput="aggCampo(\''+tipo+'\',\'sottotitolo\',this.value)" placeholder="Breve descrizione">'+
+                '</div>'+
+            '</div>'+
+            '<div class="field full"><label><i class="fa-solid fa-align-left"></i>Descrizione completa</label>'+
+                '<textarea oninput="aggCampo(\''+tipo+'\',\'descrizione\',this.value)" placeholder="Descrivi la promo in modo accattivante...">'+escapeHtml(p.descrizione||'')+'</textarea>'+
+            '</div>'+
+            '<div class="price-row">'+
+                '<div class="field"><label><i class="fa-solid fa-euro-sign"></i>Prezzo promo (€)</label>'+
+                    '<input type="number" step="0.01" value="'+(p.prezzo!=null?p.prezzo:'')+'" oninput="aggNum(\''+tipo+'\',\'prezzo\',this.value)" placeholder="78">'+
+                '</div>'+
+                '<div class="field"><label><i class="fa-solid fa-tag-slash"></i>Prezzo originale (€)</label>'+
+                    '<input type="number" step="0.01" value="'+(p.prezzoOriginale!=null?p.prezzoOriginale:'')+'" oninput="aggNum(\''+tipo+'\',\'prezzoOriginale\',this.value)" placeholder="110">'+
+                '</div>'+
+                '<div class="field"><label><i class="fa-solid fa-percent"></i>Badge (sconto / NEW)</label>'+
+                    '<input type="text" value="'+escapeAttr(p.sconto)+'" oninput="aggCampo(\''+tipo+'\',\'sconto\',this.value)" placeholder="es. -25% oppure NEW">'+
+                '</div>'+
+                '<div class="field"><label><i class="fa-regular fa-calendar-xmark"></i>Scadenza (AAAA-MM-GG)</label>'+
+                    '<input type="date" value="'+escapeAttr(p.dataFine)+'" oninput="aggCampo(\''+tipo+'\',\'dataFine\',this.value)">'+
+                    '<div class="field-hint">Dopo questa data la card apparirà scaduta</div>'+
+                '</div>'+
+            '</div>'+
+            '<div class="field full"><label><i class="fa-solid fa-image"></i>Immagine promozione</label>'+
+                '<div class="img-preview-wrap">'+
+                    '<div class="img-preview" id="preview-'+tipo+'">'+
+                        (p.immagine ? imgTag : '')+
+                        '<div class="empty" style="'+(p.immagine?'display:none':'')+'">'+
+                            '<i class="fa-regular fa-image"></i> Nessuna immagine'+
+                        '</div>'+
+                    '</div>'+
+                    '<div style="display:flex;flex-direction:column;gap:8px">'+
+                        '<input type="text" value="'+escapeAttr(p.immagine)+'" oninput="aggCampo(\''+tipo+'\',\'immagine\',this.value);aggiornaAnteprima(\''+tipo+'\',this.value)" placeholder="es. galleria/nome-immagine.jpg">'+
+                        '<div class="field-hint">Percorso relativo dalla cartella <code>app/</code> — es. <code>galleria/signature-01.jpg</code></div>'+
+                    '</div>'+
+                '</div>'+
+            '</div>'+
+            '<div class="field-row">'+
+                '<div class="field"><label><i class="fa-solid fa-keyboard"></i>Testo pulsante</label>'+
+                    '<input type="text" value="'+escapeAttr(p.pulsanteTesto)+'" oninput="aggCampo(\''+tipo+'\',\'pulsanteTesto\',this.value)" placeholder="Prenota su WhatsApp">'+
+                '</div>'+
+                '<div class="field"><label><i class="fa-solid fa-triangle-exclamation"></i>Link pulsante (solo fallback)</label>'+
+                    '<input type="text" value="'+escapeAttr(p.pulsanteLink)+'" oninput="aggCampo(\''+tipo+'\',\'pulsanteLink\',this.value)" placeholder="USO INTERNO — compila sopra i campi WA">'+
+                    '<div class="field-hint">Questo campo è usato solo come backup. Compila i campi WhatsApp qui sopra.</div>'+
+                '</div>'+
+            '</div>'+
+            waHtml +
+            '<div class="field full"><label><i class="fa-solid fa-wand-magic-sparkles"></i>Icona (Font Awesome class - opzionale)</label>'+
+                '<input type="text" value="'+escapeAttr(p.icona)+'" oninput="aggCampo(\''+tipo+'\',\'icona\',this.value)" placeholder="es. fa-solid fa-sparkles">'+
+                '<div class="field-hint">Usato solo internamente come riferimento. La sezione utilizza icone in base al numero di sedi.</div>'+
+            '</div>'+
+        '</div>'+
+    '</div>'
+    );
+}
+
+/* Aggiorna visivamente gli stati delle chip "sedi incluse" se cambiamo da JS (per ora poco usato) */
+function refreshSediChips(tipo){ /* le chip statiche non si aggiornano live, ma va bene dato che onChange le ricalcola. Se disegnassimo di nuovo tutto perdiamo focus */ }
+
+/* Aggiorna l'anteprima immagine */
+function aggiornaAnteprima(tipo, value){
+    var box = document.getElementById('preview-'+tipo);
+    if (!box) return;
+    var img = box.querySelector('img');
+    var empty = box.querySelector('.empty');
+    if (value) {
+        if (!img) {
+            img = document.createElement('img');
+            box.insertBefore(img, box.firstChild);
+            img.onerror = function(){ empty.style.display='flex'; img.style.display='none'; };
+        }
+        img.style.display='block';
+        empty.style.display='none';
+        img.setAttribute('src', value);
+    } else {
+        if (img) img.style.display='none';
+        empty.style.display='flex';
+    }
+}
+
+// ===== AGGIORNAMENTO CAMPI =====
+function aggCampo(tipo, chiave, val) { byTipo(tipo)[chiave] = val; afterChange(); }
+function aggNum(tipo, chiave, val) {
+    var p = byTipo(tipo);
+    if (val === '' || val === null || val === undefined) p[chiave] = null;
+    else { var n = parseFloat(val); p[chiave] = isNaN(n) ? null : n; }
+    afterChange();
+}
+// ===== AGGIORNAMENTO CAMPI WHATSAPP =====
+function aggWaMessaggio(tipo, val) { byTipo(tipo).waMessaggio = val; afterChange(); }
+function aggWaSedeNum(tipo, sedeId, val) {
+    var p = byTipo(tipo);
+    if (!p || !Array.isArray(p.waNumeriSedi)) return;
+    var obj = p.waNumeriSedi.find(function(x){ return x && x.sedeId === sedeId; });
+    if (obj) obj.numero = val;
+    afterChange();
+}
+function aggWaSedeOrari(tipo, sedeId, val) {
+    var p = byTipo(tipo);
+    if (!p || !Array.isArray(p.waNumeriSedi)) return;
+    var obj = p.waNumeriSedi.find(function(x){ return x && x.sedeId === sedeId; });
+    if (obj) obj.orari = val;
+    afterChange();
+}
+function aggWaNumeroBarber(val) {
+    var p = byTipo('barber');
+    if (p) p.waNumero = val;
+    afterChange();
+}
+function cambiaAttivo(tipo, val) {
+    byTipo(tipo).attivo = !!val;
+    var card = document.querySelector('.promo-edit-card[data-tipo="'+tipo+'"]');
+    if (card) {
+        card.classList.toggle('disabled', !val);
+        var lbl = card.querySelector('.promo-toggle span');
+        if (lbl) lbl.textContent = val ? 'ATTIVA' : 'DISATTIVA';
+    }
+    afterChange();
+}
+function afterChange() {
+    DATA.meseAnno = document.getElementById('meseAnno').value;
+    segnaModificato();
+    aggiornaJSONBox();
+}
+function segnaModificato() { setStatus(true); }
+function setStatus(isDirty) {
+    dirty = isDirty;
+    var s = document.getElementById('saveStatus');
+    if (isDirty) { s.classList.add('dirty'); s.innerHTML='<i class="fa-solid fa-circle-exclamation"></i> <span>Modifiche non salvate</span>'; }
+    else { s.classList.remove('dirty'); s.innerHTML='<i class="fa-solid fa-circle-check"></i> <span>Dati aggiornati</span>'; }
+}
+function escapeHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function escapeAttr(s) { return escapeHtml(s).replace(/"/g,'&quot;'); }
+
+// ===== JSON BOX =====
+function aggiornaJSONBox() { document.getElementById('jsonTextarea').value = JSON.stringify(DATA, null, 2); }
+function caricaDaTextarea() {
+    try {
+        var txt = document.getElementById('jsonTextarea').value;
+        var obj = JSON.parse(txt);
+        DATA = normalizza(obj);
+        DATA_ORIGINALE = JSON.parse(JSON.stringify(DATA));
+        document.getElementById('meseAnno').value = DATA.meseAnno || '';
+        disegnaEditor();
+        aggiornaJSONBox();
+        setStatus(false);
+        flashHint('Caricato!');
+    } catch (e) { alert('JSON non valido: ' + e.message); }
+}
+function copiaJSON() {
+    aggiornaJSONBox();
+    var ta = document.getElementById('jsonTextarea');
+    ta.select(); ta.setSelectionRange(0, ta.value.length);
+    try { document.execCommand('copy'); } catch(e){}
+    var hint = document.getElementById('copyHint'); hint.style.display='inline-flex';
+    setTimeout(function(){ hint.style.display='none'; }, 2500);
+}
+function flashHint(t) {
+    var hint = document.getElementById('copyHint');
+    hint.innerHTML = '<i class="fa-solid fa-check"></i> '+t;
+    hint.style.display='inline-flex';
+    setTimeout(function(){ hint.innerHTML='<i class="fa-solid fa-check"></i> Copiato'; hint.style.display='none'; }, 2500);
+}
+
+// ===== DOWNLOAD =====
+function generaEScarica() {
+    var json = JSON.stringify(DATA, null, 2);
+    var blob = new Blob([json], { type: 'application/json;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'promo.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1200);
+    DATA_ORIGINALE = JSON.parse(JSON.stringify(DATA));
+    setStatus(false);
+}
+function ripristinaAttuali() {
+    if (!confirm('Vuoi ripristinare i valori caricati all\'inizio? Perderai le modifiche non salvate.')) return;
+    if (DATA_ORIGINALE) DATA = JSON.parse(JSON.stringify(DATA_ORIGINALE));
+    document.getElementById('meseAnno').value = DATA.meseAnno || '';
+    disegnaEditor();
+    aggiornaJSONBox();
+    setStatus(false);
+}
+
+// ===== ACCESSO DIRETT0 =====
+if (sessionStorage.getItem('mz_admin_logged') === '1') {
+    mostraDashboard();
+}
+
+// ===== PROTEZIONE USCITA CON MODIFICHE =====
+window.addEventListener('beforeunload', function(e){
+    if (dirty) { e.preventDefault(); e.returnValue=''; }
+});
+</script>
+</body>
+</html>

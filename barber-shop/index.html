@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MZ Barber Shop | MZ Parrucchieri</title>
+    <meta name="description" content="MZ Barber Shop Medicina (BO). Taglio uomo, ragazzo, bimbo, rifiniture barba, Barba Spa e rasature tradizionali con asciugamani caldi. Prenota per WhatsApp o telefono.">
+    <meta name="keywords" content="barber shop Medicina, barbiere Medicina, taglio uomo, barba Medicina, rasatura tradizionale, MZ Barber Shop, Zucchini Maurizio">
+    <meta name="author" content="MZ Parrucchieri - Maurizio Zucchini">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1a1a1a">
+    <meta name="format-detection" content="telephone=no, address=no, email=no">
+    <link rel="canonical" href="https://www.mzparrucchieri.it/barber-shop">
+    <link rel="alternate" hreflang="it" href="https://www.mzparrucchieri.it/barber-shop">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta name="Permissions-Policy" content="camera=(), microphone=(), geolocation=(self), payment=()">
+    <link rel="icon" type="image/png" href="../logo-mz.png">
+    <link rel="apple-touch-icon" href="../logo-mz.png">
+    <meta property="og:title" content="MZ Barber Shop | MZ Parrucchieri">
+    <meta property="og:description" content="MZ Barber Shop Medicina (BO). Taglio uomo, ragazzo, bimbo, rifiniture barba, Barba Spa e rasature tradizionali con asciugamani caldi.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:image" content="../barber-panorama.jpg">
+    <meta property="og:url" content="https://www.mzparrucchieri.it/barber-shop">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MZ Barber Shop | MZ Parrucchieri">
+    <meta name="twitter:description" content="Taglio uomo, barba, rasature tradizionali a Medicina (BO). Prenota per WhatsApp o telefono.">
+    <meta name="twitter:image" content="../barber-panorama.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --black: #1a1a1a;
+            --black-2: #222222;
+            --black-3: #2d2d2d;
+            --gold: #C9A84C;
+            --gold-light: #DFC06A;
+            --gold-pale: #F0E6C8;
+            --gold-glow: rgba(201,168,76,0.15);
+            --gold-glow-s: rgba(201,168,76,0.35);
+            --white: #F8F5F0;
+            --white-dim: #E8E2DA;
+            --gray: #9A8F88;
+            --gray-light: #B5ADA5;
+            --gray-dark: #3d3d3d;
+            --gray-mid: #4a4a4a;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            --ease-out-expo: cubic-bezier(0.16,1,0.3,1);
+            --ease-in-out-cubic: cubic-bezier(0.65,0,0.35,1);
+            --card-bg: linear-gradient(165deg, #343434 0%, #262626 100%);
+            --card-bg-hover: linear-gradient(165deg, #3c3c3c 0%, #2b2b2b 100%);
+            --panel-bg: linear-gradient(160deg, #2f2f2f 0%, #222222 100%);
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:var(--font-sans); background:var(--black); color:var(--white); overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+        body.nav-switching { visibility:hidden; }
+        ::-webkit-scrollbar { width:5px; }
+        ::-webkit-scrollbar-track { background:var(--black); }
+        ::-webkit-scrollbar-thumb { background:var(--gold); border-radius:10px; }
+
+        /* ===== NAV ===== */
+        nav { position:fixed; top:0; left:0; width:100%; padding:16px 0; z-index:1000; background:rgba(26,26,26,0.72); backdrop-filter:blur(22px) saturate(1.25); -webkit-backdrop-filter:blur(22px) saturate(1.25); border-bottom:1px solid rgba(201,168,76,0.08); transition:all 0.6s var(--ease-out-expo); }
+        nav.scrolled { padding:10px 0; background:rgba(20,20,20,0.96); border-bottom-color:rgba(201,168,76,0.22); box-shadow:0 10px 40px rgba(0,0,0,0.45); }
+        .nav-container { display:flex; justify-content:space-between; align-items:center; max-width:1440px; margin:0 auto; padding:0 52px; gap:32px; }
+        .logo { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--white); font-family:var(--font-serif); font-size:1.45rem; font-weight:400; letter-spacing:2.5px; transition:all 0.5s var(--ease-out-expo); line-height:1; flex-shrink:0; }
+        .logo:hover { opacity:0.85; transform:translateY(-1px); }
+        .logo img { height:40px; width:auto; display:block; filter:brightness(1.1) drop-shadow(0 0 12px rgba(201,168,76,0.12)); transition:height 0.5s var(--ease-out-expo); }
+        nav.scrolled .logo img { height:34px; }
+        .logo span { color:var(--gold); font-weight:500; }
+        .nav-links { display:flex; gap:34px; list-style:none; align-items:center; margin:0; padding:0; flex:1; justify-content:center; }
+        .nav-links li { display:flex; align-items:center; }
+        .nav-links a { color:var(--white-dim); text-decoration:none; font-weight:300; font-size:0.78rem; letter-spacing:2.5px; text-transform:uppercase; transition:all 0.4s var(--ease-out-expo); position:relative; padding-bottom:5px; cursor:pointer; display:inline-block; }
+        .nav-links a::after { content:''; position:absolute; bottom:0; left:50%; width:0%; height:1.5px; background:linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%); transition:all 0.45s var(--ease-out-expo); transform:translateX(-50%); border-radius:2px; box-shadow:0 0 8px rgba(201,168,76,0.35); }
+        .nav-links a:hover { color:var(--gold); transform:translateY(-1px); letter-spacing:2.6px; }
+        .nav-links a:hover::after { width:100%; }
+        .nav-links a.active { color:var(--gold); font-weight:400; letter-spacing:2.6px; }
+        .nav-links a.active::after { width:100%; box-shadow:0 0 14px rgba(201,168,76,0.45); }
+        .nav-right { display:flex; align-items:center; gap:16px; flex-shrink:0; }
+        .lang-switch { display:inline-flex; align-items:center; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:50px; padding:4px; transition:all 0.4s; }
+        .lang-btn { background:transparent; border:none; color:var(--gray); padding:6px 14px; border-radius:50px; font-size:0.68rem; letter-spacing:2px; font-weight:400; text-transform:uppercase; cursor:pointer; transition:all 0.4s; font-family:var(--font-sans); }
+        .lang-btn:hover { color:var(--white-dim); }
+        .lang-btn.active { background:var(--gold); color:var(--black); font-weight:500; box-shadow:0 4px 14px rgba(201,168,76,0.22); }
+        .nav-cta { background:transparent; color:var(--gold); border:1px solid rgba(201,168,76,0.38); padding:12px 26px; border-radius:50px; font-weight:500; font-size:0.7rem; letter-spacing:2.5px; text-transform:uppercase; cursor:pointer; transition:all 0.5s var(--ease-out-expo); backdrop-filter:blur(4px); display:inline-flex; align-items:center; gap:8px; line-height:1; position:relative; overflow:hidden; text-decoration:none; }
+        .nav-cta i { font-size:0.78rem; }
+        .nav-cta::before { content:''; position:absolute; inset:0; background:linear-gradient(90deg, rgba(201,168,76,0.18), transparent 50%, rgba(201,168,76,0.18)); transform:translateX(-100%); transition:transform 0.7s var(--ease-out-expo); }
+        .nav-cta:hover { background:var(--gold); color:var(--black); border-color:var(--gold); transform:translateY(-1px); box-shadow:0 10px 30px rgba(201,168,76,0.30); }
+        .nav-cta:hover::before { transform:translateX(100%); }
+        .nav-cta:hover i { color:var(--black); }
+        .hamburger { display:none; flex-direction:column; gap:6px; background:none; border:none; cursor:pointer; padding:8px; z-index:1001; }
+        .hamburger span { display:block; width:26px; height:1.5px; background:var(--white); transition:all 0.5s var(--ease-out-expo); }
+        .hamburger.active span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+        .hamburger.active span:nth-child(2) { opacity:0; transform:translateX(10px); }
+        .hamburger.active span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
+
+        /* ===== NAV RESPONSIVE DESKTOP INTERMEDIO (1400-1200) ===== */
+        @media (max-width:1400px) {
+            .nav-container { padding:0 40px; gap:24px; }
+            .nav-links { gap:26px; }
+            .nav-links a { font-size:0.74rem; letter-spacing:2px; }
+            .nav-cta { padding:11px 22px; font-size:0.68rem; letter-spacing:2px; }
+        }
+        @media (max-width:1250px) {
+            .nav-container { padding:0 32px; gap:20px; }
+            .nav-links { gap:20px; }
+            .nav-links a { font-size:0.7rem; letter-spacing:1.8px; }
+            .logo { font-size:1.3rem; letter-spacing:2px; gap:10px; }
+            .logo img { height:36px; }
+            nav.scrolled .logo img { height:32px; }
+            .nav-right { gap:12px; }
+            .nav-cta { padding:10px 20px; font-size:0.65rem; }
+            .lang-btn { padding:5px 12px; font-size:0.62rem; }
+        }
+
+        /* ===== HERO BARBER ===== */
+        .hero-barber { min-height:100vh; min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; position:relative; overflow:hidden; padding:140px 0 150px; }
+        .hero-barber-bg { position:absolute; inset:0; z-index:0; background-image:url('../barber-panorama.jpg'); background-size:cover; background-position:center 30%; filter:grayscale(0.15) contrast(1.1) brightness(0.45); transform:scale(1.04); transition:transform 12s var(--ease-out-expo); }
+        .hero-barber:hover .hero-barber-bg { transform:scale(1.09); }
+        .hero-barber-overlay { position:absolute; inset:0; z-index:1; pointer-events:none; background:
+            linear-gradient(180deg, rgba(26,26,26,0.55) 0%, rgba(26,26,26,0.30) 28%, rgba(26,26,26,0.55) 58%, rgba(26,26,26,0.98) 100%),
+            linear-gradient(90deg, rgba(26,26,26,0.25) 0%, transparent 24%, transparent 76%, rgba(26,26,26,0.25) 100%); }
+        .hero-barber-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(201,168,76,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.018) 1px,transparent 1px); background-size:80px 80px; mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 30%,transparent 70%); -webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 30%,transparent 70%); pointer-events:none; }
+        .hero-barber-content { position:relative; z-index:2; max-width:900px; padding:0 40px; margin-top:0; }
+        .hero-barber-brand { display:flex; align-items:center; justify-content:center; gap:20px; margin-bottom:20px; opacity:0; animation:fadeUp 1s 0.15s var(--ease-out-expo) forwards; }
+        .hero-barber-brand .brand-line { width:60px; height:1px; background:linear-gradient(90deg, transparent, var(--gold)); flex-shrink:0; }
+        .hero-barber-brand .brand-line.right { background:linear-gradient(90deg, var(--gold), transparent); }
+        .hero-barber-brand .brand-name { font-family:var(--font-serif); font-size:clamp(1.5rem,3vw,2.2rem); font-weight:500; letter-spacing:5px; text-transform:uppercase; color:var(--white); white-space:nowrap; display:flex; align-items:center; gap:14px; }
+        .hero-barber-brand .brand-name img { height:42px; filter:brightness(1.1) drop-shadow(0 0 18px rgba(201,168,76,0.25)); }
+        .hero-eyebrow { font-family:var(--font-serif); font-style:italic; font-size:0.95rem; color:var(--gold); letter-spacing:6px; margin-bottom:20px; opacity:0; animation:fadeUp 1s 0.15s var(--ease-out-expo) forwards; }
+        .hero-barber h1 { font-family:var(--font-serif); font-size:clamp(2.8rem,6vw,5.5rem); font-weight:300; line-height:1.08; margin-bottom:28px; letter-spacing:-1px; opacity:0; animation:fadeUp 1.2s 0.5s var(--ease-out-expo) forwards; }
+        .hero-barber h1 span { font-weight:500; font-style:italic; background:linear-gradient(110deg, #C9A84C 25%, #f5e6b8 50%, #C9A84C 75%); background-size:220% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; animation:h1sheen 7s ease-in-out infinite; }
+        @keyframes h1sheen { 0%,100% { background-position:0% 0; } 50% { background-position:100% 0; } }
+        .hero-barber p { font-size:1.15rem; font-weight:200; color:var(--white-dim); margin-bottom:48px; max-width:620px; margin-left:auto; margin-right:auto; line-height:1.7; opacity:0; animation:fadeUp 1s 0.7s var(--ease-out-expo) forwards; }
+        .hero-barber-buttons { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; opacity:0; animation:fadeUp 1s 0.9s var(--ease-out-expo) forwards; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+        .btn-primary { background:var(--gold); color:var(--black); padding:18px 52px; border:none; border-radius:50px; font-weight:500; font-size:0.8rem; letter-spacing:3px; text-transform:uppercase; cursor:pointer; transition:all 0.5s var(--ease-out-expo); box-shadow:0 8px 40px rgba(201,168,76,0.15); position:relative; overflow:hidden; text-decoration:none; display:inline-flex; align-items:center; gap:10px; justify-content:center; }
+        .btn-primary::before { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent); transition:left 0.6s; }
+        .btn-primary:hover::before { left:100%; }
+        .btn-primary:hover { background:var(--gold-light); transform:translateY(-3px); box-shadow:0 15px 50px rgba(201,168,76,0.35); }
+        .btn-secondary { background:transparent; color:var(--white); padding:18px 52px; border:1px solid rgba(255,255,255,0.2); border-radius:50px; font-weight:300; font-size:0.8rem; letter-spacing:3px; text-transform:uppercase; cursor:pointer; transition:all 0.5s var(--ease-out-expo); backdrop-filter:blur(4px); text-decoration:none; display:inline-flex; align-items:center; gap:10px; justify-content:center; }
+        .btn-secondary:hover { border-color:var(--gold); color:var(--gold); background:rgba(201,168,76,0.04); transform:translateY(-3px); }
+
+        .hero-barber-info { margin-top:50px; padding-top:30px; border-top:1px solid rgba(201,168,76,0.2); display:flex; flex-wrap:wrap; gap:32px 48px; justify-content:center; align-items:center; opacity:0; animation:fadeUp 1s 1.1s var(--ease-out-expo) forwards; }
+        .hero-info-item { display:flex; align-items:center; gap:12px; color:var(--white-dim); font-weight:200; letter-spacing:1px; }
+        .hero-info-item i { color:var(--gold); font-size:1rem; opacity:0.9; }
+        .hero-info-item strong { color:var(--white); font-weight:400; }
+        .hero-info-item a { color:inherit; text-decoration:none; transition:color 0.3s; }
+        .hero-info-item a:hover { color:var(--gold); }
+
+        .scroll-indicator { position:absolute; bottom:40px; left:50%; translate:-50% 0; display:flex; flex-direction:column; align-items:center; gap:8px; opacity:0; animation:fadeUp 1s 1.5s var(--ease-out-expo) forwards; cursor:pointer; }
+        .scroll-indicator span { font-size:0.6rem; letter-spacing:4px; text-transform:uppercase; color:var(--gray); }
+        .scroll-line { width:1px; height:40px; background:linear-gradient(to bottom,var(--gold),transparent); animation:scrollPulse 2s ease-in-out infinite; }
+        @keyframes scrollPulse { 0%,100%{opacity:0.3;transform:scaleY(0.5)} 50%{opacity:1;transform:scaleY(1)} }
+
+        @media (max-width:768px) {
+            .hero-barber-bg { background-position:center 22%; height:100vh; height:100svh; top:0; left:0; }
+            .hero-barber-overlay { height:100vh; height:100svh; top:0; left:0; }
+            .hero-barber-grid { height:100vh; height:100svh; top:0; left:0; }
+            .hero-barber-content { padding:0 24px; margin-top:0; }
+            .hero-barber-brand { gap:12px; }
+            .hero-barber-brand .brand-line { width:30px; }
+            .hero-barber-brand .brand-name { font-size:clamp(1.2rem,6vw,1.6rem); letter-spacing:3px; gap:10px; }
+            .hero-barber-brand .brand-name img { height:32px; }
+            .hero-eyebrow { font-size:0.8rem; letter-spacing:4px; margin-bottom:16px; }
+            .hero-barber h1 { font-size:clamp(2rem,8vw,2.8rem); margin-bottom:18px; }
+            .hero-barber p { font-size:0.95rem; margin-bottom:30px; }
+            .hero-barber-buttons { flex-direction:column; width:100%; }
+            .hero-barber-buttons .btn-primary, .hero-barber-buttons .btn-secondary { padding:15px 30px; font-size:0.68rem; letter-spacing:2px; width:100%; text-align:center; }
+            .hero-barber-info { gap:18px 28px; flex-direction:column; }
+            .scroll-indicator { display:none; }
+        }
+
+        /* ===== SECTIONS ===== */
+        .section { padding:120px 0; position:relative; }
+        .section-alt { background:var(--black-2); }
+        .marble-section { background:linear-gradient(to bottom, var(--black) 0%, rgba(26,26,26,0.82) 12%, rgba(26,26,26,0.70) 40%, rgba(26,26,26,0.70) 60%, rgba(26,26,26,0.82) 88%, var(--black) 100%), url('../marmo-bianco.jpg') center/cover no-repeat; }
+
+        .container { max-width:1280px; margin:0 auto; padding:0 48px; }
+        .section-header { text-align:center; margin-bottom:80px; }
+        .section-eyebrow { font-family:var(--font-serif); font-style:italic; font-size:0.9rem; color:var(--gold); letter-spacing:5px; margin-bottom:16px; display:block; }
+        .section-title { font-family:var(--font-serif); font-size:clamp(2rem,4vw,3.2rem); font-weight:300; line-height:1.15; margin-bottom:16px; }
+        .section-title span { color:var(--gold); font-weight:500; font-style:italic; }
+        .section-sub { color:var(--gray); font-weight:200; letter-spacing:2px; font-size:0.95rem; max-width:600px; margin:0 auto; line-height:1.7; }
+
+        /* ===== SEDE CARD ===== */
+        .sede-icon-original {
+            width: auto;
+            height: 3.7rem;
+            max-width: 5.1rem;
+            display: block;
+            margin: -6px auto 4px;
+            opacity: 0.8;
+            overflow: visible;
+            background: transparent !important;
+            border: 0 !important;
+            padding: 0 !important;
+            transition: transform 0.6s var(--ease-out-expo), opacity 0.6s ease, filter 0.6s ease;
+            filter: drop-shadow(0 4px 14px rgba(201,168,76,0.12));
+        }
+        .sede-card:hover .sede-icon-original { opacity: 1; transform: scale(1.1); filter: drop-shadow(0 6px 22px rgba(201,168,76,0.22)); }
+        .sede-icon-original-fallback-img {
+            height:3.6rem; width:auto; max-width:5rem;
+            margin:0 auto 20px; display:none; opacity:0.8;
+            filter: invert(1) sepia(1) saturate(850%) hue-rotate(7deg) brightness(0.98) contrast(1.3);
+        }
+        .sede-fa-fallback { display:none; }
+        .footer-legal, .footer-legal *, .footer-legal a, a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+            pointer-events: none !important;
+            cursor: default !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            border-bottom: 0 !important;
+            -webkit-text-fill-color: inherit !important;
+        }
+
+        /* ===== STAFF ===== */
+        .staff-section { margin-top:0; }
+        .staff-sede { margin-bottom:0; }
+        .staff-sede-header { margin-bottom:40px; padding-bottom:20px; border-bottom:1px solid rgba(201,168,76,0.1); }
+        .staff-sede-title { font-family:var(--font-serif); font-size:1.6rem; font-weight:400; color:var(--gold); margin-bottom:12px; display:flex; align-items:center; gap:14px; justify-content:center; text-align:center; }
+        .staff-sede-title i { font-size:1.2rem; }
+        .staff-sede-desc { color:var(--gray); font-weight:200; line-height:1.9; max-width:900px; font-size:0.95rem; text-align:center; margin-left:auto; margin-right:auto; }
+        .staff-sede-desc strong { color:var(--white); font-weight:400; }
+        .staff-sede-desc em { color:var(--gold); font-style:italic; }
+        .staff-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:20px; max-width:700px; margin:0 auto; }
+        .staff-card { background:var(--card-bg); border:1px solid rgba(201,168,76,0.10); border-radius:16px; padding:28px 20px; text-align:center; transition:all 0.6s var(--ease-out-expo); backdrop-filter:blur(4px); cursor:pointer; }
+        .staff-card:hover { border-color:rgba(201,168,76,0.25); transform:translateY(-8px); box-shadow:0 20px 50px rgba(0,0,0,0.3); background:var(--card-bg-hover); }
+        .staff-card .avatar { width:110px; height:110px; border-radius:50%; background:linear-gradient(135deg,var(--gray-mid),var(--black-2)); margin:0 auto 16px; display:flex; align-items:center; justify-content:center; border:2px solid rgba(201,168,76,0.15); transition:all 0.6s var(--ease-out-expo); overflow:hidden; position:relative; }
+        .staff-card:hover .avatar { border-color:var(--gold); box-shadow:0 0 30px var(--gold-glow); }
+        .staff-card .avatar i { font-size:2.4rem; color:var(--gold); opacity:0.5; }
+        .staff-card .avatar img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:50%; }
+        .staff-card h4 { font-family:var(--font-serif); font-weight:400; font-size:1.2rem; color:var(--white); margin-bottom:4px; }
+        .staff-card .role { font-size:0.7rem; color:var(--gold); letter-spacing:2.5px; text-transform:uppercase; font-weight:300; }
+
+        /* ===== STAFF LIGHTBOX ===== */
+        .staff-lightbox { position:fixed; inset:0; z-index:9999; background:rgba(10,10,10,0.88); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transition:all 0.5s var(--ease-out-expo); }
+        .staff-lightbox.open { opacity:1; visibility:visible; }
+        .staff-lightbox-card { text-align:center; transform:scale(0.82) translateY(30px); transition:transform 0.5s var(--ease-out-expo); padding:24px; }
+        .staff-lightbox.open .staff-lightbox-card { transform:scale(1) translateY(0); }
+        .staff-lightbox-photo { width:min(320px,72vw); height:min(320px,72vw); border-radius:50%; overflow:hidden; margin:0 auto 30px; border:3px solid rgba(201,168,76,0.4); box-shadow:0 0 90px rgba(201,168,76,0.2); background:linear-gradient(135deg,var(--gray-mid),var(--black-2)); display:flex; align-items:center; justify-content:center; }
+        .staff-lightbox-photo img { width:100%; height:100%; object-fit:cover; display:block; }
+        .staff-lightbox-photo i { font-size:6rem; color:var(--gold); opacity:0.4; }
+        .staff-lightbox-card h3 { font-family:var(--font-serif); font-size:2rem; font-weight:400; margin-bottom:8px; }
+        .staff-lightbox-card .role { color:var(--gold); font-size:0.72rem; letter-spacing:4px; text-transform:uppercase; font-weight:300; }
+        .staff-lightbox-close { position:absolute; top:28px; right:36px; width:52px; height:52px; border-radius:50%; background:rgba(26,26,26,0.6); border:1px solid rgba(201,168,76,0.3); color:var(--gold); font-size:1.1rem; cursor:pointer; transition:all 0.4s var(--ease-out-expo); display:flex; align-items:center; justify-content:center; }
+        .staff-lightbox-close:hover { background:var(--gold); color:var(--black); transform:rotate(90deg); }
+
+        /* ===== LISTINO PREZZI ===== */
+        .listino-panel { display:block; animation:fadeInPage 0.7s var(--ease-out-expo) forwards; }
+        @keyframes fadeInPage { from{opacity:0;transform:translateY(15px)} to{opacity:1;transform:translateY(0)} }
+        .listino-panorama { width:100%; border-radius:20px; overflow:hidden; margin-bottom:36px; border:1px solid rgba(201,168,76,0.12); }
+        .listino-panorama img { width:100%; height:auto; display:block; }
+        @media (max-width:768px) { .listino-panorama { border-radius:14px; margin-bottom:26px; } }
+        .listino-head { display:flex; justify-content:space-between; align-items:center; gap:30px; flex-wrap:wrap; margin-bottom:40px; padding:36px 44px; background:var(--panel-bg); border:1px solid rgba(201,168,76,0.12); border-radius:20px; }
+        .listino-head h3 { font-family:var(--font-serif); font-size:1.7rem; font-weight:400; margin-bottom:10px; }
+        .listino-head h3 span { color:var(--gold); font-style:italic; }
+        .listino-head p { color:var(--gray); font-weight:200; font-size:0.88rem; letter-spacing:0.5px; line-height:1.8; }
+        .listino-head p i { color:var(--gold); margin-right:8px; }
+        .listino-prenota { text-decoration:none; display:inline-flex; align-items:center; gap:12px; white-space:nowrap; padding:16px 38px; }
+        .listino-head-actions { display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
+        .listino-whatsapp { text-decoration:none; display:inline-flex; align-items:center; gap:12px; white-space:nowrap; padding:16px 38px; background:var(--gold); color:var(--black); border-radius:50px; font-size:0.8rem; letter-spacing:3px; text-transform:uppercase; font-weight:500; border:none; cursor:pointer; transition:all 0.5s var(--ease-out-expo); box-shadow:0 8px 40px rgba(201,168,76,0.15); position:relative; overflow:hidden; }
+        .listino-whatsapp::before { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent); transition:left 0.6s; }
+        .listino-whatsapp:hover::before { left:100%; }
+        .listino-whatsapp:hover { background:var(--gold-light); transform:translateY(-3px); box-shadow:0 15px 50px rgba(201,168,76,0.35); }
+        .price-groups { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+        .price-group { background:var(--card-bg); border:1px solid rgba(201,168,76,0.10); border-radius:20px; padding:36px 40px; transition:all 0.5s var(--ease-out-expo); }
+        .price-group:hover { border-color:rgba(201,168,76,0.18); }
+        .price-group h4 { font-family:var(--font-serif); font-weight:400; font-size:1.15rem; color:var(--gold); letter-spacing:1px; margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid rgba(201,168,76,0.15); }
+        .price-row { display:flex; align-items:baseline; gap:14px; padding:8px 0; font-weight:200; font-size:0.93rem; color:var(--white-dim); }
+        .price-row .dots { flex:1; border-bottom:1px dotted rgba(255,255,255,0.16); transform:translateY(-4px); }
+        .price-row .val { color:var(--gold); font-weight:400; white-space:nowrap; font-family:var(--font-serif); font-size:1rem; }
+        .listino-note { text-align:center; color:var(--gray-mid); font-weight:200; font-size:0.8rem; letter-spacing:1px; margin-top:40px; }
+        @media (max-width:1024px) { .price-groups{grid-template-columns:1fr} .listino-head{padding:28px;flex-direction:column;text-align:center} }
+
+        /* ===== GALLERY BARBER ===== */
+        .g-reveal { opacity:0; transform:translateY(40px); transition:opacity 1.2s var(--ease-out-expo), transform 1.2s var(--ease-out-expo); }
+        .g-reveal.visible { opacity:1; transform:translateY(0); }
+        .g-d1 { transition-delay:0.12s; }
+        .g-d2 { transition-delay:0.24s; }
+        .g-d3 { transition-delay:0.36s; }
+        .gallery-label { display:flex; align-items:baseline; gap:28px; margin-bottom:50px; }
+        .gallery-label .num { font-family:var(--font-serif); font-style:italic; color:var(--gold); font-size:1rem; letter-spacing:2px; white-space:nowrap; }
+        .gallery-label h3 { font-family:var(--font-serif); font-weight:400; font-size:clamp(1.7rem,2.8vw,2.3rem); white-space:nowrap; }
+        .gallery-label h3 span { color:var(--gold); font-style:italic; }
+        .gallery-label .line { flex:1; height:1px; background:linear-gradient(90deg, rgba(201,168,76,0.35), transparent); transform:translateY(-6px); }
+        .gallery-label p { color:var(--gray); font-weight:200; font-size:0.75rem; letter-spacing:2.5px; text-transform:uppercase; white-space:nowrap; }
+        .gm-2x2 { grid-column:span 2; grid-row:span 2; }
+        .gm-2x1 { grid-column:span 2; grid-row:span 1; }
+        .gm-1x2 { grid-column:span 1; grid-row:span 2; }
+        @media (max-width:1024px) { .gallery-label { flex-wrap:wrap; gap:12px; margin-bottom:50px; } .gallery-label .line { display:none; } .gallery-label p { width:100%; } }
+
+        .barber-grid { display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:200px; grid-auto-flow:dense; gap:16px; }
+        .sposa-gallery-item { border-radius:16px; overflow:hidden; position:relative; cursor:pointer; border:1px solid rgba(255,255,255,0.06); transition:all 0.6s var(--ease-out-expo); }
+        .sposa-gallery-item:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(0,0,0,0.3); border-color:rgba(201,168,76,0.15); }
+        .sposa-gallery-item img { width:100%; height:100%; object-fit:cover; object-position:center 18%; transition:transform 1.2s var(--ease-out-expo); }
+        .sposa-gallery-item img.pos-center { object-position:center 50%; }
+        .sposa-gallery-item:hover img { transform:scale(1.08); }
+        .sposa-gallery-item .overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(26,26,26,0.85) 0%,transparent 60%); display:flex; flex-direction:column; align-items:center; justify-content:flex-end; padding:24px; opacity:0; transition:all 0.5s var(--ease-out-expo); text-align:center; }
+        .sposa-gallery-item:hover .overlay { opacity:1; }
+        .sposa-gallery-item .overlay span { color:var(--white); font-family:var(--font-serif); font-size:1.05rem; }
+        .sposa-gallery-item .overlay .cat { color:var(--gold); font-size:0.65rem; letter-spacing:3px; text-transform:uppercase; margin-top:6px; }
+        .sg-quad { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:4px; width:100%; height:100%; }
+        .sg-quad .q-img { width:100%; height:100%; position:relative; overflow:hidden; border-radius:10px; }
+        .sg-quad .q-img img { width:100%; height:100%; object-fit:cover; object-position:center 50%; transition:transform 1.1s var(--ease-out-expo); display:block; }
+        .sg-quad .q-img img.pos-center { object-position:center 50%; }
+        .sposa-gallery-item:hover .sg-quad .q-img img { transform:scale(1.06); }
+        .sposa-gallery-item .sg-main { position:absolute; left:-9999px; width:1px; height:1px; opacity:0; pointer-events:none; }
+        @media (max-width:1024px) { .barber-grid { grid-template-columns:repeat(3,1fr); grid-auto-rows:180px; } }
+        @media (max-width:768px) { .barber-grid { grid-template-columns:repeat(2,1fr); grid-auto-rows:170px; gap:12px; } .sposa-gallery-item .overlay{padding:14px} .sposa-gallery-item .overlay span{font-size:0.9rem} .sposa-gallery-item .overlay .cat{font-size:0.55rem} }
+
+        /* ===== GALLERIA LIGHTBOX ===== */
+        .gallery-lightbox { position:fixed; inset:0; z-index:9999; background:rgba(10,10,10,0.94); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transition:all 0.5s var(--ease-out-expo); }
+        .gallery-lightbox.open { opacity:1; visibility:visible; }
+        .gallery-lightbox-figure { text-align:center; transform:scale(0.92) translateY(20px); transition:transform 0.5s var(--ease-out-expo); max-width:92vw; padding:0 70px; }
+        .gallery-lightbox.open .gallery-lightbox-figure { transform:scale(1) translateY(0); }
+        .gallery-lightbox-figure img { max-width:100%; max-height:78vh; border-radius:14px; box-shadow:0 30px 90px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,168,76,0.2); display:block; margin:0 auto; }
+        .gallery-lightbox-caption { margin-top:18px; }
+        .gallery-lightbox-caption h3 { font-family:var(--font-serif); font-size:1.4rem; font-weight:400; color:var(--white); }
+        .gallery-lightbox-caption .cat { color:var(--gold); font-size:0.65rem; letter-spacing:3px; text-transform:uppercase; font-weight:300; }
+        .gallery-lightbox-close { position:absolute; top:28px; right:36px; width:52px; height:52px; border-radius:50%; background:rgba(26,26,26,0.6); border:1px solid rgba(201,168,76,0.3); color:var(--gold); font-size:1.1rem; cursor:pointer; transition:all 0.4s var(--ease-out-expo); display:flex; align-items:center; justify-content:center; z-index:10; }
+        .gallery-lightbox-close:hover { background:var(--gold); color:var(--black); transform:rotate(90deg); }
+        .gallery-lightbox-nav { position:absolute; top:50%; transform:translateY(-50%); width:52px; height:52px; border-radius:50%; background:rgba(26,26,26,0.6); border:1px solid rgba(201,168,76,0.3); color:var(--gold); font-size:1rem; cursor:pointer; transition:all 0.4s var(--ease-out-expo); display:flex; align-items:center; justify-content:center; z-index:10; }
+        .gallery-lightbox-nav:hover { background:var(--gold); color:var(--black); }
+        .gallery-lightbox-prev { left:28px; }
+        .gallery-lightbox-next { right:28px; }
+        .gallery-lightbox-counter { position:absolute; bottom:26px; left:50%; transform:translateX(-50%); color:var(--gray); font-size:0.7rem; letter-spacing:3px; font-weight:300; }
+        @media (max-width:768px) {
+            .gallery-lightbox-figure { padding:0 12px; }
+            .gallery-lightbox-figure img { max-height:64vh; }
+            .gallery-lightbox-nav { width:44px; height:44px; top:auto; bottom:70px; transform:none; }
+            .gallery-lightbox-prev { left:24px; }
+            .gallery-lightbox-next { right:24px; }
+            .gallery-lightbox-close { top:20px; right:20px; width:46px; height:46px; }
+            .staff-lightbox-close { top:20px; right:20px; width:46px; height:46px; }
+            .staff-lightbox-card h3 { font-size:1.5rem; }
+        }
+
+        /* ===== CTA PRENOTAZIONE ===== */
+        .barber-cta-section { padding:120px 0; position:relative; overflow:hidden; }
+        .barber-cta-section::before { content:'BARBER'; position:absolute; top:60px; left:50%; transform:translateX(-50%); font-family:var(--font-serif); font-size:clamp(4rem,14vw,12rem); font-weight:500; letter-spacing:12px; color:rgba(255,255,255,0.022); white-space:nowrap; pointer-events:none; user-select:none; text-transform:uppercase; }
+        .barber-cta-section::after { content:''; position:absolute; inset:0; background:
+            radial-gradient(ellipse 60% 40% at 50% 0%, rgba(201,168,76,0.08), transparent 70%),
+            radial-gradient(ellipse 40% 30% at 10% 100%, rgba(201,168,76,0.05), transparent 70%),
+            radial-gradient(ellipse 40% 30% at 90% 100%, rgba(201,168,76,0.05), transparent 70%);
+            pointer-events:none; }
+        .barber-cta { text-align:center; padding:80px 40px; background:var(--panel-bg); border-radius:24px; border:1px solid rgba(201,168,76,0.12); position:relative; max-width:900px; margin:0 auto; }
+        .barber-cta-icon { width:70px; height:70px; margin:0 auto 28px; border-radius:50%; background:linear-gradient(135deg, rgba(201,168,76,0.22), rgba(201,168,76,0.06)); display:flex; align-items:center; justify-content:center; border:1px solid rgba(201,168,76,0.3); }
+        .barber-cta-icon i { color:var(--gold); font-size:1.8rem; }
+        .barber-cta h3 { font-family:var(--font-serif); font-size:clamp(1.8rem,3.2vw,2.5rem); font-weight:300; margin-bottom:16px; }
+        .barber-cta h3 span { color:var(--gold); font-style:italic; font-weight:500; }
+        .barber-cta p { color:var(--gray); font-weight:200; margin-bottom:36px; max-width:560px; margin-left:auto; margin-right:auto; line-height:1.8; font-size:1rem; }
+        .barber-cta p strong { color:var(--white); font-weight:400; }
+        .barber-cta-buttons { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
+        /* ===== CONTATTI ===== */
+        .contact-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:80px; align-items:start; }
+        @media (max-width:1024px) { .contact-grid{grid-template-columns:1fr;gap:60px} }
+        .contact-info-card { background:var(--panel-bg); border:1px solid rgba(201,168,76,0.10); border-radius:24px; padding:48px 44px; }
+        .contact-info-card h3 { font-family:var(--font-serif); font-size:1.8rem; font-weight:400; margin-bottom:32px; }
+        .contact-info-card h3 span { color:var(--gold); font-style:italic; }
+        .contact-info-card .info-item { display:flex; align-items:flex-start; gap:18px; margin-bottom:28px; }
+        .contact-info-card .info-item i { color:var(--gold); font-size:1rem; margin-top:4px; width:22px; text-align:center; flex-shrink:0; }
+        .contact-info-card .info-item div strong { color:var(--white); font-weight:400; display:block; margin-bottom:6px; font-size:0.95rem; letter-spacing:0.5px; }
+        .contact-info-card .info-item div span { color:var(--gray); font-weight:200; font-size:0.92rem; line-height:1.7; display:block; }
+        .contact-info-card .info-item div span a { color:var(--gold); text-decoration:none; transition:opacity 0.3s; font-weight:300; }
+        .contact-info-card .info-item div span a:hover { opacity:0.75; text-decoration:underline; }
+        .contact-divider { border:none; border-top:1px solid rgba(255,255,255,0.08); margin:32px 0; }
+        .contact-badges { display:flex; gap:12px; margin-top:32px; flex-wrap:wrap; }
+        .contact-badge { background:rgba(201,168,76,0.08); color:var(--gold); padding:10px 24px; border-radius:50px; font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; border:1px solid rgba(201,168,76,0.15); transition:all 0.4s; cursor:pointer; display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:400; }
+        .contact-badge:hover { background:var(--gold); color:var(--black); border-color:var(--gold); transform:translateY(-2px); }
+
+        .maps-frame { border-radius:20px; overflow:hidden; border:1px solid rgba(201,168,76,0.12); height:100%; min-height:500px; background:var(--black-3); position:relative; }
+        .maps-frame iframe { width:100%; height:100%; min-height:500px; border:0; display:block; filter:grayscale(1) contrast(1.1) brightness(0.8) invert(0.92) hue-rotate(180deg); }
+        @media (max-width:768px) { .maps-frame iframe { min-height:380px; } }
+
+        /* ===== COOKIE BANNER & POLICY ===== */
+        .cookie-banner { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(180%); width:min(920px, calc(100% - 48px)); background:rgba(34,34,34,0.92); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgba(201,168,76,0.25); border-radius:20px; padding:26px 32px; display:flex; align-items:center; gap:28px; z-index:99990; transition:transform 0.8s var(--ease-out-expo); box-shadow:0 20px 60px rgba(0,0,0,0.5); }
+        .cookie-banner.show { transform:translateX(-50%) translateY(0); }
+        .cookie-banner .cookie-text { flex:1; }
+        .cookie-banner .cookie-text p { color:var(--white-dim); font-weight:200; font-size:0.85rem; line-height:1.7; }
+        .cookie-banner .cookie-text p strong { color:var(--white); font-weight:400; }
+        .cookie-banner .cookie-text a { color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(201,168,76,0.4); cursor:pointer; transition:border-color 0.4s; }
+        .cookie-banner .cookie-text a:hover { border-color:var(--gold); }
+        .cookie-banner .cookie-actions { display:flex; gap:12px; flex-shrink:0; }
+        .cookie-accept { background:var(--gold); color:var(--black); border:none; padding:13px 32px; border-radius:50px; font-weight:500; font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; cursor:pointer; transition:all 0.4s var(--ease-out-expo); }
+        .cookie-accept:hover { background:var(--gold-light); transform:translateY(-2px); box-shadow:0 8px 30px rgba(201,168,76,0.3); }
+        .cookie-refuse { background:transparent; color:var(--white-dim); border:1px solid rgba(255,255,255,0.2); padding:13px 32px; border-radius:50px; font-weight:300; font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; cursor:pointer; transition:all 0.4s var(--ease-out-expo); }
+        .cookie-refuse:hover { border-color:var(--gold); color:var(--gold); }
+        @media (max-width:768px) { .cookie-banner{flex-direction:column;text-align:center;gap:18px;padding:24px;bottom:12px;width:calc(100% - 24px)} .cookie-banner .cookie-actions{width:100%} .cookie-accept,.cookie-refuse{flex:1} }
+
+        /* ===== FOOTER ===== */
+        footer { padding:80px 0 40px; border-top:1px solid rgba(255,255,255,0.06); background:var(--black-2); text-align:center; }
+        footer .logo { justify-content:center; font-size:1.4rem; margin-bottom:20px; }
+        footer .logo img { height:36px; }
+        footer .tagline { color:var(--gray); font-weight:200; font-size:0.85rem; letter-spacing:3px; margin-bottom:8px; }
+        footer .copyright { color:var(--gray-mid); font-weight:200; font-size:0.8rem; letter-spacing:1px; }
+        footer .copyright a { color:inherit; cursor:pointer; text-decoration:none; transition:color 0.4s; }
+        footer .copyright a:hover { color:var(--gold); }
+        footer .socials { display:flex; justify-content:center; gap:30px; margin-top:30px; }
+        footer .socials a { color:var(--gray); font-size:1.2rem; transition:all 0.4s var(--ease-out-expo); width:44px; height:44px; display:flex; align-items:center; justify-content:center; border-radius:50%; border:1px solid rgba(255,255,255,0.08); text-decoration:none; }
+        footer .socials a:hover { color:var(--gold); border-color:rgba(201,168,76,0.3); transform:translateY(-4px); background:rgba(201,168,76,0.05); }
+        footer .socials-block { margin-top:44px; }
+        footer .socials-title { display:block; font-family:var(--font-serif); font-style:italic; font-size:0.9rem; color:var(--gold); letter-spacing:5px; margin-bottom:28px; }
+        footer .socials-groups { display:flex; justify-content:center; align-items:flex-start; gap:80px; flex-wrap:wrap; }
+        footer .social-brand { font-family:var(--font-serif); font-size:1.05rem; color:var(--white); letter-spacing:1px; margin-bottom:4px; }
+        footer .social-sub { color:var(--gray); font-weight:200; font-size:0.7rem; letter-spacing:2px; margin-bottom:16px; }
+        footer .social-group .socials { margin-top:0; gap:16px; }
+        .payments { margin-top:36px; }
+        .payments-label { display:block; color:var(--gray-mid); font-size:0.65rem; letter-spacing:3px; text-transform:uppercase; margin-bottom:14px; }
+        .pay-badges { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; }
+        .pay-badge { display:inline-flex; align-items:center; gap:8px; color:var(--gray-light); border:1px solid rgba(255,255,255,0.1); padding:9px 20px; border-radius:50px; font-size:0.72rem; letter-spacing:1.5px; font-weight:300; background:rgba(255,255,255,0.02); }
+        .pay-badge i { font-size:1.05rem; color:var(--gold); }
+        .pay-satispay { color:var(--gold); font-weight:500; letter-spacing:2px; }
+        .footer-admin-link { display:inline-block; margin-top:10px; font-size:0.66rem; font-weight:200; letter-spacing:1.2px; color:var(--gray-mid); text-decoration:none; opacity:0.55; transition:all 0.4s var(--ease-out-expo); }
+        .footer-admin-link i { font-size:0.62rem; margin-right:6px; opacity:0.85; }
+        .footer-admin-link:hover { color:var(--gold); opacity:0.95; letter-spacing:1.5px; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width:1024px) { .staff-grid{grid-template-columns:repeat(2,1fr)} }
+        @media (max-width:968px) {
+            .nav-links { position:fixed; top:0; right:-100%; width:80%; max-width:340px; height:100vh; flex-direction:column; background:rgba(10,10,10,0.96); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); padding:90px 32px 32px; gap:22px; transition:right 0.6s var(--ease-out-expo); border-left:1px solid rgba(255,255,255,0.06); z-index:1000; }
+            .nav-links.open { right:0; }
+            .nav-links li { width:100%; }
+            .nav-links a { font-size:0.82rem; padding:10px 0; width:100%; }
+            .hamburger { display:flex; }
+            .lang-switch { display:none; }
+        }
+        @media (max-width:768px) {
+            .container{padding:0 24px}
+            .nav-container{padding:0 24px}
+            .section{padding:80px 0}
+            .section-header{margin-bottom:50px}
+            .barber-cta { padding:56px 24px; margin-top:0; border-radius:18px; }
+            .barber-cta h3 { font-size:1.6rem; }
+            .barber-cta-buttons { flex-direction:column; width:100%; }
+            .barber-cta-buttons .btn-primary, .barber-cta-buttons .btn-secondary { width:100%; padding:15px 24px; font-size:0.68rem; letter-spacing:1.8px; }
+            .contact-info-card { padding:32px 24px; }
+            .listino-head-actions { width:100%; flex-direction:column; gap:12px; }
+            .listino-prenota, .listino-whatsapp { width:100%; justify-content:center; white-space:normal; text-align:center; padding:14px 20px; font-size:0.68rem; letter-spacing:1.5px; gap:8px; }
+            .price-group { padding:26px 20px; }
+            footer .socials-groups{gap:40px}
+        }
+        @media (max-width:480px) {
+            .staff-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+            .staff-card{padding:20px 12px}
+            .staff-card .avatar{width:80px;height:80px}
+            .contact-badges { flex-direction:column; }
+            .contact-badge { justify-content:center; }
+        }
+
+        /* ===== REVEAL ON SCROLL ===== */
+        .reveal { opacity:0; transform:translateY(40px); transition:all 0.8s var(--ease-out-expo); }
+        .reveal.visible { opacity:1; transform:translateY(0); }
+        .reveal-delay-1 { transition-delay:0.1s; }
+        .reveal-delay-2 { transition-delay:0.2s; }
+        .reveal-delay-3 { transition-delay:0.3s; }
+        .reveal-delay-4 { transition-delay:0.4s; }
+    </style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav id="mainNav">
+    <div class="nav-container">
+        <a href="../index.html" class="logo">
+            <img src="../logo-site.png" alt="MZ Parrucchieri"/>
+            <span>Parrucchieri</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="../index.html?skipintro=1#home">Home</a></li>
+            <li><a href="../index.html?skipintro=1#chi-siamo">Chi Siamo</a></li>
+            <li><a href="../index.html?skipintro=1#servizi">Servizi</a></li>
+            <li><a href="../index.html?skipintro=1#make-up">Make Up</a></li>
+            <li><a href="../index.html?skipintro=1#prodotti">Prodotti</a></li>
+            <li><a href="../index.html?skipintro=1#sposa">Sposa</a></li>
+            <li><a href="../index.html?skipintro=1#galleria">Galleria</a></li>
+            <li><a href="../index.html?skipintro=1#contatti">Contatti</a></li>
+        </ul>
+        <div class="nav-right">
+            <a class="nav-cta" style="text-decoration:none" href="https://wa.me/393888604444?text=Ciao%2C%20vorrei%20prenotare%20al%20MZ%20Barber%20Shop%20di%20Medicina" target="_blank" rel="noopener">
+                <i class="fab fa-whatsapp"></i>Prenota
+            </a>
+            <div class="lang-switch">
+                <a href="../index.html?skipintro=1" class="lang-btn active">IT</a>
+                <a href="../index-en.html?skipintro=1" class="lang-btn">EN</a>
+            </div>
+            <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== HERO BARBER ===== -->
+<section class="hero-barber">
+    <div class="hero-barber-bg"></div>
+    <div class="hero-barber-overlay"></div>
+    <div class="hero-barber-grid"></div>
+    <div class="hero-barber-content">
+        <p class="hero-eyebrow">Gentleman's Corner · Dal 2022</p>
+        <h1>MZ Barber <span>Shop</span></h1>
+        <p>Taglio uomo, ragazzo e bimbo, rifiniture barba, <strong>Barba Spa</strong> e <strong>rasature tradizionali</strong> con asciugamani caldi. A Medicina, in un'atmosfera old school irripetibile.</p>
+        <div class="hero-barber-buttons">
+            <a class="btn-primary" href="https://wa.me/393888604444" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Prenota WhatsApp</a>
+            <a class="btn-secondary" href="tel:+393888604444"><i class="fas fa-phone"></i> Chiama 388 8604444</a>
+        </div>
+        <div class="hero-barber-info">
+            <div class="hero-info-item"><i class="fas fa-location-dot"></i><span><strong><a href="https://www.google.com/maps/search/?api=1&query=MZ+Barber+Shop+Via+O.+Argentesi+22+Medicina" target="_blank" rel="noopener">Via O. Argentesi 22, Medicina (BO)</a></strong></span></div>
+            <div class="hero-info-item"><i class="far fa-clock"></i><span><strong>Mar-Ven 9:30-19:30 · Sab 9:00-18:00</strong></span></div>
+            <div class="hero-info-item"><i class="fas fa-phone"></i><span><strong><a href="tel:+393888604444">388 8604444</a></strong></span></div>
+        </div>
+    </div>
+    <div class="scroll-indicator" onclick="document.getElementById('listino-prezzi').scrollIntoView({behavior:'smooth'})">
+        <span>Scopri listino</span>
+        <div class="scroll-line"></div>
+    </div>
+</section>
+
+<!-- ===== LISTINO PREZZI ===== -->
+<section class="section marble-section" id="listino-prezzi">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-eyebrow">Tariffe aggiornate 2026</span>
+            <h2 class="section-title">Listino <span>Prezzi</span></h2>
+            <p class="section-sub">Tutti i servizi del nostro Barber Shop: professionalità e prodotti Level 3</p>
+        </div>
+        <div class="listino-panel reveal">
+            <div class="listino-panorama">
+                <img src="../barber-panorama.jpg" alt="Interno del MZ Barber Shop Medicina" loading="lazy"/>
+            </div>
+            <div class="listino-head">
+                <div>
+                    <h3>MZ Barber Shop <span>Medicina</span></h3>
+                    <p><i class="fas fa-location-dot"></i> Via O. Argentesi 22, Medicina (BO)<br><i class="far fa-clock"></i> Mar-Ven 9:30-19:30 · Sab 9:00-18:00</p>
+                </div>
+                <div class="listino-head-actions">
+                    <a class="btn-primary listino-prenota" href="tel:+393888604444"><i class="fas fa-phone"></i> Prenota · 388 8604444</a>
+                    <a class="listino-whatsapp" href="https://wa.me/393888604444" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp · 388 8604444</a>
+                    <a class="listino-whatsapp" href="https://www.google.com/maps/search/?api=1&query=MZ+Barber+Shop+Via+O.+Argentesi+22+Medicina" target="_blank" rel="noopener"><i class="fas fa-location-dot"></i> Raggiungici</a>
+                </div>
+            </div>
+            <div class="price-groups">
+                <div class="price-group">
+                    <h4>Capelli</h4>
+                    <div class="price-row"><span>Taglio Uomo</span><span class="dots"></span><span class="val">21 €</span></div>
+                    <div class="price-row"><span>Taglio Ragazzo 14-18</span><span class="dots"></span><span class="val">21 €</span></div>
+                    <div class="price-row"><span>Taglio Uomo Laterali</span><span class="dots"></span><span class="val">16 €</span></div>
+                    <div class="price-row"><span>Taglio Bimbo 0-13 anni</span><span class="dots"></span><span class="val">17 €</span></div>
+                </div>
+                <div class="price-group">
+                    <h4>Barba</h4>
+                    <div class="price-row"><span>Rifilatura Barba</span><span class="dots"></span><span class="val">17 €</span></div>
+                    <div class="price-row"><span>Barba Spa</span><span class="dots"></span><span class="val">32 €</span></div>
+                </div>
+            </div>
+        </div>
+        <p class="listino-note">Listini 2026 ufficiali MZ Parrucchieri · I prezzi possono variare in base a lunghezza e quantità · Per un preventivo preciso chiama la sede</p>
+    </div>
+</section>
+
+<!-- ===== TEAM BARBER ===== -->
+<section class="section">
+    <div class="container">
+        <div class="staff-section">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">I nostri barbieri</span>
+                <h2 class="section-title">Il <span>Team</span></h2>
+                <p class="section-sub">Tre artigiani della cura maschile, sempre aggiornati sulle ultime tendenze</p>
+            </div>
+            <div class="staff-sede reveal">
+                <div class="staff-sede-header">
+                    <h3 class="staff-sede-title"><i class="fas fa-cut"></i> Team Barber Shop Medicina</h3>
+                    <p class="staff-sede-desc">Nel Barber Shop di Medicina troverai <strong>Gabriele, Daniele e Mirco</strong>, sempre pronti ad allinearsi alle nuove tendenze riguardanti la cura dell'aspetto dell'uomo. Barbe lunghe, barbe corte, curate con la massima attenzione e rasature rilassanti con impacchi di asciugamani caldi e freddi: un vero rituale per uomini, senza trascurare la cura del capello, dal taglio a macchinetta al classico pettine e forbici <em>old school</em>.</p>
+                </div>
+                <div class="staff-grid">
+                    <div class="staff-card" onclick="openStaffLightbox(this)">
+                        <div class="avatar"><i class="fas fa-user"></i><img src="../staff/gabriele.jpg" alt="Gabriele - Barber MZ Barber Shop Medicina" loading="lazy" onerror="this.remove()"/></div>
+                        <h4>Gabriele</h4>
+                        <span class="role">Barber</span>
+                    </div>
+                    <div class="staff-card" onclick="openStaffLightbox(this)">
+                        <div class="avatar"><i class="fas fa-user"></i><img src="../staff/daniele.jpg" alt="Daniele - Barber MZ Barber Shop Medicina" loading="lazy" onerror="this.remove()"/></div>
+                        <h4>Daniele</h4>
+                        <span class="role">Barber</span>
+                    </div>
+                    <div class="staff-card" onclick="openStaffLightbox(this)">
+                        <div class="avatar"><i class="fas fa-user"></i><img src="../staff/mirco.jpg" alt="Mirco - Barber MZ Barber Shop Medicina" loading="lazy" onerror="this.remove()"/></div>
+                        <h4>Mirco</h4>
+                        <span class="role">Barber</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== GALLERIA BARBER ===== -->
+<section class="section section-alt" id="galleria-barber">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-eyebrow">I nostri lavori</span>
+            <h2 class="section-title">Galleria <span>Barber</span></h2>
+            <p class="section-sub">Tagli, barbe, rasature e atmosfera: il nostro mondo in immagini</p>
+        </div>
+        <div class="gallery-label g-reveal">
+            <span class="num">01</span>
+            <h3>Tagli & <span>Barbe</span></h3>
+            <div class="line"></div>
+            <p>Barber Collection</p>
+        </div>
+        <div class="sposa-gallery-grid barber-grid">
+            <div class="sposa-gallery-item gm-2x2 g-reveal" onclick="openGalleryLightbox(this)">
+                <img src="../galleria/barber-01.jpg" class="pos-center" alt="Fade con riccio e barba — MZ Barber Shop" loading="lazy"/>
+                <div class="overlay"><span>Fade e Riccio</span><span class="cat">Taglio</span></div>
+            </div>
+            <div class="sposa-gallery-item g-reveal g-d1" onclick="openGalleryLightbox(this)">
+                <img src="../galleria/barber-02.jpg" class="pos-center" alt="Hair tattoo con linee freestyle — MZ Barber Shop" loading="lazy"/>
+                <div class="overlay"><span>Hair Tattoo</span><span class="cat">Design</span></div>
+            </div>
+            <div class="sposa-gallery-item g-reveal g-d2" onclick="openGalleryLightbox(this)">
+                <img src="../galleria/barber-03.jpg" class="pos-center" alt="Taper fade classico — MZ Barber Shop" loading="lazy"/>
+                <div class="overlay"><span>Taper Classico</span><span class="cat">Taglio</span></div>
+            </div>
+            <div class="sposa-gallery-item gm-2x1 g-reveal g-d3" onclick="openGalleryLightbox(this)">
+                <img src="../galleria/barber-04.jpg" class="pos-center" alt="Fade alto con ciuffo — MZ Barber Shop" loading="lazy"/>
+                <div class="overlay"><span>Fade con Ciuffo</span><span class="cat">Taglio</span></div>
+            </div>
+            <div class="sposa-gallery-item g-reveal" onclick="openGalleryLightbox(this)">
+                <img src="../galleria/barber-05.jpg" class="pos-center" alt="Riccio naturale maschile — MZ Barber Shop" loading="lazy"/>
+                <div class="overlay"><span>Riccio Naturale</span><span class="cat">Styling</span></div>
+            </div>
+            <div class="sposa-gallery-item g-reveal g-d1" onclick="openGalleryLightbox(this)">
+                <img src="../galleria/barber-06.jpg" class="pos-center" alt="Taglio biondo ghiaccio — MZ Barber Shop" loading="lazy"/>
+                <div class="overlay"><span>Biondo Ghiaccio</span><span class="cat">Colore</span></div>
+            </div>
+            <div class="sposa-gallery-item gm-2x2 g-reveal g-d2" onclick="openGalleryLightbox(this)">
+                <img src="../galleria/barber-07.jpg" class="pos-center" alt="Barbiere al lavoro con lo styling — MZ Barber Shop" loading="lazy"/>
+                <div class="overlay"><span>Il Tocco Finale</span><span class="cat">Backstage</span></div>
+            </div>
+            <div class="sposa-gallery-item gm-1x2 g-reveal g-d3" onclick="openGalleryLightbox(this)">
+                <img src="../galleria/barber-09.jpg" class="pos-center" alt="Taglio pulito visto da dietro — MZ Barber Shop" loading="lazy"/>
+                <div class="overlay"><span>Linee Pulite</span><span class="cat">Taglio</span></div>
+            </div>
+            <div class="sposa-gallery-item g-reveal" onclick="openGalleryLightbox(this)">
+                <img src="../galleria/barber-11.jpg" class="pos-center" alt="Low fade con frangia — MZ Barber Shop" loading="lazy"/>
+                <div class="overlay"><span>Low Fade</span><span class="cat">Taglio</span></div>
+            </div>
+            <div class="sposa-gallery-item gm-2x1 g-reveal g-d1" onclick="openGalleryLightbox(this)">
+                <img src="../galleria/barber-13.jpg" class="pos-center" alt="Rifinitura con rasoio a mano libera — MZ Barber Shop" loading="lazy"/>
+                <div class="overlay"><span>Rasoio a Mano Libera</span><span class="cat">Barba</span></div>
+            </div>
+            <div class="sposa-gallery-item g-reveal g-d2" onclick="openGalleryLightbox(this)">
+                <img src="../galleria/barber-15.jpg" class="pos-center" alt="Cliente in poltrona dal barbiere — MZ Barber Shop" loading="lazy"/>
+                <div class="overlay"><span>In Poltrona</span><span class="cat">Backstage</span></div>
+            </div>
+            <div class="sposa-gallery-item g-reveal g-d3" onclick="openGalleryLightbox(this)">
+                <img src="../galleria/barber-17.jpg" class="pos-center" alt="La reception del barber shop — MZ Barber Shop" loading="lazy"/>
+                <div class="overlay"><span>La Reception</span><span class="cat">Ambiente</span></div>
+            </div>
+            <div class="sposa-gallery-item gm-2x2 g-reveal" onclick="openGalleryLightbox(this)">
+                <img class="sg-main" src="../galleria/experience-barber-01.jpg" alt="Collage Interno Barber Shop — foto principale" loading="lazy"/>
+                <div class="sg-quad">
+                    <div class="q-img"><img src="../galleria/experience-barber-01.jpg" class="pos-center" alt="Angolo barber shop MZ — foto 1" loading="lazy"/></div>
+                    <div class="q-img"><img src="../galleria/experience-barber-02.jpg" class="pos-center" alt="Angolo barber shop MZ — foto 2" loading="lazy"/></div>
+                    <div class="q-img"><img src="../galleria/experience-barber-03.jpg" class="pos-center" alt="Angolo barber shop MZ — foto 3" loading="lazy"/></div>
+                    <div class="q-img"><img src="../galleria/experience-barber-04.jpg" class="pos-center" alt="Angolo barber shop MZ — foto 4" loading="lazy"/></div>
+                </div>
+                <div class="overlay"><span>Barber Corner</span><span class="cat">Ambiente</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA PRENOTAZIONE ESCLUSIVA BARBER ===== -->
+<section class="barber-cta-section">
+    <div class="container">
+        <div class="barber-cta reveal">
+            <div class="barber-cta-icon">
+                <i class="fas fa-razor"></i>
+            </div>
+            <h3>Pronto per il tuo <span>rituale</span>?</h3>
+            <p>Prenota ora il tuo appuntamento da <strong>MZ Barber Shop Medicina</strong>. Taglio, barba o rasatura tradizionale: scegli il canale che preferisci per parlare direttamente con noi.</p>
+            <div class="barber-cta-buttons">
+                <a class="btn-primary" href="https://wa.me/393888604444" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Prenota WhatsApp</a>
+                <a class="btn-secondary" href="tel:+393888604444"><i class="fas fa-phone"></i> Chiama 388 8604444</a>
+                <a class="btn-secondary" href="https://www.google.com/maps/search/?api=1&query=MZ+Barber+Shop+Via+O.+Argentesi+22+Medicina" target="_blank" rel="noopener"><i class="fas fa-location-dot"></i> Raggiungici in sede</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CONTATTI ===== -->
+<section class="section marble-section" id="contatti">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-eyebrow">Dove trovarci</span>
+            <h2 class="section-title">Contatti & <span>Mappa</span></h2>
+            <p class="section-sub">Siamo a Medicina (BO), a due passi dal centro</p>
+        </div>
+        <div class="contact-grid reveal">
+            <div class="contact-info-card">
+                <h3>MZ Barber Shop <span>Medicina</span></h3>
+                <svg class="sede-icon-original" role="img" viewBox="0 0 520 640" preserveAspectRatio="xMidYMid meet" aria-label="Barber Shop Medicina — Icona Gentleman Barbuto" onerror="this.onerror=null;this.style.display='none';var n=this.nextElementSibling;if(n){n.style.display='block';}">
+                    <defs>
+                        <filter id="barberIconGold" x="-5%" y="-5%" width="110%" height="110%">
+                            <feColorMatrix type="matrix" values="-1  0  0  0  1
+                                                                   0 -1  0  0  1
+                                                                   0  0 -1  0  1
+                                                                   0  0  0  1  0"/>
+                            <feMorphology operator="dilate" radius="2.2"/>
+                            <feComponentTransfer>
+                                <feFuncA type="discrete" tableValues="0 0 0 0 0 1 1 1 1 1 1"/>
+                            </feComponentTransfer>
+                            <feColorMatrix type="matrix" values="0  0  0  0  0.788235
+                                                                   0  0  0  0  0.658824
+                                                                   0  0  0  0  0.298039
+                                                                   0  0  0  1  0"/>
+                        </filter>
+                    </defs>
+                    <image x="0" y="0" width="520" height="640" href="../barber-icon-original.png"
+                           preserveAspectRatio="xMidYMid meet"
+                           filter="url(#barberIconGold)"/>
+                </svg>
+                <img class="sede-icon-original-fallback-img" src="../barber-icon-original.png" alt="Barber Shop Medicina Icona" style="display:none;margin-bottom:28px" onerror="this.onerror=null;this.style.display='none';var fb=this.nextElementSibling;if(fb){fb.style.display='block';}">
+                <i class="fas fa-cut sede-fa-fallback" style="display:none;color:var(--gold);font-size:2rem;margin-bottom:28px;display:none"></i>
+                <div class="info-item">
+                    <i class="fas fa-location-dot"></i>
+                    <div>
+                        <strong>Indirizzo</strong>
+                        <span>Via O. Argentesi 22<br>40059 Medicina (BO)</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <strong>Telefono</strong>
+                        <span><a href="tel:+393888604444">+39 388 8604444</a></span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <strong>WhatsApp</strong>
+                        <span><a href="https://wa.me/393888604444" target="_blank" rel="noopener">388 8604444</a></span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="far fa-clock"></i>
+                    <div>
+                        <strong>Orari</strong>
+                        <span>Martedì – Venerdì: 9:30 – 19:30<br>Sabato: 9:00 – 18:00<br>Chiuso: Domenica e Lunedì</span>
+                    </div>
+                </div>
+                <hr class="contact-divider">
+                <div class="info-item">
+                    <i class="fas fa-star"></i>
+                    <div>
+                        <strong>La tua recensione</strong>
+                        <span><a href="https://www.google.com/maps/place/MZ+Barber+Shop/@44.4711009,11.600249,14z/data=!4m12!1m2!2m1!1sMz+Parrucchieri!3m8!1s0x477e27f0e27dca0d:0xd49d03b57485f727!8m2!3d44.4711009!4d11.6383578!9m1!1b1!15sCg9NeiBQYXJydWNjaGllcmkiA4gBAVoRIg9teiBwYXJydWNjaGllcmmSAQpoYWlyX3NhbG9umgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVVJtYkRsNlNUQkJSUkFC4AEA-gEECAAQSw!16s%2Fg%2F11s7cj5xpl?entry=ttu&g_ep=EgoyMDI2MDgwNS4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Scrivi una recensione su Google</a></span>
+                    </div>
+                </div>
+                <div class="contact-badges">
+                    <a class="contact-badge" href="https://wa.me/393888604444" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a class="contact-badge" href="tel:+393888604444"><i class="fas fa-phone"></i> Chiama ora</a>
+                    <a class="contact-badge" href="https://www.google.com/maps/search/?api=1&query=MZ+Barber+Shop+Via+O.+Argentesi+22+Medicina" target="_blank" rel="noopener"><i class="fas fa-location-dot"></i> Indicazioni</a>
+                </div>
+            </div>
+            <div class="maps-frame">
+                <iframe
+                    src="https://www.google.com/maps?q=MZ+Barber+Shop+Via+O.+Argentesi+22+Medicina&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="MZ Barber Shop Medicina — Mappa Google">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== STAFF LIGHTBOX ===== -->
+<div class="staff-lightbox" id="staffLightbox" onclick="closeStaffLightbox(event)">
+    <button class="staff-lightbox-close" aria-label="Chiudi"><i class="fas fa-xmark"></i></button>
+    <div class="staff-lightbox-card">
+        <div class="staff-lightbox-photo" id="lightboxPhoto"></div>
+        <h3 id="lightboxName"></h3>
+        <span class="role" id="lightboxRole"></span>
+    </div>
+</div>
+
+<!-- ===== GALLERIA LIGHTBOX ===== -->
+<div class="gallery-lightbox" id="galleryLightbox" onclick="closeGalleryLightbox(event)">
+    <button class="gallery-lightbox-close" aria-label="Chiudi"><i class="fas fa-xmark"></i></button>
+    <button class="gallery-lightbox-nav gallery-lightbox-prev" aria-label="Foto precedente" onclick="event.stopPropagation();navGallery(-1)"><i class="fas fa-chevron-left"></i></button>
+    <button class="gallery-lightbox-nav gallery-lightbox-next" aria-label="Foto successiva" onclick="event.stopPropagation();navGallery(1)"><i class="fas fa-chevron-right"></i></button>
+    <figure class="gallery-lightbox-figure">
+        <img id="galleryLightboxImg" src="" alt=""/>
+        <figcaption class="gallery-lightbox-caption">
+            <h3 id="galleryLightboxTitle"></h3>
+            <span class="cat" id="galleryLightboxCat"></span>
+        </figcaption>
+    </figure>
+    <span class="gallery-lightbox-counter" id="galleryLightboxCounter"></span>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="container">
+        <a href="../index.html" class="logo" style="justify-content:center;text-decoration:none">
+            <img src="../logo-site.png" alt="MZ Parrucchieri"/>
+            <span>Parrucchieri</span>
+        </a>
+        <p class="tagline">Villanova di Castenaso - Villafontana di Medicina - Imola - Barber Shop Medicina</p>
+        <p class="copyright">&copy; <span class="copyright-year">2026</span> MZ Parrucchieri - L'arte della bellezza &middot; <a href="../index.html?skipintro=1#cookie-policy">Cookie Policy</a></p>
+        <p class="copyright footer-legal" style="margin-top:4px;font-size:0.72rem;color:var(--white-dim);opacity:0.85">MZ di Maurizio Zucchini &middot; P.IVA 024&#x200B;5822&#x200B;1203</p>
+        <a href="../admin.html" class="footer-admin-link" aria-label="Area riservata"><i class="fa-solid fa-lock"></i> Area Riservata</a>
+        <div class="payments">
+            <span class="payments-label">Metodi di pagamento accettati</span>
+            <div class="pay-badges">
+                <span class="pay-badge"><i class="fas fa-credit-card"></i> Carte</span>
+                <span class="pay-badge"><i class="fab fa-paypal"></i> PayPal</span>
+                <span class="pay-badge pay-satispay">Satispay</span>
+            </div>
+        </div>
+        <div class="socials-block">
+            <span class="socials-title">Seguici</span>
+            <div class="socials-groups">
+                <div class="social-group">
+                    <p class="social-brand">MZ Parrucchieri</p>
+                    <p class="social-sub">Villanova &bull; Villafontana &bull; Imola</p>
+                    <div class="socials">
+                        <a href="https://www.instagram.com/mzparrucchieriofficial/" target="_blank" rel="noopener" aria-label="Instagram MZ Parrucchieri"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/www.mzparrucchieri.it" target="_blank" rel="noopener" aria-label="Facebook MZ Parrucchieri"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="social-group">
+                    <p class="social-brand">MZ Barber Shop</p>
+                    <p class="social-sub">Medicina</p>
+                    <div class="socials">
+                        <a href="https://www.instagram.com/mz.barber.shop/" target="_blank" rel="noopener" aria-label="Instagram MZ Barber Shop"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/Barbershopvillafontana" target="_blank" rel="noopener" aria-label="Facebook MZ Barber Shop"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ===== COOKIE BANNER ===== -->
+<div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-text">
+        <p>Questo sito utilizza solo <strong>cookie tecnici</strong> per garantirti la migliore esperienza di navigazione, nessun cookie di profilazione. Puoi accettare o rifiutare: la tua scelta sara' ricordata. <a href="../index.html?skipintro=1#cookie-policy">Leggi la Cookie Policy</a></p>
+    </div>
+    <div class="cookie-actions">
+        <button class="cookie-refuse" onclick="setCookieConsent('refused')">Rifiuta</button>
+        <button class="cookie-accept" onclick="setCookieConsent('accepted')">Accetta</button>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@id": "https://www.mzparrucchieri.it/#barber",
+      "@type": ["LocalBusiness", "HairSalon", "BarberShop"],
+      "name": "MZ Barber Shop Medicina",
+      "legalName": "MZ di Maurizio Zucchini",
+      "vatID": "IT02458221203",
+      "description": "MZ Barber Shop Medicina (BO). Taglio uomo, ragazzo, bimbo, rifiniture barba, Barba Spa e rasature tradizionali con asciugamani caldi. Prenota per WhatsApp o telefono.",
+      "url": "https://www.mzparrucchieri.it/barber-shop",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.mzparrucchieri.it/logo-mz.png",
+        "width": 500, "height": 500
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://www.mzparrucchieri.it/barber-panorama.jpg",
+        "width": 1920, "height": 1080
+      },
+      "priceRange": "€€",
+      "paymentAccepted": ["Cash", "Credit Card", "Debit Card", "PayPal", "Satispay"],
+      "currenciesAccepted": "EUR",
+      "areaServed": [{ "@type": "City", "name": "Medicina" }, { "@type": "City", "name": "Bologna" }],
+      "sameAs": [
+        "https://www.instagram.com/mz.barber.shop/",
+        "https://www.facebook.com/Barbershopvillafontana"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "128",
+        "reviewCount": "105"
+      },
+      "brand": [{ "@type": "Brand", "name": "Level3" }],
+      "knowsAbout": ["Barberia", "Taglio capelli uomo", "Rifinitura barba", "Rasatura tradizionale", "Barba Spa", "Taglio ragazzo", "Taglio bimbo"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via O. Argentesi 22",
+        "postalCode": "40059",
+        "addressLocality": "Medicina",
+        "addressRegion": "BO",
+        "addressCountry": "IT"
+      },
+      "telephone": "+393888604444",
+      "contactPoint": { "@type": "ContactPoint", "telephone": "+393888604444", "contactType": "customer service", "availableLanguage": ["Italian"] },
+      "geo": { "@type": "GeoCoordinates", "latitude": 44.4711, "longitude": 11.6384 },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "09:30", "closes": "19:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "09:30", "closes": "19:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "09:30", "closes": "19:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:30", "closes": "19:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "18:00" }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.mzparrucchieri.it/#website",
+      "url": "https://www.mzparrucchieri.it/barber-shop",
+      "name": "MZ Barber Shop | MZ Parrucchieri",
+      "publisher": { "@id": "https://www.mzparrucchieri.it/#barber" },
+      "inLanguage": ["it-IT"]
+    }
+  ]
+}
+</script>
+
+<script>
+// ===== NAV SCROLL EFFECT =====
+window.addEventListener('scroll', () => {
+    const nav = document.getElementById('mainNav');
+    if (window.scrollY > 50) { nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); }
+});
+
+// ===== MENU HAMBURGER =====
+function toggleMenu() {
+    const nav = document.getElementById('navLinks');
+    const hamburger = document.getElementById('hamburger');
+    nav.classList.toggle('open');
+    hamburger.classList.toggle('active');
+}
+
+document.addEventListener('click', function(e) {
+    const nav = document.getElementById('navLinks');
+    const hamburger = document.getElementById('hamburger');
+    if (nav.classList.contains('open') && !e.target.closest('nav')) {
+        nav.classList.remove('open');
+        hamburger.classList.remove('active');
+    }
+});
+
+// ===== STAFF LIGHTBOX =====
+function openStaffLightbox(card) {
+    const img = card.querySelector('.avatar img');
+    const photoBox = document.getElementById('lightboxPhoto');
+    photoBox.innerHTML = '';
+    if (img) {
+        const big = document.createElement('img');
+        big.src = img.getAttribute('src');
+        big.alt = card.querySelector('h4').textContent;
+        big.onerror = () => { photoBox.innerHTML = '<i class="fas fa-user"></i>'; };
+        photoBox.appendChild(big);
+    } else {
+        photoBox.innerHTML = '<i class="fas fa-user"></i>';
+    }
+    document.getElementById('lightboxName').textContent = card.querySelector('h4').textContent;
+    document.getElementById('lightboxRole').textContent = card.querySelector('.role').textContent;
+    document.getElementById('staffLightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeStaffLightbox(e) {
+    if (e.target.closest('.staff-lightbox-card') && !e.target.closest('.staff-lightbox-close')) return;
+    document.getElementById('staffLightbox').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+document.querySelector('.staff-lightbox-close').addEventListener('click', function(e) {
+    e.stopPropagation();
+    document.getElementById('staffLightbox').classList.remove('open');
+    document.body.style.overflow = '';
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        document.getElementById('staffLightbox').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+});
+
+/* ===== GALLERIA LIGHTBOX ===== */
+let galleryItems = [];
+let galleryIndex = 0;
+let galleryToken = 0;
+
+function collectGalleryItems(scopeEl) {
+    const scope = document;
+    galleryItems = Array.from(scope.querySelectorAll('.sposa-gallery-item'));
+}
+
+function openGalleryLightbox(el) {
+    collectGalleryItems(el);
+    galleryIndex = galleryItems.indexOf(el);
+    if (galleryIndex < 0) galleryIndex = 0;
+    showGalleryPhoto();
+    document.getElementById('galleryLightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function showGalleryPhoto() {
+    const item = galleryItems[galleryIndex];
+    const img = item.querySelector('img');
+    const mainImg = item.querySelector('.sg-main');
+    const title = item.querySelector('.overlay span:first-child')?.textContent || '';
+    const cat = item.querySelector('.overlay .cat')?.textContent || '';
+    const lbImg = document.getElementById('galleryLightboxImg');
+
+    let primarySrc = '';
+    if (mainImg) {
+        primarySrc = mainImg.getAttribute('src') || '';
+    }
+    if (!primarySrc && img) {
+        primarySrc = img.getAttribute('src') || '';
+    }
+
+    lbImg.alt = img ? (img.alt || '') : '';
+    document.getElementById('galleryLightboxTitle').textContent = title;
+    document.getElementById('galleryLightboxCat').textContent = cat;
+    document.getElementById('galleryLightboxCounter').textContent = (galleryIndex + 1) + ' / ' + galleryItems.length;
+
+    const myToken = ++galleryToken;
+    if (!primarySrc) return;
+
+    const pre = new Image();
+    const commit = function() {
+        if (galleryToken !== myToken) return;
+        lbImg.src = pre.src;
+    };
+
+    pre.onload = commit;
+    pre.onerror = function() {};
+    pre.src = primarySrc;
+}
+
+function navGallery(dir) {
+    galleryIndex = (galleryIndex + dir + galleryItems.length) % galleryItems.length;
+    showGalleryPhoto();
+}
+
+function closeGalleryLightbox(e) {
+    if (e.target.closest('.gallery-lightbox-figure') || e.target.closest('.gallery-lightbox-nav')) return;
+    document.getElementById('galleryLightbox').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+document.querySelector('.gallery-lightbox-close').addEventListener('click', function(e) {
+    e.stopPropagation();
+    document.getElementById('galleryLightbox').classList.remove('open');
+    document.body.style.overflow = '';
+});
+
+document.addEventListener('keydown', function(e) {
+    const lb = document.getElementById('galleryLightbox');
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+    } else if (e.key === 'ArrowLeft') {
+        navGallery(-1);
+    } else if (e.key === 'ArrowRight') {
+        navGallery(1);
+    }
+});
+
+/* Navigazione touch (swipe) per mobile */
+(function() {
+    const lb = document.getElementById('galleryLightbox');
+    let touchStartX = 0;
+    lb.addEventListener('touchstart', function(e) { touchStartX = e.changedTouches[0].screenX; }, {passive:true});
+    lb.addEventListener('touchend', function(e) {
+        const dx = e.changedTouches[0].screenX - touchStartX;
+        if (Math.abs(dx) > 50) navGallery(dx > 0 ? -1 : 1);
+    }, {passive:true});
+})();
+
+// ===== REVEAL ON SCROLL =====
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal, .g-reveal').forEach(el => revealObserver.observe(el));
+
+// ===== COOKIE BANNER =====
+function initCookieBanner() {
+    let consent = null;
+    try { consent = localStorage.getItem('mz_cookie_consent'); } catch(e) {}
+    if (!consent) {
+        setTimeout(() => {
+            const banner = document.getElementById('cookieBanner');
+            if (banner) banner.classList.add('show');
+        }, 2000);
+    }
+}
+function setCookieConsent(value) {
+    try { localStorage.setItem('mz_cookie_consent', value); } catch(e) {}
+    const banner = document.getElementById('cookieBanner');
+    if (banner) banner.classList.remove('show');
+}
+window.addEventListener('load', initCookieBanner);
+
+document.querySelectorAll('#navLinks a').forEach(function(link){
+    link.addEventListener('click', function(){
+        try {
+            document.getElementById('navLinks').classList.remove('open');
+            document.getElementById('hamburger').classList.remove('active');
+        } catch(e) {}
+    });
+});
+
+// ===== AUTO COPYRIGHT ANNO CORRENTE =====
+(function(){ var y = new Date().getFullYear(); document.querySelectorAll('.copyright-year').forEach(function(el){ el.textContent = y; }); })();
+
+// ===== FALLBACK ICONA BARBER: SVG NON CARICA? SWITCH A IMG CSS GOLD (100% SICURO) =====
+(function(){
+    setTimeout(function(){
+        document.querySelectorAll('svg.sede-icon-original').forEach(function(svg){
+            try{
+                var img = svg.querySelector('image');
+                if(!img){ svg.style.display='none'; var next=svg.nextElementSibling; if(next){ next.style.display='block'; } return; }
+                img.addEventListener('load',function(){ if(img.width===0 || img.height===0){ svg.style.display='none'; var n=svg.nextElementSibling; if(n){ n.style.display='block'; } } }, { once:true });
+                var forceCheck = function(){
+                    try{
+                        var bb = svg.getBoundingClientRect();
+                        var renderedAreaOk = bb.width > 50 && bb.height > 20;
+                        var imgEl = new Image();
+                        imgEl.onerror = function(){ svg.style.display='none'; var n=svg.nextElementSibling; if(n){ n.style.display='block'; } };
+                        imgEl.onload = function(){
+                            if(!imgEl.complete || imgEl.naturalWidth < 50){ svg.style.display='none'; var n=svg.nextElementSibling; if(n){ n.style.display='block'; } }
+                        };
+                        imgEl.src = img.getAttribute('href') || img.getAttribute('xlink:href') || '';
+                    }catch(e){ svg.style.display='none'; var n=svg.nextElementSibling; if(n){ n.style.display='block'; } }
+                };
+                if(document.readyState==='complete'){ forceCheck(); } else { window.addEventListener('load', forceCheck, { once:true }); }
+            }catch(e){ try{ svg.style.display='none'; var next=svg.nextElementSibling; if(next){ next.style.display='block'; } }catch(e2){} }
+        });
+    }, 3600);
+})();
+</script>
+
+</body>
+</html>

@@ -2959,6 +2959,34 @@
     const soundIcon = document.getElementById('introSoundIcon');
     let finished = false;
 
+    // ===== SKIP INTRO IF: ?skipintro=1 in querystring OR user already saw it this session =====
+    var skipQS = false;
+    try {
+        var params = new URLSearchParams(window.location.search || '');
+        skipQS = (params.get('skipintro') === '1' || params.get('skipintro') === 'true');
+    } catch (e) { skipQS = false; }
+    var skipStorage = false;
+    try { skipStorage = (window.sessionStorage.getItem('mz_intro_vista') === '1'); } catch (e) { skipStorage = false; }
+
+    if (skipQS || skipStorage) {
+        try { window.sessionStorage.setItem('mz_intro_vista', '1'); } catch (e) {}
+        document.body.classList.add('intro-playing');
+        function finishIntroFast() {
+            if (finished) return;
+            finished = true;
+            try { video.pause(); } catch (e) {}
+            try { overlay.classList.add('done'); } catch (e) {}
+            try { document.body.classList.remove('intro-playing'); } catch (e) {}
+            try { setTimeout(function(){ overlay.remove(); }, 1300); } catch (e) {}
+        }
+        finishIntroFast();
+        window.__mzIntroDone = true;
+        setTimeout(finishIntroFast, 150);
+        return;
+    }
+
+    try { window.sessionStorage.setItem('mz_intro_vista', '1'); } catch (e) {}
+
     document.body.classList.add('intro-playing');
 
     function updateSoundIcon() {

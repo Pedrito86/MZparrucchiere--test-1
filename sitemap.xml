@@ -24,4 +24,38 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mzparrucchieri.it/index.html"/>
   </url>
 
+  <!-- ================= LANDING PAGE SEDI DEDICATE ================= -->
+  <url>
+    <loc>https://www.mzparrucchieri.it/salone-villanova-castenaso/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.mzparrucchieri.it/salone-villanova-castenaso/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mzparrucchieri.it/salone-villanova-castenaso/"/>
+  </url>
+  <url>
+    <loc>https://www.mzparrucchieri.it/salone-villafontana-medicina/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.mzparrucchieri.it/salone-villafontana-medicina/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mzparrucchieri.it/salone-villafontana-medicina/"/>
+  </url>
+  <url>
+    <loc>https://www.mzparrucchieri.it/salone-imola/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.mzparrucchieri.it/salone-imola/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mzparrucchieri.it/salone-imola/"/>
+  </url>
+  <url>
+    <loc>https://www.mzparrucchieri.it/barber-shop/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.mzparrucchieri.it/barber-shop/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mzparrucchieri.it/barber-shop/"/>
+  </url>
+
 </urlset>

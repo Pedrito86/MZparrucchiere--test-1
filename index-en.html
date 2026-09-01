@@ -466,7 +466,7 @@
         .gallery-label .line { flex:1; height:1px; background:linear-gradient(90deg, rgba(201,168,76,0.35), transparent); transform:translateY(-6px); }
         .gallery-label p { color:var(--gray); font-weight:200; font-size:0.75rem; letter-spacing:2.5px; text-transform:uppercase; white-space:nowrap; }
         /* Mosaico in stile Galleria Sposa: ingombri degli elementi della pagina Galleria */
-        #page-galleria .sposa-gallery-grid { margin-bottom:40px; }
+        #page-gallery .sposa-gallery-grid { margin-bottom:40px; }
         .gm-2x2 { grid-column:span 2; grid-row:span 2; }
         .gm-2x1 { grid-column:span 2; grid-row:span 1; }
         .gm-1x2 { grid-column:span 1; grid-row:span 2; }
@@ -475,18 +475,18 @@
         .gallery-duo { display:grid; grid-template-columns:1.45fr 1fr; gap:60px; align-items:start; }
         .gallery-duo .gallery-label { margin:0 0 50px; gap:20px; }
         .gallery-duo .gallery-label .line { min-width:30px; }
-        #page-galleria .gallery-duo .sposa-gallery-grid { margin-bottom:0; gap:14px; }
-        #page-galleria .gallery-duo .sig-grid { grid-template-columns:repeat(3,1fr); grid-auto-rows:195px; }
-        #page-galleria .gallery-duo .barber-grid { grid-template-columns:repeat(2,1fr); grid-auto-rows:270px; }
+        #page-gallery .gallery-duo .sposa-gallery-grid { margin-bottom:0; gap:14px; }
+        #page-gallery .gallery-duo .sig-grid { grid-template-columns:repeat(3,1fr); grid-auto-rows:195px; }
+        #page-gallery .gallery-duo .barber-grid { grid-template-columns:repeat(2,1fr); grid-auto-rows:270px; }
         @media (max-width:1024px) {
             .gallery-duo { grid-template-columns:1fr; gap:0; }
             .gallery-duo .gallery-label { margin:100px 0 50px; }
             .gallery-duo .gallery-label.first { margin-top:30px; }
-            #page-galleria .gallery-duo .sig-grid, #page-galleria .gallery-duo .barber-grid { grid-template-columns:repeat(3,1fr); grid-auto-rows:180px; }
-            #page-galleria .gallery-duo .barber-grid { margin-bottom:40px; }
+            #page-gallery .gallery-duo .sig-grid, #page-gallery .gallery-duo .barber-grid { grid-template-columns:repeat(3,1fr); grid-auto-rows:180px; }
+            #page-gallery .gallery-duo .barber-grid { margin-bottom:40px; }
         }
         @media (max-width:768px) {
-            #page-galleria .gallery-duo .sig-grid, #page-galleria .gallery-duo .barber-grid { grid-template-columns:repeat(2,1fr); grid-auto-rows:170px; gap:12px; }
+            #page-gallery .gallery-duo .sig-grid, #page-gallery .gallery-duo .barber-grid { grid-template-columns:repeat(2,1fr); grid-auto-rows:170px; gap:12px; }
         }
 
         /* ===== CONTACT ===== */
@@ -991,16 +991,16 @@
         </a>
         <ul class="nav-links" id="navLinks">
             <li><a class="active" onclick="navigateTo('home')">Home</a></li>
-            <li><a onclick="navigateTo('chi-siamo')">About Us</a></li>
-            <li><a onclick="navigateTo('servizi')">Services</a></li>
+            <li><a onclick="navigateTo('about-us')">About Us</a></li>
+            <li><a onclick="navigateTo('services')">Services</a></li>
             <li><a onclick="navigateTo('make-up')">Make Up</a></li>
-            <li><a onclick="navigateTo('prodotti')">Products</a></li>
-            <li><a onclick="navigateTo('sposa')">Bridal</a></li>
-            <li><a onclick="navigateTo('galleria')">Gallery</a></li>
-            <li><a onclick="navigateTo('contatti')">Contact</a></li>
+            <li><a onclick="navigateTo('products')">Products</a></li>
+            <li><a onclick="navigateTo('bridal')">Bridal</a></li>
+            <li><a onclick="navigateTo('gallery')">Gallery</a></li>
+            <li><a onclick="navigateTo('contact')">Contact</a></li>
         </ul>
         <div class="nav-right">
-            <button class="nav-cta" onclick="navigateTo('servizi')"><i class="fas fa-calendar-check"></i>Book Now</button>
+            <button class="nav-cta" onclick="navigateTo('services')"><i class="fas fa-calendar-check"></i>Book Now</button>
             <div class="lang-switch">
                 <button class="lang-btn" onclick="setLang('it')">IT</button>
                 <button class="lang-btn active" onclick="setLang('en')">EN</button>
@@ -1028,7 +1028,7 @@
             <h1>Your beauty,<br><span>our art</span></h1>
             <p>A luxury experience tailored to you. Cuts, color and treatments by MZ Parrucchieri.</p>
             <div class="hero-buttons">
-                <button class="btn-primary" onclick="navigateTo('servizi')">Discover our services and book</button>
+                <button class="btn-primary" onclick="navigateTo('services')">Discover our services and book</button>
             </div>
             <div class="hero-salon-label">
                 <span>Villanova di Castenaso</span>
@@ -1249,7 +1249,7 @@
 </div>
 
 <!-- ===== CHI SIAMO ===== -->
-<div id="page-chi-siamo" class="page">
+<div id="page-about-us" class="page">
     <section class="section">
         <div class="container">
             <div class="section-header reveal">
@@ -1262,7 +1262,7 @@
                     <p><span class="highlight">MZ Parrucchieri</span> is not just a salon. We are an image studio where a passion for hairstyling meets personalized consultation. Every cut and color is designed to enhance your uniqueness, in a refined and private setting.</p>
                     <p>We believe that beauty is an art and that every client deserves a tailor-made experience, built on listening, expertise and the highest-quality products. Our salons are spaces where time stands still and well-being takes center stage.</p>
                     <p>With over <strong>20 years of experience</strong>, founder <strong>Maurizio Zucchini</strong> has turned his passion into a recognized excellence, building teams of professionals constantly trained on the latest international trends.</p>
-                    <button class="btn-primary" style="padding:14px 40px;margin-top:10px" onclick="navigateTo('servizi')">Choose your salon and book</button>
+                    <button class="btn-primary" style="padding:14px 40px;margin-top:10px" onclick="navigateTo('services')">Choose your salon and book</button>
                 </div>
                 <div class="about-mosaic">
                     <div class="mosaic-tile photo"><img src="staff/barbara.jpg" alt="Barbara — MZ Parrucchieri staff" loading="lazy"/></div>
@@ -1493,7 +1493,7 @@
 </div>
 
 <!-- ===== SERVIZI & LISTINO ===== -->
-<div id="page-servizi" class="page">
+<div id="page-services" class="page">
     <section class="section" style="padding-top:40px">
         <div class="container">
             <div class="section-header reveal">
@@ -1704,7 +1704,7 @@
 </div>
 
 <!-- ===== GALLERIA ===== -->
-<div id="page-galleria" class="page">
+<div id="page-gallery" class="page">
     <section class="section marble-section">
         <div class="container">
             <div class="section-header reveal">
@@ -2021,7 +2021,7 @@
 </div>
 
 <!-- ===== CONTATTI ===== -->
-<div id="page-contatti" class="page">
+<div id="page-contact" class="page">
     <section class="section marble-section">
         <div class="container">
             <div class="section-header reveal">
@@ -2066,7 +2066,7 @@
                     <div class="info-item"><i class="fas fa-clock"></i><div><strong>Closed</strong><span>Sundays at all locations</span></div></div>
                     <hr class="contact-divider">
                     <div class="info-item"><i class="fas fa-map-marked-alt"></i><div><strong>Locations</strong><span>Villanova di Castenaso - Villafontana di Medicina - Imola - Barber Shop Medicina</span></div></div>
-                    <div class="contact-badges"><span class="contact-badge" onclick="navigateTo('servizi')">Book Now</span><span class="contact-badge" onclick="navigateTo('servizi')">Call Now</span></div>
+                    <div class="contact-badges"><span class="contact-badge" onclick="navigateTo('services')">Book Now</span><span class="contact-badge" onclick="navigateTo('services')">Call Now</span></div>
                 </div>
             </div>
         </div>
@@ -2083,7 +2083,7 @@
             <p class="hero-eyebrow">Beauty studio</p>
             <h1>Professional<br><span>Make Up</span></h1>
             <p>Make-up as an art form: in our salons every face becomes a precious canvas, where femininity and authenticity emerge in all their light.</p>
-            <button class="btn-primary" onclick="navigateTo('contatti')">Book your make-up</button>
+            <button class="btn-primary" onclick="navigateTo('contact')">Book your make-up</button>
         </div>
         <div class="scroll-indicator" onclick="document.getElementById('makeup-content').scrollIntoView({behavior:'smooth'})">
             <span>Scroll</span>
@@ -2183,13 +2183,13 @@
             <div class="sposa-cta reveal">
                 <h3>Ready to <span>shine</span>?</h3>
                 <p>Book your personalized make-up consultation at our salons.</p>
-                <button class="btn-primary" onclick="navigateTo('contatti')">Book your make-up</button>
+                <button class="btn-primary" onclick="navigateTo('contact')">Book your make-up</button>
             </div>
         </div>
     </section>
 </div>
 
-<div id="page-prodotti" class="page">
+<div id="page-products" class="page">
     <section class="sposa-hero">
         <div class="prodotti-hero-bg"></div>
         <div class="sposa-hero-overlay"></div>
@@ -2197,7 +2197,7 @@
             <p class="hero-eyebrow">Only the best, for you</p>
             <h1>Our<br><span>Brands</span></h1>
             <p>In our salons we choose only internationally recognized professional brands: product quality is an integral part of every treatment we offer.</p>
-            <button class="btn-primary" onclick="navigateTo('contatti')">Discover the MZ Experience</button>
+            <button class="btn-primary" onclick="navigateTo('contact')">Discover the MZ Experience</button>
         </div>
         <div class="scroll-indicator" onclick="document.getElementById('prodotti-content').scrollIntoView({behavior:'smooth'})">
             <span>Scroll</span>
@@ -2456,14 +2456,14 @@
             <div class="sposa-cta reveal">
                 <h3>Want to try our <span>products</span>?</h3>
                 <p>Come visit us in salon: our stylists will be happy to recommend the most suitable products for you.</p>
-                <button class="btn-primary" onclick="navigateTo('contatti')">Discover the MZ Experience</button>
+                <button class="btn-primary" onclick="navigateTo('contact')">Discover the MZ Experience</button>
             </div>
 
         </div>
     </section>
 </div>
 
-<div id="page-sposa" class="page">
+<div id="page-bridal" class="page">
     <section class="sposa-hero">
         <div class="sposa-hero-bg"></div>
         <div class="sposa-hero-overlay"></div>
@@ -2471,7 +2471,7 @@
             <p class="hero-eyebrow">Your special day</p>
             <h1>Bridal<br><span>Hairstyles</span></h1>
             <p>For the most beautiful day of your life, trust the expert hands of MZ Parrucchieri. Every strand tells a love story.</p>
-            <button class="btn-primary" onclick="navigateTo('contatti')">Book a Hairstyling Trial</button>
+            <button class="btn-primary" onclick="navigateTo('contact')">Book a Hairstyling Trial</button>
         </div>
         <div class="scroll-indicator" onclick="document.getElementById('sposa-content').scrollIntoView({behavior:'smooth'})">
             <span>Scroll</span>
@@ -2652,7 +2652,7 @@
             <div class="sposa-cta reveal">
                 <h3>Your most <span>beautiful</span> day deserves the best</h3>
                 <p>Book a personalized bridal consultation at one of our salons.<br>Hairstyling trial included to find the perfect look for you.</p>
-                <button class="btn-primary" onclick="navigateTo('contatti')">Book Your Trial Now</button>
+                <button class="btn-primary" onclick="navigateTo('contact')">Book Your Trial Now</button>
             </div>
         </div>
     </section>
@@ -3041,7 +3041,13 @@
 })();
 
 // ===== NAVIGATION =====
-function navigateTo(pageId) {
+const MZ_PAGE_WHITELIST = ['home','about-us','services','make-up','products','bridal','gallery','contact','cookie-policy','privacy-policy'];
+
+function navigateTo(pageId, opts) {
+    opts = opts || {};
+    if (!MZ_PAGE_WHITELIST.includes(pageId)) {
+        pageId = 'home';
+    }
     // 0. Blocca render del primo frame (nasconde TUTTO istantaneamente)
     document.body.classList.add('nav-switching');
     // 1. Reset istantaneo dello scroll PRIMA di cambiare pagina
@@ -3061,6 +3067,11 @@ function navigateTo(pageId) {
     });
     document.getElementById('navLinks').classList.remove('open');
     document.getElementById('hamburger').classList.remove('active');
+    // 3b. History pushState: #pageId oppure #pageId:sedeId
+    const hash = '#' + pageId + (opts.sedeId ? ':' + opts.sedeId : '');
+    if (window.location.hash !== hash) {
+        history.pushState(null, '', hash);
+    }
     // 4. Prossimo repaint: scroll ancora una volta (invariato, a 0) e poi sblocca la visibilità
     requestAnimationFrame(function() {
         window.scrollTo(0, 0);
@@ -3068,8 +3079,77 @@ function navigateTo(pageId) {
             document.documentElement.style.scrollBehavior = '';
             document.body.style.scrollBehavior = '';
             document.body.classList.remove('nav-switching');
+            // 5. Se c'e' sedeId, scrolla e evidenzia la sede
+            if (opts.sedeId) {
+                setTimeout(function() {
+                    const el = document.getElementById(opts.sedeId);
+                    if (!el) return;
+                    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    el.classList.remove('sede-highlight');
+                    void el.offsetWidth;
+                    el.classList.add('sede-highlight');
+                    setTimeout(() => el.classList.remove('sede-highlight'), 1900);
+                }, 400);
+            }
         });
     });
+}
+
+// ===== COLLEGAMENTO TITOLI SEDI (HOME) -> CARD SEDE (ABOUT US) =====
+function goToSede(sedeId) {
+    navigateTo('about-us', { sedeId: sedeId });
+}
+
+// ===== DEEP LINK / BACK / FORWARD =====
+window.addEventListener('popstate', function() {
+    const hash = window.location.hash.slice(1);
+    if (!hash) {
+        navigateTo('home');
+        return;
+    }
+    const parts = hash.split(':');
+    const pageId = parts[0];
+    const sedeId = parts[1];
+    const opts = sedeId ? { sedeId: sedeId } : {};
+    navigateTo(pageId, opts);
+});
+
+window.addEventListener('load', function() {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+    const parts = hash.split(':');
+    const pageId = parts[0];
+    const sedeId = parts[1];
+    const opts = sedeId ? { sedeId: sedeId } : {};
+    if (MZ_PAGE_WHITELIST.includes(pageId) && pageId !== 'home') {
+        setTimeout(function() {
+            navigateTo(pageId, opts);
+        }, 100);
+    }
+});
+
+// ===== IIFE mzHashInit =====
+(function mzHashInit() {
+    const current = window.location.hash.slice(1);
+    if (!current) {
+        history.replaceState(null, '', '#home');
+    } else {
+        const pageId = current.split(':')[0];
+        if (!MZ_PAGE_WHITELIST.includes(pageId)) {
+            history.replaceState(null, '', '#home');
+        }
+    }
+})();
+
+// ===== FOTO PRODOTTI: fallback automatico webp -> jpg -> segnaposto =====
+function handleProductImgError(img) {
+    if (!img.dataset.triedFallback && img.dataset.fallback) {
+        img.dataset.triedFallback = '1';
+        img.src = img.dataset.fallback;
+    } else {
+        // Nasconde l'immagine ma la mantiene nel DOM, cosi' la lightbox non trova img=null durante next/prev
+        img.style.display = 'none';
+    }
 }
 
 // ===== STAFF LIGHTBOX =====
@@ -3258,31 +3338,6 @@ document.addEventListener('click', function(e) {
         hamburger.classList.remove('active');
     }
 });
-
-// ===== COLLEGAMENTO TITOLI SEDI (HOME) -> CARD SEDE (CHI SIAMO) =====
-function goToSede(sedeId) {
-    navigateTo('chi-siamo');
-    setTimeout(function() {
-        const el = document.getElementById(sedeId);
-        if (!el) return;
-        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        el.classList.remove('sede-highlight');
-        void el.offsetWidth; // riavvia l'animazione se già eseguita
-        el.classList.add('sede-highlight');
-        setTimeout(() => el.classList.remove('sede-highlight'), 1900);
-    }, 400);
-}
-
-// ===== FOTO PRODOTTI: fallback automatico webp -> jpg -> segnaposto =====
-function handleProductImgError(img) {
-    if (!img.dataset.triedFallback && img.dataset.fallback) {
-        img.dataset.triedFallback = '1';
-        img.src = img.dataset.fallback;
-    } else {
-        // Nasconde l'immagine ma la mantiene nel DOM, cosi' la lightbox non trova img=null durante next/prev
-        img.style.display = 'none';
-    }
-}
 
 // ===== NAV SCROLL EFFECT =====
 window.addEventListener('scroll', () => {

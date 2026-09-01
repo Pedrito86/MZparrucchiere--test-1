@@ -3075,27 +3075,29 @@
 })();
 
 // ===== NAVIGATION =====
-function navigateTo(pageId) {
-    // 0. Blocca render del primo frame (nasconde TUTTO istantaneamente)
+function navigateTo(pageId, opts) {
+    opts = opts || {};
     document.body.classList.add('nav-switching');
-    // 1. Reset istantaneo dello scroll PRIMA di cambiare pagina
     document.documentElement.style.scrollBehavior = 'auto';
     document.body.style.scrollBehavior = 'auto';
-    // scrollTo sincrono due volte (hack per browser che ritardano lo scroll di layout)
     window.scrollTo(0, 0);
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-    // 2. Cambio pagina
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     const target = document.getElementById('page-' + pageId);
     if (target) { target.classList.add('active'); }
-    // 3. Link attivi + chiudi menu mobile
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('onclick') === "navigateTo('" + pageId + "')") { link.classList.add('active'); }
     });
     document.getElementById('navLinks').classList.remove('open');
     document.getElementById('hamburger').classList.remove('active');
-    // 4. Prossimo repaint: scroll ancora una volta (invariato, a 0) e poi sblocca la visibilità
+    try {
+        var newHash = '#' + pageId;
+        if (opts.sedeId) { newHash += ':' + opts.sedeId; }
+        if (!opts._fromPopstate && (window.location.hash !== newHash)) {
+            history.pushState({ pageId: pageId, sedeId: opts.sedeId || null }, '', newHash);
+        }
+    } catch(e) {}
     requestAnimationFrame(function() {
         window.scrollTo(0, 0);
         requestAnimationFrame(function() {
@@ -3108,17 +3110,68 @@ function navigateTo(pageId) {
 
 // ===== COLLEGAMENTO TITOLI SEDI (HOME) -> CARD SEDE (CHI SIAMO) =====
 function goToSede(sedeId) {
-    navigateTo('chi-siamo');
+    navigateTo('chi-siamo', { sedeId: sedeId });
     setTimeout(function() {
         const el = document.getElementById(sedeId);
         if (!el) return;
         el.scrollIntoView({ behavior: 'smooth', block: 'center' });
         el.classList.remove('sede-highlight');
-        void el.offsetWidth; // riavvia l'animazione se già eseguita
+        void el.offsetWidth;
         el.classList.add('sede-highlight');
         setTimeout(() => el.classList.remove('sede-highlight'), 1900);
     }, 400);
 }
+
+// ===== DEEP LINK ADS + TASTO INDIETRO/AVANTI (storia navigazione) =====
+(function mzHashInit() {
+    function parseHash() {
+        var h = (window.location.hash || '').replace(/^#/, '');
+        if (!h) return { pageId: 'home', sedeId: null };
+        var parts = h.split(':');
+        var page = (parts[0] || 'home').toLowerCase().trim();
+        var sede = parts[1] || null;
+        var allowed = ['home','chi-siamo','servizi','make-up','prodotti','sposa','galleria','contatti','cookie-policy','privacy-policy'];
+        if (allowed.indexOf(page) === -1) page = 'home';
+        return { pageId: page, sedeId: sede };
+    }
+    window.addEventListener('popstate', function() {
+        var info = parseHash();
+        if (info.sedeId) {
+            navigateTo(info.pageId, { _fromPopstate: true, sedeId: info.sedeId });
+            setTimeout(function(){
+                var el = document.getElementById(info.sedeId);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    el.classList.remove('sede-highlight');
+                    void el.offsetWidth;
+                    el.classList.add('sede-highlight');
+                    setTimeout(function(){ el.classList.remove('sede-highlight'); }, 1900);
+                }
+            }, 420);
+        } else {
+            navigateTo(info.pageId, { _fromPopstate: true });
+        }
+    });
+    window.addEventListener('load', function() {
+        var info = parseHash();
+        if ((info.pageId === 'home') && !info.sedeId) return;
+        if (info.sedeId) {
+            navigateTo(info.pageId, { _fromPopstate: true, sedeId: info.sedeId });
+            setTimeout(function(){
+                var el = document.getElementById(info.sedeId);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    el.classList.remove('sede-highlight');
+                    void el.offsetWidth;
+                    el.classList.add('sede-highlight');
+                    setTimeout(function(){ el.classList.remove('sede-highlight'); }, 1900);
+                }
+            }, 420);
+        } else {
+            navigateTo(info.pageId, { _fromPopstate: true });
+        }
+    });
+})();
 
 // ===== FOTO PRODOTTI: fallback automatico webp -> jpg -> segnaposto =====
 function handleProductImgError(img) {

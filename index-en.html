@@ -586,6 +586,21 @@
         .sposa-gallery-item:hover .overlay { opacity:1; }
         .sposa-gallery-item .overlay span { color:var(--white); font-family:var(--font-serif); font-size:1.1rem; }
         .sposa-gallery-item .overlay .cat { color:var(--gold); font-size:0.65rem; letter-spacing:3px; text-transform:uppercase; margin-top:6px; }
+        /* Collage 4-in-1: single card, 4 internal thumbnails 2×2, click opens only 1 photo in lightbox */
+        .sg-quad { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:4px; width:100%; height:100%; }
+        .sg-quad .q-img { width:100%; height:100%; position:relative; overflow:hidden; border-radius:10px; }
+        .sg-quad .q-img img { width:100%; height:100%; object-fit:cover; object-position:center 50%; transition:transform 1.1s var(--ease-out-expo); display:block; }
+        .sg-quad .q-img img.pos-center { object-position:center 50%; }
+        .sposa-gallery-item:hover .sg-quad .q-img img { transform:scale(1.06); }
+        .sposa-gallery-item .sg-main { position:absolute; left:-9999px; width:1px; height:1px; opacity:0; pointer-events:none; }
+        /* Collage 3-in-1: single horizontal card, 3 side-by-side thumbnails 1×3, location label under each thumbnail */
+        .sg-tri { display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:1fr; gap:4px; width:100%; height:100%; }
+        .sg-tri .t-img { width:100%; height:100%; position:relative; overflow:hidden; border-radius:10px; display:flex; flex-direction:column; }
+        .sg-tri .t-img > img { width:100%; flex:1 1 auto; min-height:0; object-fit:cover; object-position:center 50%; transition:transform 1.1s var(--ease-out-expo); display:block; }
+        .sg-tri .t-img > img.pos-center { object-position:center 50%; }
+        .sg-tri .t-label { flex:0 0 auto; padding:7px 10px 8px; background:linear-gradient(180deg,rgba(10,10,10,0.58),rgba(10,10,10,0.82)); color:var(--white); font-family:var(--font-sans); font-size:0.66rem; font-weight:300; letter-spacing:0.4px; line-height:1; display:flex; align-items:center; gap:5px; border-top:1px solid rgba(201,168,76,0.22); }
+        .sg-tri .t-label i { color:var(--gold); font-size:0.6rem; opacity:0.9; }
+        .sposa-gallery-item:hover .sg-tri .t-img > img { transform:scale(1.06); }
 
         /* ===== GALLERIA LIGHTBOX ===== */
         .gallery-lightbox { position:fixed; inset:0; z-index:9999; background:rgba(10,10,10,0.94); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transition:all 0.5s var(--ease-out-expo); }
@@ -1973,16 +1988,32 @@
             </div>
             <div class="sposa-gallery-grid">
                 <div class="sposa-gallery-item gm-2x1 g-reveal" onclick="openGalleryLightbox(this)">
-                    <img src="galleria/experience-01.jpg" class="pos-center" alt="Inside MZ Parrucchieri salon" loading="lazy"/>
-                    <div class="overlay"><span>The Salon</span><span class="cat">MZ Experience</span></div>
+                    <img class="sg-main" src="galleria/experience-saloni-villanova.jpg" alt="Three MZ Locations — Villanova" loading="lazy"/>
+                    <div class="sg-tri">
+                        <div class="t-img">
+                            <img src="galleria/experience-saloni-villanova.jpg" class="pos-center" alt="Villanova di Castenaso salon" loading="lazy"/>
+                            <div class="t-label"><i class="fas fa-location-dot"></i>Villanova di Castenaso</div>
+                        </div>
+                        <div class="t-img">
+                            <img src="galleria/experience-saloni-villafontana.jpg" class="pos-center" alt="Villafontana di Medicina salon" loading="lazy"/>
+                            <div class="t-label"><i class="fas fa-location-dot"></i>Villafontana di Medicina</div>
+                        </div>
+                        <div class="t-img">
+                            <img src="galleria/experience-saloni-imola.jpg" class="pos-center" alt="Imola salon" loading="lazy"/>
+                            <div class="t-label"><i class="fas fa-location-dot"></i>Imola</div>
+                        </div>
+                    </div>
+                    <div class="overlay"><span>The Three Salons</span><span class="cat">MZ Experience</span></div>
                 </div>
                 <div class="sposa-gallery-item gm-2x2 g-reveal g-d1" onclick="openGalleryLightbox(this)">
-                    <img src="galleria/experience-02.jpg" class="pos-center" alt="MZ Barber Corner area" loading="lazy"/>
+                    <img class="sg-main" src="galleria/experience-barber-01.jpg" alt="Barber Corner — main photo" loading="lazy"/>
+                    <div class="sg-quad">
+                        <div class="q-img"><img src="galleria/experience-barber-01.jpg" class="pos-center" alt="MZ Barber Corner area — photo 1" loading="lazy"/></div>
+                        <div class="q-img"><img src="galleria/experience-barber-02.jpg" class="pos-center" alt="MZ Barber Corner area — photo 2" loading="lazy"/></div>
+                        <div class="q-img"><img src="galleria/experience-barber-03.jpg" class="pos-center" alt="MZ Barber Corner area — photo 3" loading="lazy"/></div>
+                        <div class="q-img"><img src="galleria/experience-barber-04.jpg" class="pos-center" alt="MZ Barber Corner area — photo 4" loading="lazy"/></div>
+                    </div>
                     <div class="overlay"><span>Barber Corner</span><span class="cat">MZ Experience</span></div>
-                </div>
-                <div class="sposa-gallery-item gm-2x1 g-reveal g-d2" onclick="openGalleryLightbox(this)">
-                    <img src="galleria/experience-03.jpg" class="pos-center" alt="Welcoming salon atmosphere" loading="lazy"/>
-                    <div class="overlay"><span>The Atmosphere</span><span class="cat">MZ Experience</span></div>
                 </div>
             </div>
         </div>

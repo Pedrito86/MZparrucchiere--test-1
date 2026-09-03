@@ -147,6 +147,29 @@
             .hero-salon-label span { font-size:0.56rem; letter-spacing:1.5px; }
         }
         @keyframes h1sheen { 0%,100% { background-position:0% 0; } 50% { background-position:100% 0; } }
+        /* ===== HERO SEDE (stile Villafontana) ===== */
+        .hero-sede { min-height:78vh; min-height:78svh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; position:relative; overflow:hidden; padding:140px 0 40px; }
+        .hero-sede-bg { position:absolute; inset:0; z-index:0; background:
+            linear-gradient(180deg, #1a1a1a 0%, #1a1a1a 100%),
+            url('../marmo-bianco.jpg') center/cover no-repeat;
+            background-size:cover; background-position:center; filter:contrast(1.06) brightness(0.22) saturate(0.85); transform:scale(1.04); transition:transform 12s var(--ease-out-expo); }
+        .hero-sede:hover .hero-sede-bg { transform:scale(1.08); }
+        .hero-sede-overlay { position:absolute; inset:0; z-index:1; pointer-events:none; background:
+            linear-gradient(180deg, rgba(26,26,26,0.42) 0%, rgba(26,26,26,0.18) 32%, rgba(26,26,26,0.48) 68%, rgba(26,26,26,0.985) 100%),
+            linear-gradient(90deg, rgba(26,26,26,0.35) 0%, transparent 22%, transparent 78%, rgba(26,26,26,0.35) 100%),
+            radial-gradient(ellipse 65% 55% at 50% 40%, rgba(201,168,76,0.09), transparent 72%); }
+        .hero-sede-grid { position:absolute; inset:0; z-index:1; background-image:linear-gradient(rgba(201,168,76,0.024) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.024) 1px,transparent 1px); background-size:72px 72px; mask-image:radial-gradient(ellipse 74% 62% at 50% 48%,black 30%,transparent 74%); -webkit-mask-image:radial-gradient(ellipse 74% 62% at 50% 48%,black 30%,transparent 74%); pointer-events:none; }
+        .hero-sede-content { position:relative; z-index:2; max-width:960px; padding:0 40px; }
+        .hero-sede-eyebrow { font-family:var(--font-serif); font-style:italic; font-size:0.95rem; color:var(--gold); letter-spacing:6.5px; margin-bottom:20px; opacity:0; animation:fadeUp 1s 0.15s var(--ease-out-expo) forwards; }
+        .hero-sede h1 { font-family:var(--font-serif); font-size:clamp(2.6rem,5.4vw,4.6rem); font-weight:300; line-height:1.08; margin-bottom:24px; letter-spacing:-0.4px; opacity:0; animation:fadeUp 1.2s 0.3s var(--ease-out-expo) forwards; }
+        .hero-sede h1 span { font-weight:500; font-style:italic; background:linear-gradient(110deg, #C9A84C 20%, #f5e6b8 50%, #C9A84C 80%); background-size:230% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; animation:h1sheen 8s ease-in-out infinite; }
+        .hero-sede p.lead { font-size:1.08rem; font-weight:200; color:var(--white-dim); margin-bottom:0; max-width:680px; margin-left:auto; margin-right:auto; line-height:1.75; opacity:0; animation:fadeUp 1s 0.5s var(--ease-out-expo) forwards; }
+        @media (max-width:768px) {
+            .hero-sede { padding:120px 0 20px; min-height:68vh; min-height:68svh; }
+            .hero-sede-eyebrow { font-size:0.82rem; letter-spacing:4.5px; margin-bottom:14px; }
+            .hero-sede h1 { font-size:clamp(2.1rem,8.8vw,3.2rem); margin-bottom:18px; }
+            .hero-sede p.lead { font-size:0.98rem; line-height:1.7; }
+        }
         .hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(201,168,76,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.015) 1px,transparent 1px); background-size:80px 80px; mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 30%,transparent 70%); -webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 30%,transparent 70%); pointer-events:none; }
         .hero-content { position:relative; z-index:2; max-width:900px; padding:0 40px; margin-top:0; }
         .hero-eyebrow { font-family:var(--font-serif); font-style:italic; font-size:1rem; color:var(--gold); letter-spacing:6px; margin-bottom:24px; opacity:0; animation:fadeUp 1s 0.3s var(--ease-out-expo) forwards; }
@@ -171,7 +194,10 @@
         /* ===== SECTIONS ===== */
         .section { padding:120px 0; position:relative; }
         .section-alt { background:var(--black-2); }
-        .marble-section { background:linear-gradient(to bottom, var(--black) 0%, rgba(26,26,26,0.82) 12%, rgba(26,26,26,0.70) 40%, rgba(26,26,26,0.70) 60%, rgba(26,26,26,0.82) 88%, var(--black) 100%), url('marmo-bianco.jpg') center/cover no-repeat; }
+        .marble-section { background:linear-gradient(to bottom, var(--black) 0%, rgba(26,26,26,0.82) 12%, rgba(26,26,26,0.70) 40%, rgba(26,26,26,0.70) 60%, rgba(26,26,26,0.82) 88%, var(--black) 100%), url('../marmo-bianco.jpg') center/cover no-repeat; }
+        /* FIX: mostra sempre card sedi (no dipendenza reveal observer) */
+        #sedi .reveal { opacity:1 !important; transform:none !important; transition:none !important; }
+        #sedi .reveal-delay-1, #sedi .reveal-delay-2, #sedi .reveal-delay-3, #sedi .reveal-delay-4 { transition-delay:0ms !important; }
 
         /* ===== RECENSIONI SLIDER ===== */
         .reviews-section { padding:140px 0; overflow:hidden; position:relative; }
@@ -1002,18 +1028,23 @@
 </nav>
 
 <main>
-<section class="hero">
-        <div class="hero-luxury-bg"></div>
-        <div class="hero-luxury-overlay"></div>
-        <div class="hero-grid"></div>
-        <div class="hero-content">
-            <p class="hero-eyebrow">Dove trovarci</p>
+<section class="hero-sede">
+        <div class="hero-sede-bg"></div>
+        <div class="hero-sede-overlay"></div>
+        <div class="hero-sede-grid"></div>
+        <div class="hero-sede-content">
+            <p class="hero-sede-eyebrow">Dove trovarci</p>
             <h1>Quattro Sedi,<br>una sola <span>eccellenza</span></h1>
-            <p>Villanova di Castenaso, Villafontana di Medicina, Imola e Barber Shop Medicina: quattro atelier MZ Parrucchieri tra Bologna e Imola, facilmente raggiungibili.</p>
+            <p class="lead">Villanova di Castenaso, Villafontana di Medicina, Imola e Barber Shop Medicina: quattro atelier MZ Parrucchieri tra Bologna e Imola, facilmente raggiungibili.</p>
         </div>
+        <a href="#sedi" class="scroll-indicator" style="bottom:24px" aria-label="Scopri le sedi">
+            <span>Le nostre sedi</span>
+            <div class="scroll-line"></div>
+            <i class="fas fa-chevron-down" style="color:var(--gold);font-size:0.7rem;opacity:0.75"></i>
+        </a>
     </section>
 
-    <section class="section marble-section" style="padding:60px 0">
+    <section id="sedi" class="section marble-section" style="padding:60px 0">
         <div class="container">
             <div style="margin-top:0">
                 <div class="section-header reveal">

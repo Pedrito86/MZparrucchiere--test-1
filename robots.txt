@@ -3,6 +3,8 @@ Allow: /
 Disallow: /cgi-bin/
 Disallow: /.git/
 Disallow: /node_modules/
-Crawl-delay: 10
+Disallow: /admin.html
+Crawl-delay: 3
 
+Host: https://www.mzparrucchieri.it
 Sitemap: https://www.mzparrucchieri.it/sitemap.xml

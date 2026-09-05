@@ -1,0 +1,82 @@
+{
+  "meseAnno": "September 2026",
+  "promozioni": [
+    {
+      "id": "saloni",
+      "tipo": "saloni",
+      "attivo": true,
+      "sedi": [
+        {
+          "id": "villanova",
+          "sede": "Villanova di Castenaso",
+          "sedeShort": "Villanova"
+        },
+        {
+          "id": "villafontana",
+          "sede": "Villafontana di Medicina",
+          "sedeShort": "Villafontana"
+        },
+        {
+          "id": "imola",
+          "sede": "Imola",
+          "sedeShort": "Imola"
+        }
+      ],
+      "titolo": "Vitamin Glow",
+      "sottotitolo": "Illuminating & Purifying Treatment",
+      "descrizione": "Beautiful hair is not just about length. A single treatment delivers two results: it purifies and rebalances, giving natural lightness and volume; it smooths and compacts the hair fibre, seals and illuminates, creating an instant mirror effect. Discover your glow, ask for it in salon.",
+      "prezzo": null,
+      "prezzoOriginale": null,
+      "sconto": "NEW",
+      "immagine": "galleria/promo-saloni-settembre.jpg",
+      "dataFine": "2026-09-30",
+      "pulsanteTesto": "Book on WhatsApp",
+      "waMessaggio": "Hello, I would like information about the Vitamin Glow September promotion. May I have more details or book an appointment?",
+      "waNumeriSedi": [
+        {
+          "sedeId": "villanova",
+          "numero": "393755133143",
+          "etichetta": "Villanova di Castenaso",
+          "orari": "Mon 10-18 · Tue-Fri 9:00-19:30 · Wed 21:00 · Sat 8:00-18:00"
+        },
+        {
+          "sedeId": "villafontana",
+          "numero": "393755133640",
+          "etichetta": "Villafontana di Medicina",
+          "orari": "Tue-Fri 8:30-19:30 · Wed 20:30 · Sat 8:00-18:00"
+        },
+        {
+          "sedeId": "imola",
+          "numero": "393511837023",
+          "etichetta": "Imola",
+          "orari": "Tue-Sat 9:00-18:30 · Wed 20:30"
+        }
+      ],
+      "icona": "fa-solid fa-sparkles"
+    },
+    {
+      "id": "barber",
+      "tipo": "barber",
+      "attivo": true,
+      "sedi": [
+        {
+          "id": "barber",
+          "sede": "Barber Shop Medicina",
+          "sedeShort": "Barber Shop"
+        }
+      ],
+      "titolo": "Luxury Shave",
+      "sottotitolo": "Complete 30-minute beard ritual",
+      "descrizione": "Take advantage of our exclusive Luxury Shave service: 30 minutes of pure relaxation for your beard. Hot towel, premium oils, traditional lather and final massage with Level3 products.",
+      "prezzo": null,
+      "prezzoOriginale": null,
+      "sconto": "NEW",
+      "immagine": "galleria/promo-barber-settembre.jpg",
+      "dataFine": "2026-09-30",
+      "pulsanteTesto": "Book on WhatsApp",
+      "waMessaggio": "Hello, I would like to book the Luxury Shave treatment at the Barber Shop. Do you have availability this week?",
+      "waNumero": "393888604444",
+      "icona": "fa-solid fa-razor"
+    }
+  ]
+}

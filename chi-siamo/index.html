@@ -765,6 +765,59 @@
             .listino-head-actions { flex-shrink:0; }
         }
 
+
+
+
+        /* ===== MOBILE LANDSCAPE FIX: navbar overflow e pulsanti mancanti ===== */
+        @media (max-width: 1024px) and (orientation: landscape), (min-width: 740px) and (max-width: 1024px) {
+            .navbar { padding: 10px 24px; }
+            .hamburger { display: flex; }
+            .nav-links {
+                display: none !important;
+                position: fixed;
+                top: 0; right: 0;
+                width: min(420px, 86vw);
+                height: 100vh; height: 100svh;
+                background: rgba(18,18,18,0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border-left: 1px solid rgba(255,255,255,0.06);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding: 96px 36px 36px;
+                margin: 0;
+                gap: 4px;
+                z-index: 999;
+                overflow-y: auto;
+            }
+            .nav-links.active {
+                display: flex !important;
+                animation: slideInRight 0.35s var(--ease-out-expo) both;
+            }
+            @keyframes slideInRight { from { transform: translateX(100%); opacity: 0.2; } to { transform: translateX(0); opacity: 1; } }
+            .nav-links li { width: 100%; border-bottom: 1px solid rgba(255,255,255,0.05); }
+            .nav-links li a { font-size: 0.78rem; letter-spacing: 2.2px; padding: 16px 4px; display: block; width: 100%; }
+            .nav-right { gap: 12px; }
+            .nav-right > .nav-cta {
+                display: inline-flex !important;
+                visibility: visible !important;
+                padding: 10px 18px;
+                font-size: 0.62rem;
+                letter-spacing: 1.8px;
+            }
+            .nav-right > .nav-cta i { font-size: 0.7rem; }
+            #navLinks { display: none !important; }
+            #navLinks.active { display: flex !important; }
+            .nav-right > .lang-switch { padding: 3px; }
+            .nav-right > .lang-switch .lang-btn { padding: 5px 10px; font-size: 0.58rem; letter-spacing: 1.1px; }
+        }
+        @media (max-width: 740px) and (orientation: landscape) {
+            .navbar { padding: 8px 18px; }
+            .nav-right > .nav-cta { padding: 9px 14px; font-size: 0.58rem; letter-spacing: 1.5px; }
+            .nav-right > .lang-switch .lang-btn { padding: 4px 8px; font-size: 0.55rem; }
+        }
+
         /* ===== REVEAL ON SCROLL ===== */
         .reveal { opacity:0; transform:translateY(40px); transition:all 0.8s var(--ease-out-expo); }
         .reveal.visible { opacity:1; transform:translateY(0); }
@@ -1114,7 +1167,7 @@
                         </div>
                     </div>
                     <div class="sede-card" id="sede-barber">
-                        <svg class="sede-icon-original" role="img" viewBox="0 0 520 640" preserveAspectRatio="xMidYMid meet" aria-label="Barber Shop Medicina — Icona Gentleman Barbuto" onerror="this.onerror=null;this.style.display='none';var n=this.nextElementSibling;if(n){n.style.display='block';}">
+                        <svg class="sede-icon-original" role="img" viewBox="0 0 520 640" preserveAspectRatio="xMidYMid meet" aria-label="Barber Shop Medicina — Icona Gentleman Barbuto">
                             <defs>
                                 <filter id="barberIconGold" x="-5%" y="-5%" width="110%" height="110%">
                                     <!-- 1️⃣ INVERTI LUMINANZA: linee scure → BIANCHE, sfondo crema → NERO -->
@@ -1139,7 +1192,7 @@
                                    preserveAspectRatio="xMidYMid meet"
                                    filter="url(#barberIconGold)"/>
                         </svg>
-                        <img class="sede-icon-original-fallback-img" src="../barber-icon-original.png" alt="Barber Shop Medicina Icona" style="display:none" onerror="this.onerror=null;this.style.display='none';var fb=this.nextElementSibling;if(fb){fb.style.display='block';}">
+                        <img class="sede-icon-original-fallback-img" src="../barber-icon-original.png" alt="Barber Shop Medicina Icona" style="display:none">
                         <i class="fas fa-cut sede-fa-fallback" style="display:none"></i>
                         <h3>Barber Shop Medicina</h3>
                         <p class="address">Via O. Argentesi 22, Medicina</p>
@@ -1168,12 +1221,12 @@
                         <p class="staff-sede-desc">A Villanova di Castenaso, vicino Bologna, troverete <strong>Eleonora, Cinzia, Fabiana, Melissa, Alessandra e Rosa</strong>, pronte ad accogliervi! Uno Staff di parrucchieri professionale grazie all'esperienza acquisita negli anni.</p>
                     </div>
                     <div class="staff-grid">
-                        <div class="staff-card" onclick="openStaffLightbox(this)"><div class="avatar"><i class="fas fa-user"></i><img src="../staff/eleonora.jpg" alt="Eleonora" loading="lazy" onerror="this.remove()"/></div><h4>Eleonora</h4><span class="role">Receptionist</span></div>
-                        <div class="staff-card" onclick="openStaffLightbox(this)"><div class="avatar"><i class="fas fa-user"></i><img src="../staff/cinzia.jpg" alt="Cinzia" loading="lazy" onerror="this.remove()"/></div><h4>Cinzia</h4><span class="role">Hairstylist</span></div>
-                        <div class="staff-card" onclick="openStaffLightbox(this)"><div class="avatar"><i class="fas fa-user"></i><img src="../staff/fabiana.jpg" alt="Fabiana" loading="lazy" onerror="this.remove()"/></div><h4>Fabiana</h4><span class="role">Hairstylist</span></div>
-                        <div class="staff-card" onclick="openStaffLightbox(this)"><div class="avatar"><i class="fas fa-user"></i><img src="../staff/melissa.jpg" alt="Melissa" loading="lazy" onerror="this.remove()"/></div><h4>Melissa</h4><span class="role">Hairstylist</span></div>
-                        <div class="staff-card" onclick="openStaffLightbox(this)"><div class="avatar"><i class="fas fa-user"></i><img src="../staff/alessandra.jpg" alt="Alessandra" loading="lazy" onerror="this.remove()"/></div><h4>Alessandra</h4><span class="role">Hairstylist</span></div>
-                        <div class="staff-card" onclick="openStaffLightbox(this)"><div class="avatar"><i class="fas fa-user"></i><img src="../staff/rosa.jpg" alt="Rosa" loading="lazy" onerror="this.remove()"/></div><h4>Rosa</h4><span class="role">Hairstylist</span></div>
+                        <div class="staff-card" onclick="openStaffLightbox(this)"><div class="avatar"><i class="fas fa-user"></i><img src="../staff/eleonora.jpg" alt="Eleonora" loading="lazy"/></div><h4>Eleonora</h4><span class="role">Receptionist</span></div>
+                        <div class="staff-card" onclick="openStaffLightbox(this)"><div class="avatar"><i class="fas fa-user"></i><img src="../staff/cinzia.jpg" alt="Cinzia" loading="lazy"/></div><h4>Cinzia</h4><span class="role">Hairstylist</span></div>
+                        <div class="staff-card" onclick="openStaffLightbox(this)"><div class="avatar"><i class="fas fa-user"></i><img src="../staff/fabiana.jpg" alt="Fabiana" loading="lazy"/></div><h4>Fabiana</h4><span class="role">Hairstylist</span></div>
+                        <div class="staff-card" onclick="openStaffLightbox(this)"><div class="avatar"><i class="fas fa-user"></i><img src="../staff/melissa.jpg" alt="Melissa" loading="lazy"/></div><h4>Melissa</h4><span class="role">Hairstylist</span></div>
+                        <div class="staff-card" onclick="openStaffLightbox(this)"><div class="avatar"><i class="fas fa-user"></i><img src="../staff/alessandra.jpg" alt="Alessandra" loading="lazy"/></div><h4>Alessandra</h4><span class="role">Hairstylist</span></div>
+                        <div class="staff-card" onclick="openStaffLightbox(this)"><div class="avatar"><i class="fas fa-user"></i><img src="../staff/rosa.jpg" alt="Rosa" loading="lazy"/></div><h4>Rosa</h4><span class="role">Hairstylist</span></div>
                     </div>
                 </div>
 
@@ -1184,27 +1237,27 @@
                     </div>
                     <div class="staff-grid">
                         <div class="staff-card" onclick="openStaffLightbox(this)">
-                            <div class="avatar"><i class="fas fa-user"></i><img src="../staff/veronica.jpg" alt="Veronica" loading="lazy" onerror="this.remove()"/></div>
+                            <div class="avatar"><i class="fas fa-user"></i><img src="../staff/veronica.jpg" alt="Veronica" loading="lazy"/></div>
                             <h4>Veronica</h4>
                             <span class="role">Receptionist</span>
                         </div>
                         <div class="staff-card" onclick="openStaffLightbox(this)">
-                            <div class="avatar"><i class="fas fa-user"></i><img src="../staff/barbara.jpg" alt="Barbara" loading="lazy" onerror="this.remove()"/></div>
+                            <div class="avatar"><i class="fas fa-user"></i><img src="../staff/barbara.jpg" alt="Barbara" loading="lazy"/></div>
                             <h4>Barbara</h4>
                             <span class="role">Hairstylist</span>
                         </div>
                         <div class="staff-card" onclick="openStaffLightbox(this)">
-                            <div class="avatar"><i class="fas fa-user"></i><img src="../staff/Laura2.jpg" alt="Laura B" loading="lazy" onerror="this.remove()"/></div>
+                            <div class="avatar"><i class="fas fa-user"></i><img src="../staff/Laura2.jpg" alt="Laura B" loading="lazy"/></div>
                             <h4>Laura B</h4>
                             <span class="role">Hairstylist</span>
                         </div>
                         <div class="staff-card" onclick="openStaffLightbox(this)">
-                            <div class="avatar"><i class="fas fa-user"></i><img src="../staff/Laura.jpg" alt="Laura T" loading="lazy" onerror="this.remove()"/></div>
+                            <div class="avatar"><i class="fas fa-user"></i><img src="../staff/Laura.jpg" alt="Laura T" loading="lazy"/></div>
                             <h4>Laura T</h4>
                             <span class="role">Hairstylist</span>
                         </div>
                         <div class="staff-card" onclick="openStaffLightbox(this)">
-                            <div class="avatar"><i class="fas fa-user"></i><img src="../staff/gabriele-villafontana.jpg" alt="Gabriele" loading="lazy" onerror="this.remove()"/></div>
+                            <div class="avatar"><i class="fas fa-user"></i><img src="../staff/gabriele-villafontana.jpg" alt="Gabriele" loading="lazy"/></div>
                             <h4>Gabriele</h4>
                             <span class="role">Hairstylist</span>
                         </div>
@@ -1218,12 +1271,12 @@
                     </div>
                     <div class="staff-grid">
                         <div class="staff-card" onclick="openStaffLightbox(this)">
-                            <div class="avatar"><i class="fas fa-user"></i><img src="../staff/carmine.jpg" alt="Carmine" loading="lazy" onerror="this.remove()"/></div>
+                            <div class="avatar"><i class="fas fa-user"></i><img src="../staff/carmine.jpg" alt="Carmine" loading="lazy"/></div>
                             <h4>Carmine</h4>
                             <span class="role">Hairstylist</span>
                         </div>
                         <div class="staff-card" onclick="openStaffLightbox(this)">
-                            <div class="avatar"><i class="fas fa-user"></i><img src="../staff/luigi.jpg" alt="Luigi" loading="lazy" onerror="this.remove()"/></div>
+                            <div class="avatar"><i class="fas fa-user"></i><img src="../staff/luigi.jpg" alt="Luigi" loading="lazy"/></div>
                             <h4>Luigi</h4>
                             <span class="role">Hairstylist</span>
                         </div>
@@ -1237,17 +1290,17 @@
                     </div>
                     <div class="staff-grid">
                         <div class="staff-card" onclick="openStaffLightbox(this)">
-                            <div class="avatar"><i class="fas fa-user"></i><img src="../staff/gabriele.jpg" alt="Gabriele" loading="lazy" onerror="this.remove()"/></div>
+                            <div class="avatar"><i class="fas fa-user"></i><img src="../staff/gabriele.jpg" alt="Gabriele" loading="lazy"/></div>
                             <h4>Gabriele</h4>
                             <span class="role">Barber</span>
                         </div>
                         <div class="staff-card" onclick="openStaffLightbox(this)">
-                            <div class="avatar"><i class="fas fa-user"></i><img src="../staff/daniele.jpg" alt="Daniele" loading="lazy" onerror="this.remove()"/></div>
+                            <div class="avatar"><i class="fas fa-user"></i><img src="../staff/daniele.jpg" alt="Daniele" loading="lazy"/></div>
                             <h4>Daniele</h4>
                             <span class="role">Barber</span>
                         </div>
                         <div class="staff-card" onclick="openStaffLightbox(this)">
-                            <div class="avatar"><i class="fas fa-user"></i><img src="../staff/mirco.jpg" alt="Mirco" loading="lazy" onerror="this.remove()"/></div>
+                            <div class="avatar"><i class="fas fa-user"></i><img src="../staff/mirco.jpg" alt="Mirco" loading="lazy"/></div>
                             <h4>Mirco</h4>
                             <span class="role">Barber</span>
                         </div>
@@ -1404,7 +1457,7 @@
     const soundBtn = document.getElementById('introSound');
     const soundIcon = document.getElementById('introSoundIcon');
     let finished = false;
-
+    if (!overlay || !video) { return; }
     // ===== SALTA INTRO SE: ?skipintro=1 in querystring OPPURE l'utente l'ha gia' vista in questa sessione =====
     var skipQS = false;
     try {
@@ -1454,7 +1507,7 @@
     // L'utente potra' attivare l'audio cliccando l'apposito bottone in basso a sinistra.
     // Per iOS Safari / Chrome mobile usiamo load() + loadeddata + user-interaction fallback.
     var started = false;
-    function  {
+    function startVideo(force) {
         if (started && !force) return;
         started = true;
         try {
@@ -1494,7 +1547,7 @@
     }
 
     // ===== MOBILE SAFARI FALLBACK: qualsiasi prima interazione avvia il video =====
-    var tryMobileKick = function() {  try { window.removeEventListener('touchstart', tryMobileKick, { once:true }); } catch(e){} try { window.removeEventListener('click', tryMobileKick, { once:true }); } catch(e){} try { window.removeEventListener('scroll', tryMobileKick, { once:true }); } catch(e){} };
+    var tryMobileKick = function() { startVideo(true); try { window.removeEventListener('touchstart', tryMobileKick, { once:true }); } catch(e){} try { window.removeEventListener('click', tryMobileKick, { once:true }); } catch(e){} try { window.removeEventListener('scroll', tryMobileKick, { once:true }); } catch(e){} };
     try { window.addEventListener('touchstart', tryMobileKick, { once:true, passive:true }); } catch(e) {}
     try { window.addEventListener('click', tryMobileKick, { once:true, passive:true }); } catch(e) {}
     try { window.addEventListener('scroll', tryMobileKick, { once:true, passive:true }); } catch(e) {}
@@ -1593,9 +1646,9 @@ document.addEventListener('keydown', function(e) {
 });
 
 /* ===== GALLERIA LIGHTBOX ===== */
-let galleryItems = [];
-let galleryIndex = 0;
-let galleryToken = 0;
+var galleryItems = [];
+var galleryIndex = 0;
+var galleryToken = 0;
 
 function collectGalleryItems(scopeEl) {
     const scope = (scopeEl && scopeEl.closest('.page')) || document;
@@ -1855,7 +1908,7 @@ window.addEventListener('scroll', () => {
 })();
 
 // ===== REVEAL ON SCROLL =====
-const revealObserver = new IntersectionObserver((entries) => {
+var revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 document.querySelectorAll('.reveal, .g-reveal').forEach(el => revealObserver.observe(el));
@@ -2277,7 +2330,7 @@ function pageSetLang(l) {
     const soundBtn = document.getElementById('introSound');
     const soundIcon = document.getElementById('introSoundIcon');
     let finished = false;
-
+    if (!overlay || !video) { return; }
     // ===== SALTA INTRO SE: ?skipintro=1 in querystring OPPURE l'utente l'ha gia' vista in questa sessione =====
     var skipQS = false;
     try {
@@ -2551,9 +2604,9 @@ document.addEventListener('keydown', function(e) {
 });
 
 /* ===== GALLERIA LIGHTBOX ===== */
-let galleryItems = [];
-let galleryIndex = 0;
-let galleryToken = 0;
+var galleryItems = [];
+var galleryIndex = 0;
+var galleryToken = 0;
 
 function collectGalleryItems(scopeEl) {
     const scope = (scopeEl && scopeEl.closest('.page')) || document;
@@ -2813,7 +2866,7 @@ window.addEventListener('scroll', () => {
 })();
 
 // ===== REVEAL ON SCROLL =====
-const revealObserver = new IntersectionObserver((entries) => {
+var revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 document.querySelectorAll('.reveal, .g-reveal').forEach(el => revealObserver.observe(el));

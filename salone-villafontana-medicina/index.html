@@ -396,6 +396,59 @@
             .listino-head-actions { flex-shrink:0; }
         }
 
+
+
+
+        /* ===== MOBILE LANDSCAPE FIX: navbar overflow e pulsanti mancanti ===== */
+        @media (max-width: 1024px) and (orientation: landscape), (min-width: 740px) and (max-width: 1024px) {
+            .navbar { padding: 10px 24px; }
+            .hamburger { display: flex; }
+            .nav-links {
+                display: none !important;
+                position: fixed;
+                top: 0; right: 0;
+                width: min(420px, 86vw);
+                height: 100vh; height: 100svh;
+                background: rgba(18,18,18,0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border-left: 1px solid rgba(255,255,255,0.06);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding: 96px 36px 36px;
+                margin: 0;
+                gap: 4px;
+                z-index: 999;
+                overflow-y: auto;
+            }
+            .nav-links.active {
+                display: flex !important;
+                animation: slideInRight 0.35s var(--ease-out-expo) both;
+            }
+            @keyframes slideInRight { from { transform: translateX(100%); opacity: 0.2; } to { transform: translateX(0); opacity: 1; } }
+            .nav-links li { width: 100%; border-bottom: 1px solid rgba(255,255,255,0.05); }
+            .nav-links li a { font-size: 0.78rem; letter-spacing: 2.2px; padding: 16px 4px; display: block; width: 100%; }
+            .nav-right { gap: 12px; }
+            .nav-right > .nav-cta {
+                display: inline-flex !important;
+                visibility: visible !important;
+                padding: 10px 18px;
+                font-size: 0.62rem;
+                letter-spacing: 1.8px;
+            }
+            .nav-right > .nav-cta i { font-size: 0.7rem; }
+            #navLinks { display: none !important; }
+            #navLinks.active { display: flex !important; }
+            .nav-right > .lang-switch { padding: 3px; }
+            .nav-right > .lang-switch .lang-btn { padding: 5px 10px; font-size: 0.58rem; letter-spacing: 1.1px; }
+        }
+        @media (max-width: 740px) and (orientation: landscape) {
+            .navbar { padding: 8px 18px; }
+            .nav-right > .nav-cta { padding: 9px 14px; font-size: 0.58rem; letter-spacing: 1.5px; }
+            .nav-right > .lang-switch .lang-btn { padding: 4px 8px; font-size: 0.55rem; }
+        }
+
         /* ===== REVEAL ON SCROLL ===== */
         .reveal { opacity:0; transform:translateY(40px); transition:all 0.8s var(--ease-out-expo); }
         .reveal.visible { opacity:1; transform:translateY(0); }
@@ -445,8 +498,8 @@
                 <i class="fab fa-whatsapp"></i>Prenota
             </a>
             <div class="lang-switch">
-                <a href="../index.html?skipintro=1" class="lang-btn active">IT</a>
-                <a href="../index-en.html?skipintro=1" class="lang-btn">EN</a>
+                <button class="lang-btn active" onclick="pageSetLang('it')">IT</button>
+                <button class="lang-btn" onclick="pageSetLang('en')">EN</button>
             </div>
             <button class="hamburger" id="hamburger" onclick="toggleMenu()">
                 <span></span><span></span><span></span>
@@ -583,27 +636,27 @@
                 </div>
                 <div class="staff-grid">
                     <div class="staff-card" onclick="openStaffLightbox(this)">
-                        <div class="avatar"><i class="fas fa-user"></i><img src="../staff/veronica.jpg" alt="Veronica — Villafontana" loading="lazy" onerror="this.remove()"/></div>
+                        <div class="avatar"><i class="fas fa-user"></i><img src="../staff/veronica.jpg" alt="Veronica — Villafontana" loading="lazy"/></div>
                         <h4>Veronica</h4>
                         <span class="role">Receptionist</span>
                     </div>
                     <div class="staff-card" onclick="openStaffLightbox(this)">
-                        <div class="avatar"><i class="fas fa-user"></i><img src="../staff/barbara.jpg" alt="Barbara — Villafontana" loading="lazy" onerror="this.remove()"/></div>
+                        <div class="avatar"><i class="fas fa-user"></i><img src="../staff/barbara.jpg" alt="Barbara — Villafontana" loading="lazy"/></div>
                         <h4>Barbara</h4>
                         <span class="role">Hairstylist</span>
                     </div>
                     <div class="staff-card" onclick="openStaffLightbox(this)">
-                        <div class="avatar"><i class="fas fa-user"></i><img src="../staff/Laura2.jpg" alt="Laura B — Villafontana" loading="lazy" onerror="this.remove()"/></div>
+                        <div class="avatar"><i class="fas fa-user"></i><img src="../staff/Laura2.jpg" alt="Laura B — Villafontana" loading="lazy"/></div>
                         <h4>Laura B</h4>
                         <span class="role">Hairstylist</span>
                     </div>
                     <div class="staff-card" onclick="openStaffLightbox(this)">
-                        <div class="avatar"><i class="fas fa-user"></i><img src="../staff/Laura.jpg" alt="Laura T — Villafontana" loading="lazy" onerror="this.remove()"/></div>
+                        <div class="avatar"><i class="fas fa-user"></i><img src="../staff/Laura.jpg" alt="Laura T — Villafontana" loading="lazy"/></div>
                         <h4>Laura T</h4>
                         <span class="role">Hairstylist</span>
                     </div>
                     <div class="staff-card" onclick="openStaffLightbox(this)">
-                        <div class="avatar"><i class="fas fa-user"></i><img src="../staff/gabriele-villafontana.jpg" alt="Gabriele — Villafontana" loading="lazy" onerror="this.remove()"/></div>
+                        <div class="avatar"><i class="fas fa-user"></i><img src="../staff/gabriele-villafontana.jpg" alt="Gabriele — Villafontana" loading="lazy"/></div>
                         <h4>Gabriele</h4>
                         <span class="role">Hairstylist</span>
                     </div>
@@ -944,9 +997,9 @@ document.addEventListener('keydown', function(e) {
 });
 
 /* ===== GALLERIA LIGHTBOX ===== */
-let galleryItems = [];
-let galleryIndex = 0;
-let galleryToken = 0;
+var galleryItems = [];
+var galleryIndex = 0;
+var galleryToken = 0;
 function collectGalleryItems(scopeEl) {
     galleryItems = Array.from(document.querySelectorAll('.sposa-gallery-item'));
 }
@@ -1018,7 +1071,7 @@ document.addEventListener('keydown', function(e) {
 })();
 
 // ===== REVEAL ON SCROLL =====
-const revealObserver = new IntersectionObserver((entries) => {
+var revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 document.querySelectorAll('.reveal, .g-reveal').forEach(el => revealObserver.observe(el));
@@ -1043,6 +1096,16 @@ window.addEventListener('load', initCookieBanner);
 
 // ===== AUTO COPYRIGHT ANNO CORRENTE =====
 (function(){ var y = new Date().getFullYear(); document.querySelectorAll('.copyright-year').forEach(function(el){ el.textContent = y; }); })();
+</script>
+
+
+<script>
+function pageSetLang(l) {
+    try { localStorage.setItem('mz_lang', l); } catch(e) {}
+    if (l === 'it') window.location.href = 'index.html';
+    else if (l === 'en') window.location.href = 'index-en.html';
+    else window.location.href = 'index.html';
+}
 </script>
 
 </body>

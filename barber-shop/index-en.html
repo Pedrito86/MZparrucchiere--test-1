@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-471648853"></script>
@@ -13,8 +13,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MZ Barber Shop | MZ Parrucchieri</title>
-    <meta name="description" content="MZ Barber Shop Medicina (BO). Taglio uomo, ragazzo, bimbo, rifiniture barba, Barba Spa e rasature tradizionali con asciugamani caldi. Prenota per WhatsApp o telefono.">
-    <meta name="keywords" content="barber shop Medicina, barbiere Medicina, taglio uomo, barba Medicina, rasatura tradizionale, MZ Barber Shop, Zucchini Maurizio">
+    <meta name="description" content="MZ Barber Shop Medicina (Bologna). Men's, teen and kids' haircuts, beard trims, Beard Spa and traditional hot-towel shaves. Book by WhatsApp or phone.">
+    <meta name="keywords" content="barber shop Medicina, barber Medicina, men's haircut, beard Medicina, traditional shave, MZ Barber Shop, Zucchini Maurizio">
     <meta name="author" content="MZ Parrucchieri - Maurizio Zucchini">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#1a1a1a">
@@ -28,14 +28,14 @@
     <link rel="icon" type="image/png" href="../logo-mz.png">
     <link rel="apple-touch-icon" href="../logo-mz.png">
     <meta property="og:title" content="MZ Barber Shop | MZ Parrucchieri">
-    <meta property="og:description" content="MZ Barber Shop Medicina (BO). Taglio uomo, ragazzo, bimbo, rifiniture barba, Barba Spa e rasature tradizionali con asciugamani caldi.">
+    <meta property="og:description" content="MZ Barber Shop Medicina (BO). Cut uomo, ragazzo, bimbo, rifiniture barba, Beard Spa e rasature tradizionali con asciugamani caldi.">
     <meta property="og:type" content="website">
-    <meta property="og:locale" content="it_IT">
+    <meta property="og:locale" content="en_US">
     <meta property="og:image" content="../barber-panorama.jpg">
     <meta property="og:url" content="https://www.mzparrucchieri.it/barber-shop">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MZ Barber Shop | MZ Parrucchieri">
-    <meta name="twitter:description" content="Taglio uomo, barba, rasature tradizionali a Medicina (BO). Prenota per WhatsApp o telefono.">
+    <meta name="twitter:description" content="Cut uomo, barba, rasature tradizionali a Medicina (BO). Prenota per WhatsApp o telefono.">
     <meta name="twitter:image" content="../barber-panorama.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -196,7 +196,7 @@
         .section-sub { color:var(--gray); font-weight:200; letter-spacing:2px; font-size:0.95rem; max-width:600px; margin:0 auto; line-height:1.7; }
 
         /* ===== SEDE CARD ===== */
-        .sede-icon-original {
+        .salon-icon-original {
             width: auto;
             height: 3.7rem;
             max-width: 5.1rem;
@@ -210,13 +210,13 @@
             transition: transform 0.6s var(--ease-out-expo), opacity 0.6s ease, filter 0.6s ease;
             filter: drop-shadow(0 4px 14px rgba(201,168,76,0.12));
         }
-        .sede-card:hover .sede-icon-original { opacity: 1; transform: scale(1.1); filter: drop-shadow(0 6px 22px rgba(201,168,76,0.22)); }
-        .sede-icon-original-fallback-img {
+        .salon-card:hover .salon-icon-original { opacity: 1; transform: scale(1.1); filter: drop-shadow(0 6px 22px rgba(201,168,76,0.22)); }
+        .salon-icon-original-fallback-img {
             height:3.6rem; width:auto; max-width:5rem;
             margin:0 auto 20px; display:none; opacity:0.8;
             filter: invert(1) sepia(1) saturate(850%) hue-rotate(7deg) brightness(0.98) contrast(1.3);
         }
-        .sede-fa-fallback { display:none; }
+        .salon-fa-fallback { display:none; }
         .footer-legal, .footer-legal *, .footer-legal a, a[x-apple-data-detectors] {
             color: inherit !important;
             text-decoration: none !important;
@@ -230,13 +230,13 @@
 
         /* ===== STAFF ===== */
         .staff-section { margin-top:0; }
-        .staff-sede { margin-bottom:0; }
-        .staff-sede-header { margin-bottom:40px; padding-bottom:20px; border-bottom:1px solid rgba(201,168,76,0.1); }
-        .staff-sede-title { font-family:var(--font-serif); font-size:1.6rem; font-weight:400; color:var(--gold); margin-bottom:12px; display:flex; align-items:center; gap:14px; justify-content:center; text-align:center; }
-        .staff-sede-title i { font-size:1.2rem; }
-        .staff-sede-desc { color:var(--gray); font-weight:200; line-height:1.9; max-width:900px; font-size:0.95rem; text-align:center; margin-left:auto; margin-right:auto; }
-        .staff-sede-desc strong { color:var(--white); font-weight:400; }
-        .staff-sede-desc em { color:var(--gold); font-style:italic; }
+        .staff-salon { margin-bottom:0; }
+        .staff-salon-header { margin-bottom:40px; padding-bottom:20px; border-bottom:1px solid rgba(201,168,76,0.1); }
+        .staff-salon-title { font-family:var(--font-serif); font-size:1.6rem; font-weight:400; color:var(--gold); margin-bottom:12px; display:flex; align-items:center; gap:14px; justify-content:center; text-align:center; }
+        .staff-salon-title i { font-size:1.2rem; }
+        .staff-salon-desc { color:var(--gray); font-weight:200; line-height:1.9; max-width:900px; font-size:0.95rem; text-align:center; margin-left:auto; margin-right:auto; }
+        .staff-salon-desc strong { color:var(--white); font-weight:400; }
+        .staff-salon-desc em { color:var(--gold); font-style:italic; }
         .staff-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:20px; max-width:700px; margin:0 auto; }
         .staff-card { background:var(--card-bg); border:1px solid rgba(201,168,76,0.10); border-radius:16px; padding:28px 20px; text-align:center; transition:all 0.6s var(--ease-out-expo); backdrop-filter:blur(4px); cursor:pointer; }
         .staff-card:hover { border-color:rgba(201,168,76,0.25); transform:translateY(-8px); box-shadow:0 20px 50px rgba(0,0,0,0.3); background:var(--card-bg-hover); }
@@ -535,22 +535,22 @@
             <span>Parrucchieri</span>
         </a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="../index.html?skipintro=1#home">Home</a></li>
-            <li><a href="../index.html?skipintro=1#chi-siamo">Chi Siamo</a></li>
-            <li><a href="../index.html?skipintro=1#servizi">Servizi</a></li>
-            <li><a href="../index.html?skipintro=1#make-up">Make Up</a></li>
-            <li><a href="../index.html?skipintro=1#prodotti">Prodotti</a></li>
-            <li><a href="../index.html?skipintro=1#sposa">Sposa</a></li>
-            <li><a href="../index.html?skipintro=1#galleria">Galleria</a></li>
-            <li><a href="../index.html?skipintro=1#contatti">Contatti</a></li>
+            <li><a href="../index-en.html?skipintro=1#home">Home</a></li>
+            <li><a href="../index-en.html?skipintro=1#about-us">About Us</a></li>
+            <li><a href="../index-en.html?skipintro=1#services">Services</a></li>
+            <li><a href="../index-en.html?skipintro=1#make-up">Make Up</a></li>
+            <li><a href="../index-en.html?skipintro=1#products">Products</a></li>
+            <li><a href="../bridal/">Bridal</a></li>
+            <li><a href="../index-en.html?skipintro=1#gallery">Gallery</a></li>
+            <li><a href="../index-en.html?skipintro=1#contact">Contact</a></li>
         </ul>
         <div class="nav-right">
             <a class="nav-cta" style="text-decoration:none" href="https://wa.me/393888604444?text=Ciao%2C%20vorrei%20prenotare%20al%20MZ%20Barber%20Shop%20di%20Medicina" target="_blank" rel="noopener">
-                <i class="fab fa-whatsapp"></i>Prenota
+                <i class="fab fa-whatsapp"></i>Book Now
             </a>
             <div class="lang-switch">
-                <button class="lang-btn active" onclick="pageSetLang('it')">IT</button>
-                <button class="lang-btn" onclick="pageSetLang('en')">EN</button>
+                <button class="lang-btn" onclick="pageSetLang('it')">IT</button>
+                <button class="lang-btn active" onclick="pageSetLang('en')">EN</button>
             </div>
             <button class="hamburger" id="hamburger" onclick="toggleMenu()">
                 <span></span><span></span><span></span>
@@ -567,9 +567,9 @@
     <div class="hero-barber-content">
         <p class="hero-eyebrow">Gentleman's Corner · Dal 2022</p>
         <h1>MZ Barber <span>Shop</span></h1>
-        <p>Taglio uomo, ragazzo e bimbo, rifiniture barba, <strong>Barba Spa</strong> e <strong>rasature tradizionali</strong> con asciugamani caldi. A Medicina, in un'atmosfera old school irripetibile.</p>
+        <p>Cut uomo, ragazzo e bimbo, rifiniture barba, <strong>Beard Spa</strong> e <strong>rasature tradizionali</strong> con asciugamani caldi. A Medicina, in un'atmosfera old school irripetibile.</p>
         <div class="hero-barber-buttons">
-            <a class="btn-primary" href="https://wa.me/393888604444" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Prenota WhatsApp</a>
+            <a class="btn-primary" href="https://wa.me/393888604444" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp Booking</a>
             <a class="btn-secondary" href="tel:+393888604444"><i class="fas fa-phone"></i> Chiama 388 8604444</a>
         </div>
         <div class="hero-barber-info">
@@ -579,7 +579,7 @@
         </div>
     </div>
     <div class="scroll-indicator" onclick="document.getElementById('listino-prezzi').scrollIntoView({behavior:'smooth'})">
-        <span>Scopri listino</span>
+        <span>See price list</span>
         <div class="scroll-line"></div>
     </div>
 </section>
@@ -588,13 +588,13 @@
 <section class="section marble-section" id="listino-prezzi">
     <div class="container">
         <div class="section-header reveal">
-            <span class="section-eyebrow">Tariffe aggiornate 2026</span>
-            <h2 class="section-title">Listino <span>Prezzi</span></h2>
-            <p class="section-sub">Tutti i servizi del nostro Barber Shop: professionalità e prodotti Level 3</p>
+            <span class="section-eyebrow">2026 Updated rates</span>
+            <h2 class="section-title">Price <span>List</span></h2>
+            <p class="section-sub">All our Barber Shop services: expertise and Level 3 products</p>
         </div>
         <div class="listino-panel reveal">
             <div class="listino-panorama">
-                <img src="../barber-panorama.jpg" alt="Interno del MZ Barber Shop Medicina" loading="lazy"/>
+                <img src="../barber-panorama.jpg" alt="Inside MZ Barber Shop Medicina" loading="lazy"/>
             </div>
             <div class="listino-head">
                 <div>
@@ -602,27 +602,27 @@
                     <p><i class="fas fa-location-dot"></i> Via O. Argentesi 22, Medicina (BO)<br><i class="far fa-clock"></i> Mar-Ven 9:30-19:30 · Sab 9:00-18:00</p>
                 </div>
                 <div class="listino-head-actions">
-                    <a class="btn-primary listino-prenota" href="tel:+393888604444"><i class="fas fa-phone"></i> Prenota · 388 8604444</a>
+                    <a class="btn-primary listino-prenota" href="tel:+393888604444"><i class="fas fa-phone"></i> Book · 388 8604444</a>
                     <a class="listino-whatsapp" href="https://wa.me/393888604444" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp · 388 8604444</a>
-                    <a class="listino-whatsapp" href="https://www.google.com/maps/search/?api=1&query=MZ+Barber+Shop+Via+O.+Argentesi+22+Medicina" target="_blank" rel="noopener"><i class="fas fa-location-dot"></i> Raggiungici</a>
+                    <a class="listino-whatsapp" href="https://www.google.com/maps/search/?api=1&query=MZ+Barber+Shop+Via+O.+Argentesi+22+Medicina" target="_blank" rel="noopener"><i class="fas fa-location-dot"></i> Get Directions</a>
                 </div>
             </div>
             <div class="price-groups">
                 <div class="price-group">
-                    <h4>Capelli</h4>
-                    <div class="price-row"><span>Taglio Uomo</span><span class="dots"></span><span class="val">21 €</span></div>
-                    <div class="price-row"><span>Taglio Ragazzo 14-18</span><span class="dots"></span><span class="val">21 €</span></div>
-                    <div class="price-row"><span>Taglio Uomo Laterali</span><span class="dots"></span><span class="val">16 €</span></div>
-                    <div class="price-row"><span>Taglio Bimbo 0-13 anni</span><span class="dots"></span><span class="val">17 €</span></div>
+                    <h4>Hair</h4>
+                    <div class="price-row"><span>Men's Cut</span><span class="dots"></span><span class="val">21 €</span></div>
+                    <div class="price-row"><span>Teens Cut 14-18</span><span class="dots"></span><span class="val">21 €</span></div>
+                    <div class="price-row"><span>Men's Cut Laterali</span><span class="dots"></span><span class="val">16 €</span></div>
+                    <div class="price-row"><span>Cut Bimbo 0-13 anni</span><span class="dots"></span><span class="val">17 €</span></div>
                 </div>
                 <div class="price-group">
-                    <h4>Barba</h4>
-                    <div class="price-row"><span>Rifilatura Barba</span><span class="dots"></span><span class="val">17 €</span></div>
-                    <div class="price-row"><span>Barba Spa</span><span class="dots"></span><span class="val">32 €</span></div>
+                    <h4>Beard</h4>
+                    <div class="price-row"><span>Beard Trim</span><span class="dots"></span><span class="val">17 €</span></div>
+                    <div class="price-row"><span>Beard Spa</span><span class="dots"></span><span class="val">32 €</span></div>
                 </div>
             </div>
         </div>
-        <p class="listino-note">Listini 2026 ufficiali MZ Parrucchieri · I prezzi possono variare in base a lunghezza e quantità · Per un preventivo preciso chiama la sede</p>
+        <p class="listino-note">Official 2026 MZ Parrucchieri price lists · Prices may vary based on length and quantity · For an accurate quote please call the salon</p>
     </div>
 </section>
 
@@ -631,14 +631,14 @@
     <div class="container">
         <div class="staff-section">
             <div class="section-header reveal">
-                <span class="section-eyebrow">I nostri barbieri</span>
-                <h2 class="section-title">Il <span>Team</span></h2>
-                <p class="section-sub">Tre artigiani della cura maschile, sempre aggiornati sulle ultime tendenze</p>
+                <span class="section-eyebrow">Our barbers</span>
+                <h2 class="section-title">The <span>Team</span></h2>
+                <p class="section-sub">Three male-grooming craftsmen, always up-to-date on the latest trends</p>
             </div>
-            <div class="staff-sede reveal">
-                <div class="staff-sede-header">
-                    <h3 class="staff-sede-title"><i class="fas fa-cut"></i> Team Barber Shop Medicina</h3>
-                    <p class="staff-sede-desc">Nel Barber Shop di Medicina troverai <strong>Gabriele, Daniele e Mirco</strong>, sempre pronti ad allinearsi alle nuove tendenze riguardanti la cura dell'aspetto dell'uomo. Barbe lunghe, barbe corte, curate con la massima attenzione e rasature rilassanti con impacchi di asciugamani caldi e freddi: un vero rituale per uomini, senza trascurare la cura del capello, dal taglio a macchinetta al classico pettine e forbici <em>old school</em>.</p>
+            <div class="staff-salon reveal">
+                <div class="staff-salon-header">
+                    <h3 class="staff-salon-title"><i class="fas fa-cut"></i> Barber Shop Medicina Team</h3>
+                    <p class="staff-salon-desc">In the Barber Shop Medicina you will find <strong>Gabriele, Daniele and Mirco</strong>, always ready to follow the latest trends in men's grooming. Long beards, short beards, meticulously groomed and relaxing shaves with hot and cold towel compresses: a true ritual for men, without neglecting hair care, from clipper cuts to the classic comb-and-scissors <em>old school</em> cut.</p>
                 </div>
                 <div class="staff-grid">
                     <div class="staff-card" onclick="openStaffLightbox(this)">
@@ -678,60 +678,60 @@
         </div>
         <div class="sposa-gallery-grid barber-grid">
             <div class="sposa-gallery-item gm-2x2 g-reveal" onclick="openGalleryLightbox(this)">
-                <img src="../galleria/barber-01.jpg" class="pos-center" alt="Fade con riccio e barba — MZ Barber Shop" loading="lazy"/>
-                <div class="overlay"><span>Fade e Riccio</span><span class="cat">Taglio</span></div>
+                <img src="../galleria/barber-01.jpg" class="pos-center" alt="Curly fade with beard — MZ Barber Shop" loading="lazy"/>
+                <div class="overlay"><span>Fade e Riccio</span><span class="cat">Cut</span></div>
             </div>
             <div class="sposa-gallery-item g-reveal g-d1" onclick="openGalleryLightbox(this)">
-                <img src="../galleria/barber-02.jpg" class="pos-center" alt="Hair tattoo con linee freestyle — MZ Barber Shop" loading="lazy"/>
+                <img src="../galleria/barber-02.jpg" class="pos-center" alt="Freestyle hair tattoo lines — MZ Barber Shop" loading="lazy"/>
                 <div class="overlay"><span>Hair Tattoo</span><span class="cat">Design</span></div>
             </div>
             <div class="sposa-gallery-item g-reveal g-d2" onclick="openGalleryLightbox(this)">
-                <img src="../galleria/barber-03.jpg" class="pos-center" alt="Taper fade classico — MZ Barber Shop" loading="lazy"/>
-                <div class="overlay"><span>Taper Classico</span><span class="cat">Taglio</span></div>
+                <img src="../galleria/barber-03.jpg" class="pos-center" alt="Classic taper fade — MZ Barber Shop" loading="lazy"/>
+                <div class="overlay"><span>Taper Classico</span><span class="cat">Cut</span></div>
             </div>
             <div class="sposa-gallery-item gm-2x1 g-reveal g-d3" onclick="openGalleryLightbox(this)">
-                <img src="../galleria/barber-04.jpg" class="pos-center" alt="Fade alto con ciuffo — MZ Barber Shop" loading="lazy"/>
-                <div class="overlay"><span>Fade con Ciuffo</span><span class="cat">Taglio</span></div>
+                <img src="../galleria/barber-04.jpg" class="pos-center" alt="High fade with fringe — MZ Barber Shop" loading="lazy"/>
+                <div class="overlay"><span>Fade con Ciuffo</span><span class="cat">Cut</span></div>
             </div>
             <div class="sposa-gallery-item g-reveal" onclick="openGalleryLightbox(this)">
-                <img src="../galleria/barber-05.jpg" class="pos-center" alt="Riccio naturale maschile — MZ Barber Shop" loading="lazy"/>
+                <img src="../galleria/barber-05.jpg" class="pos-center" alt="Natural men's curls — MZ Barber Shop" loading="lazy"/>
                 <div class="overlay"><span>Riccio Naturale</span><span class="cat">Styling</span></div>
             </div>
             <div class="sposa-gallery-item g-reveal g-d1" onclick="openGalleryLightbox(this)">
-                <img src="../galleria/barber-06.jpg" class="pos-center" alt="Taglio biondo ghiaccio — MZ Barber Shop" loading="lazy"/>
-                <div class="overlay"><span>Biondo Ghiaccio</span><span class="cat">Colore</span></div>
+                <img src="../galleria/barber-06.jpg" class="pos-center" alt="Cut biondo ghiaccio — MZ Barber Shop" loading="lazy"/>
+                <div class="overlay"><span>Biondo Ghiaccio</span><span class="cat">Colour</span></div>
             </div>
             <div class="sposa-gallery-item gm-2x2 g-reveal g-d2" onclick="openGalleryLightbox(this)">
-                <img src="../galleria/barber-07.jpg" class="pos-center" alt="Barbiere al lavoro con lo styling — MZ Barber Shop" loading="lazy"/>
+                <img src="../galleria/barber-07.jpg" class="pos-center" alt="Barber at work styling — MZ Barber Shop" loading="lazy"/>
                 <div class="overlay"><span>Il Tocco Finale</span><span class="cat">Backstage</span></div>
             </div>
             <div class="sposa-gallery-item gm-1x2 g-reveal g-d3" onclick="openGalleryLightbox(this)">
-                <img src="../galleria/barber-09.jpg" class="pos-center" alt="Taglio pulito visto da dietro — MZ Barber Shop" loading="lazy"/>
-                <div class="overlay"><span>Linee Pulite</span><span class="cat">Taglio</span></div>
+                <img src="../galleria/barber-09.jpg" class="pos-center" alt="Cut pulito visto da dietro — MZ Barber Shop" loading="lazy"/>
+                <div class="overlay"><span>Linee Pulite</span><span class="cat">Cut</span></div>
             </div>
             <div class="sposa-gallery-item g-reveal" onclick="openGalleryLightbox(this)">
-                <img src="../galleria/barber-11.jpg" class="pos-center" alt="Low fade con frangia — MZ Barber Shop" loading="lazy"/>
-                <div class="overlay"><span>Low Fade</span><span class="cat">Taglio</span></div>
+                <img src="../galleria/barber-11.jpg" class="pos-center" alt="Low fade with fringe — MZ Barber Shop" loading="lazy"/>
+                <div class="overlay"><span>Low Fade</span><span class="cat">Cut</span></div>
             </div>
             <div class="sposa-gallery-item gm-2x1 g-reveal g-d1" onclick="openGalleryLightbox(this)">
-                <img src="../galleria/barber-13.jpg" class="pos-center" alt="Rifinitura con rasoio a mano libera — MZ Barber Shop" loading="lazy"/>
-                <div class="overlay"><span>Rasoio a Mano Libera</span><span class="cat">Barba</span></div>
+                <img src="../galleria/barber-13.jpg" class="pos-center" alt="Freehand razor finishing — MZ Barber Shop" loading="lazy"/>
+                <div class="overlay"><span>Rasoio a Mano Libera</span><span class="cat">Beard</span></div>
             </div>
             <div class="sposa-gallery-item g-reveal g-d2" onclick="openGalleryLightbox(this)">
-                <img src="../galleria/barber-15.jpg" class="pos-center" alt="Cliente in poltrona dal barbiere — MZ Barber Shop" loading="lazy"/>
+                <img src="../galleria/barber-15.jpg" class="pos-center" alt="Client in the barber chair — MZ Barber Shop" loading="lazy"/>
                 <div class="overlay"><span>In Poltrona</span><span class="cat">Backstage</span></div>
             </div>
             <div class="sposa-gallery-item g-reveal g-d3" onclick="openGalleryLightbox(this)">
-                <img src="../galleria/barber-17.jpg" class="pos-center" alt="La reception del barber shop — MZ Barber Shop" loading="lazy"/>
+                <img src="../galleria/barber-17.jpg" class="pos-center" alt="The barber shop reception — MZ Barber Shop" loading="lazy"/>
                 <div class="overlay"><span>La Reception</span><span class="cat">Ambiente</span></div>
             </div>
             <div class="sposa-gallery-item gm-2x2 g-reveal" onclick="openGalleryLightbox(this)">
-                <img class="sg-main" src="../galleria/experience-barber-01.jpg" alt="Collage Interno Barber Shop — foto principale" loading="lazy"/>
+                <img class="sg-main" src="../galleria/experience-barber-01.jpg" alt="Barber Shop Interior Collage — main photo" loading="lazy"/>
                 <div class="sg-quad">
-                    <div class="q-img"><img src="../galleria/experience-barber-01.jpg" class="pos-center" alt="Angolo barber shop MZ — foto 1" loading="lazy"/></div>
-                    <div class="q-img"><img src="../galleria/experience-barber-02.jpg" class="pos-center" alt="Angolo barber shop MZ — foto 2" loading="lazy"/></div>
-                    <div class="q-img"><img src="../galleria/experience-barber-03.jpg" class="pos-center" alt="Angolo barber shop MZ — foto 3" loading="lazy"/></div>
-                    <div class="q-img"><img src="../galleria/experience-barber-04.jpg" class="pos-center" alt="Angolo barber shop MZ — foto 4" loading="lazy"/></div>
+                    <div class="q-img"><img src="../galleria/experience-barber-01.jpg" class="pos-center" alt="MZ Barber Shop corner — photo 1" loading="lazy"/></div>
+                    <div class="q-img"><img src="../galleria/experience-barber-02.jpg" class="pos-center" alt="MZ Barber Shop corner — photo 2" loading="lazy"/></div>
+                    <div class="q-img"><img src="../galleria/experience-barber-03.jpg" class="pos-center" alt="MZ Barber Shop corner — photo 3" loading="lazy"/></div>
+                    <div class="q-img"><img src="../galleria/experience-barber-04.jpg" class="pos-center" alt="MZ Barber Shop corner — photo 4" loading="lazy"/></div>
                 </div>
                 <div class="overlay"><span>Barber Corner</span><span class="cat">Ambiente</span></div>
             </div>
@@ -747,11 +747,11 @@
                 <i class="fas fa-razor"></i>
             </div>
             <h3>Pronto per il tuo <span>rituale</span>?</h3>
-            <p>Prenota ora il tuo appuntamento da <strong>MZ Barber Shop Medicina</strong>. Taglio, barba o rasatura tradizionale: scegli il canale che preferisci per parlare direttamente con noi.</p>
+            <p>Book Now il tuo appointment da <strong>MZ Barber Shop Medicina</strong>. Cut, barba o rasatura tradizionale: scegli il canale che preferisci per parlare direttamente con noi.</p>
             <div class="barber-cta-buttons">
-                <a class="btn-primary" href="https://wa.me/393888604444" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Prenota WhatsApp</a>
+                <a class="btn-primary" href="https://wa.me/393888604444" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp Booking</a>
                 <a class="btn-secondary" href="tel:+393888604444"><i class="fas fa-phone"></i> Chiama 388 8604444</a>
-                <a class="btn-secondary" href="https://www.google.com/maps/search/?api=1&query=MZ+Barber+Shop+Via+O.+Argentesi+22+Medicina" target="_blank" rel="noopener"><i class="fas fa-location-dot"></i> Raggiungici in sede</a>
+                <a class="btn-secondary" href="https://www.google.com/maps/search/?api=1&query=MZ+Barber+Shop+Via+O.+Argentesi+22+Medicina" target="_blank" rel="noopener"><i class="fas fa-location-dot"></i> Get Directions in salon</a>
             </div>
         </div>
     </div>
@@ -761,14 +761,14 @@
 <section class="section marble-section" id="contatti">
     <div class="container">
         <div class="section-header reveal">
-            <span class="section-eyebrow">Dove trovarci</span>
-            <h2 class="section-title">Contatti & <span>Mappa</span></h2>
+            <span class="section-eyebrow">Where to Find Us</span>
+            <h2 class="section-title">Contact & <span>Mappa</span></h2>
             <p class="section-sub">Siamo a Medicina (BO), a due passi dal centro</p>
         </div>
         <div class="contact-grid reveal">
             <div class="contact-info-card">
                 <h3>MZ Barber Shop <span>Medicina</span></h3>
-                <svg class="sede-icon-original" role="img" viewBox="0 0 520 640" preserveAspectRatio="xMidYMid meet" aria-label="Barber Shop Medicina — Icona Gentleman Barbuto">
+                <svg class="salon-icon-original" role="img" viewBox="0 0 520 640" preserveAspectRatio="xMidYMid meet" aria-label="Barber Shop Medicina — Icona Gentleman Barbuto">
                     <defs>
                         <filter id="barberIconGold" x="-5%" y="-5%" width="110%" height="110%">
                             <feColorMatrix type="matrix" values="-1  0  0  0  1
@@ -789,19 +789,19 @@
                            preserveAspectRatio="xMidYMid meet"
                            filter="url(#barberIconGold)"/>
                 </svg>
-                <img class="sede-icon-original-fallback-img" src="../barber-icon-original.png" alt="Barber Shop Medicina Icona" style="display:none;margin-bottom:28px">
-                <i class="fas fa-cut sede-fa-fallback" style="display:none;color:var(--gold);font-size:2rem;margin-bottom:28px;display:none"></i>
+                <img class="salon-icon-original-fallback-img" src="../barber-icon-original.png" alt="Barber Shop Medicina Icona" style="display:none;margin-bottom:28px">
+                <i class="fas fa-cut salon-fa-fallback" style="display:none;color:var(--gold);font-size:2rem;margin-bottom:28px;display:none"></i>
                 <div class="info-item">
                     <i class="fas fa-location-dot"></i>
                     <div>
-                        <strong>Indirizzo</strong>
+                        <strong>Address</strong>
                         <span>Via O. Argentesi 22<br>40059 Medicina (BO)</span>
                     </div>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-phone-alt"></i>
                     <div>
-                        <strong>Telefono</strong>
+                        <strong>Phone</strong>
                         <span><a href="tel:+393888604444">+39 388 8604444</a></span>
                     </div>
                 </div>
@@ -815,8 +815,8 @@
                 <div class="info-item">
                     <i class="far fa-clock"></i>
                     <div>
-                        <strong>Orari</strong>
-                        <span>Martedì – Venerdì: 9:30 – 19:30<br>Sabato: 9:00 – 18:00<br>Chiuso: Domenica e Lunedì</span>
+                        <strong>Opening Hours</strong>
+                        <span>Tuesday – Friday: 9:30 – 19:30<br>Saturday: 9:00 – 18:00<br>Closed: Sunday e Monday</span>
                     </div>
                 </div>
                 <hr class="contact-divider">
@@ -847,7 +847,7 @@
 
 <!-- ===== STAFF LIGHTBOX ===== -->
 <div class="staff-lightbox" id="staffLightbox" onclick="closeStaffLightbox(event)">
-    <button class="staff-lightbox-close" aria-label="Chiudi"><i class="fas fa-xmark"></i></button>
+    <button class="staff-lightbox-close" aria-label="Close"><i class="fas fa-xmark"></i></button>
     <div class="staff-lightbox-card">
         <div class="staff-lightbox-photo" id="lightboxPhoto"></div>
         <h3 id="lightboxName"></h3>
@@ -857,9 +857,9 @@
 
 <!-- ===== GALLERIA LIGHTBOX ===== -->
 <div class="gallery-lightbox" id="galleryLightbox" onclick="closeGalleryLightbox(event)">
-    <button class="gallery-lightbox-close" aria-label="Chiudi"><i class="fas fa-xmark"></i></button>
-    <button class="gallery-lightbox-nav gallery-lightbox-prev" aria-label="Foto precedente" onclick="event.stopPropagation();navGallery(-1)"><i class="fas fa-chevron-left"></i></button>
-    <button class="gallery-lightbox-nav gallery-lightbox-next" aria-label="Foto successiva" onclick="event.stopPropagation();navGallery(1)"><i class="fas fa-chevron-right"></i></button>
+    <button class="gallery-lightbox-close" aria-label="Close"><i class="fas fa-xmark"></i></button>
+    <button class="gallery-lightbox-nav gallery-lightbox-prev" aria-label="Previous photo" onclick="event.stopPropagation();navGallery(-1)"><i class="fas fa-chevron-left"></i></button>
+    <button class="gallery-lightbox-nav gallery-lightbox-next" aria-label="Next photo" onclick="event.stopPropagation();navGallery(1)"><i class="fas fa-chevron-right"></i></button>
     <figure class="gallery-lightbox-figure">
         <img id="galleryLightboxImg" src="" alt=""/>
         <figcaption class="gallery-lightbox-caption">
@@ -879,10 +879,10 @@
         </a>
         <p class="tagline">Villanova di Castenaso - Villafontana di Medicina - Imola - Barber Shop Medicina</p>
         <p class="copyright">&copy; <span class="copyright-year">2026</span> MZ Parrucchieri - L'arte della bellezza &middot; <a href="../index.html?skipintro=1#cookie-policy">Cookie Policy</a></p>
-        <p class="copyright footer-legal" style="margin-top:4px;font-size:0.72rem;color:var(--white-dim);opacity:0.85">MZ di Maurizio Zucchini &middot; P.IVA 024&#x200B;5822&#x200B;1203</p>
-        <a href="../admin.html" class="footer-admin-link" aria-label="Area riservata"><i class="fa-solid fa-lock"></i> Area Riservata</a>
+        <p class="copyright footer-legal" style="margin-top:4px;font-size:0.72rem;color:var(--white-dim);opacity:0.85">MZ di Maurizio Zucchini &middot; VAT No. 024&#x200B;5822&#x200B;1203</p>
+        <a href="../admin.html" class="footer-admin-link" aria-label="Private Area"><i class="fa-solid fa-lock"></i> Area Riservata</a>
         <div class="payments">
-            <span class="payments-label">Metodi di pagamento accettati</span>
+            <span class="payments-label">Accepted payment methods</span>
             <div class="pay-badges">
                 <span class="pay-badge"><i class="fas fa-credit-card"></i> Carte</span>
                 <span class="pay-badge"><i class="fab fa-paypal"></i> PayPal</span>
@@ -890,7 +890,7 @@
             </div>
         </div>
         <div class="socials-block">
-            <span class="socials-title">Seguici</span>
+            <span class="socials-title">Follow Us</span>
             <div class="socials-groups">
                 <div class="social-group">
                     <p class="social-brand">MZ Parrucchieri</p>
@@ -916,11 +916,11 @@
 <!-- ===== COOKIE BANNER ===== -->
 <div class="cookie-banner" id="cookieBanner">
     <div class="cookie-text">
-        <p>Questo sito utilizza solo <strong>cookie tecnici</strong> per garantirti la migliore esperienza di navigazione, nessun cookie di profilazione. Puoi accettare o rifiutare: la tua scelta sara' ricordata. <a href="../index.html?skipintro=1#cookie-policy">Leggi la Cookie Policy</a></p>
+        <p>Questo sito utilizza solo <strong>technical cookies</strong> per garantirti la migliore esperienza di navigazione, nessun cookie di profilazione. Puoi accettare o rifiutare: la tua scelta sara' ricordata. <a href="../index.html?skipintro=1#cookie-policy">Read the Cookie Policy</a></p>
     </div>
     <div class="cookie-actions">
-        <button class="cookie-refuse" onclick="setCookieConsent('refused')">Rifiuta</button>
-        <button class="cookie-accept" onclick="setCookieConsent('accepted')">Accetta</button>
+        <button class="cookie-refuse" onclick="setCookieConsent('refused')">Refuse</button>
+        <button class="cookie-accept" onclick="setCookieConsent('accepted')">Accept</button>
     </div>
 </div>
 
@@ -934,7 +934,7 @@
       "name": "MZ Barber Shop Medicina",
       "legalName": "MZ di Maurizio Zucchini",
       "vatID": "IT02458221203",
-      "description": "MZ Barber Shop Medicina (BO). Taglio uomo, ragazzo, bimbo, rifiniture barba, Barba Spa e rasature tradizionali con asciugamani caldi. Prenota per WhatsApp o telefono.",
+      "description": "MZ Barber Shop Medicina (BO). Cut uomo, ragazzo, bimbo, rifiniture barba, Beard Spa e rasature tradizionali con asciugamani caldi. Prenota per WhatsApp o telefono.",
       "url": "https://www.mzparrucchieri.it/barber-shop",
       "logo": {
         "@type": "ImageObject",
@@ -963,7 +963,7 @@
         "reviewCount": "105"
       },
       "brand": [{ "@type": "Brand", "name": "Level3" }],
-      "knowsAbout": ["Barberia", "Taglio capelli uomo", "Rifinitura barba", "Rasatura tradizionale", "Barba Spa", "Taglio ragazzo", "Taglio bimbo"],
+      "knowsAbout": ["Barberia", "Cut capelli uomo", "Rifinitura barba", "Rasatura tradizionale", "Beard Spa", "Cut ragazzo", "Cut bimbo"],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Via O. Argentesi 22",
@@ -1192,7 +1192,7 @@ document.querySelectorAll('#navLinks a').forEach(function(link){
 // ===== FALLBACK ICONA BARBER: SVG NON CARICA? SWITCH A IMG CSS GOLD (100% SICURO) =====
 (function(){
     setTimeout(function(){
-        document.querySelectorAll('svg.sede-icon-original').forEach(function(svg){
+        document.querySelectorAll('svg.salon-icon-original').forEach(function(svg){
             try{
                 var img = svg.querySelector('image');
                 if(!img){ svg.style.display='none'; var next=svg.nextElementSibling; if(next){ next.style.display='block'; } return; }

@@ -1,5 +1,5 @@
 {
-  "meseAnno": "September 2026",
+  "meseAnno": "October 2026",
   "promozioni": [
     {
       "id": "saloni",
@@ -22,16 +22,16 @@
           "sedeShort": "Imola"
         }
       ],
-      "titolo": "Vitamin Glow",
-      "sottotitolo": "Illuminating & Purifying Treatment",
-      "descrizione": "Beautiful hair is not just about length. A single treatment delivers two results: it purifies and rebalances, giving natural lightness and volume; it smooths and compacts the hair fibre, seals and illuminates, creating an instant mirror effect. Discover your glow, ask for it in salon.",
+      "titolo": "Nashi Argan Energy Line",
+      "sottotitolo": "Life 30 · Intensive Anti-Hair Loss Reactivating Treatment",
+      "descrizione": "October is regrowth month: discover Life 30 Exosome Bio-Technology by Nashi Argan, the intensive anti-hair loss treatment with exosomes. Prevents hair loss, supports natural growth and improves the density of your hair. New signs of strength, optimal growth conditions, density and vitality restored. Ask for it in salon.",
       "prezzo": null,
       "prezzoOriginale": null,
       "sconto": "NEW",
-      "immagine": "galleria/promo-saloni-settembre.jpg",
-      "dataFine": "2026-09-30",
+      "immagine": "galleria/promo-saloni-ottobre.jpg",
+      "dataFine": "2026-10-31",
       "pulsanteTesto": "Book on WhatsApp",
-      "waMessaggio": "Hello, I would like information about the Vitamin Glow September promotion. May I have more details or book an appointment?",
+      "waMessaggio": "Hello, I would like information about the October promo Nashi Argan Energy Line Life 30. May I have more details or book an appointment?",
       "waNumeriSedi": [
         {
           "sedeId": "villanova",
@@ -52,7 +52,7 @@
           "orari": "Tue-Sat 9:00-18:30 · Wed 20:30"
         }
       ],
-      "icona": "fa-solid fa-sparkles"
+      "icona": "fa-solid fa-seedling"
     },
     {
       "id": "barber",
@@ -65,18 +65,18 @@
           "sedeShort": "Barber Shop"
         }
       ],
-      "titolo": "Luxury Shave",
-      "sottotitolo": "Complete 30-minute beard ritual",
-      "descrizione": "Take advantage of our exclusive Luxury Shave service: 30 minutes of pure relaxation for your beard. Hot towel, premium oils, traditional lather and final massage with Level3 products.",
+      "titolo": "Nashi Argan Energy Line Barber",
+      "sottotitolo": "Life 15 Seasonal + Life 30 Intensive · Men's Anti-Hair Loss",
+      "descrizione": "For the October season change we dedicate to our Barber clients the complete Nashi Argan protocol: Life 15 Seasonal (seasonal maintenance vials) + Life 30 Intensive (intensive treatment vials). Both with Exosome Bio-Technology to counteract hair loss and strengthen beard and hair density, with new signs of strength for the season change.",
       "prezzo": null,
       "prezzoOriginale": null,
       "sconto": "NEW",
-      "immagine": "galleria/promo-barber-settembre.jpg",
-      "dataFine": "2026-09-30",
+      "immagine": "galleria/promo-barber-ottobre.jpg",
+      "dataFine": "2026-10-31",
       "pulsanteTesto": "Book on WhatsApp",
-      "waMessaggio": "Hello, I would like to book the Luxury Shave treatment at the Barber Shop. Do you have availability this week?",
+      "waMessaggio": "Hello, I would like information about the October promo Nashi Argan Energy Line Life 15+Life 30 at the Barber Shop. Can I book a consultation?",
       "waNumero": "393888604444",
-      "icona": "fa-solid fa-razor"
+      "icona": "fa-solid fa-dna"
     }
   ]
 }

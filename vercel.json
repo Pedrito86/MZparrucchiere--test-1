@@ -1,7 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "outputDirectory": "app",
-  "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
     { "source": "/dove-siamo-imola", "destination": "/salone-imola", "statusCode": 301 },

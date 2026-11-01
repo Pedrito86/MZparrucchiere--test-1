@@ -1,5 +1,5 @@
 {
-  "meseAnno": "October 2026",
+  "meseAnno": "November 2026",
   "promozioni": [
     {
       "id": "saloni",
@@ -22,16 +22,16 @@
           "sedeShort": "Imola"
         }
       ],
-      "titolo": "Nashi Argan Energy Line",
-      "sottotitolo": "Life 30 · Intensive Anti-Hair Loss Reactivating Treatment",
-      "descrizione": "October is regrowth month: discover Life 30 Exosome Bio-Technology by Nashi Argan, the intensive anti-hair loss treatment with exosomes. Prevents hair loss, supports natural growth and improves the density of your hair. New signs of strength, optimal growth conditions, density and vitality restored. Ask for it in salon.",
+      "titolo": "November Salon Promo",
+      "sottotitolo": "Stay Tuned",
+      "descrizione": "Keep following us on social media and in salon: in November you will discover an incredible promotion dedicated to you. Don't miss it.",
       "prezzo": null,
       "prezzoOriginale": null,
       "sconto": "NEW",
-      "immagine": "galleria/promo-saloni-ottobre.jpg",
-      "dataFine": "2026-10-31",
-      "pulsanteTesto": "Book on WhatsApp",
-      "waMessaggio": "Hello, I would like information about the October promo Nashi Argan Energy Line Life 30. May I have more details or book an appointment?",
+      "immagine": "galleria/promo-saloni-novembre.jpg",
+      "dataFine": "2026-11-30",
+      "pulsanteTesto": "Message us on WhatsApp",
+      "waMessaggio": "Hello, I would like to receive information about the November promo for MZ Parrucchieri salons. Can you update me as soon as it is available?",
       "waNumeriSedi": [
         {
           "sedeId": "villanova",
@@ -52,7 +52,7 @@
           "orari": "Tue-Sat 9:00-18:30 · Wed 20:30"
         }
       ],
-      "icona": "fa-solid fa-seedling"
+      "icona": "fa-solid fa-gift"
     },
     {
       "id": "barber",
@@ -65,18 +65,18 @@
           "sedeShort": "Barber Shop"
         }
       ],
-      "titolo": "Nashi Argan Energy Line Barber",
-      "sottotitolo": "Life 15 Seasonal + Life 30 Intensive · Men's Anti-Hair Loss",
-      "descrizione": "For the October season change we dedicate to our Barber clients the complete Nashi Argan protocol: Life 15 Seasonal (seasonal maintenance vials) + Life 30 Intensive (intensive treatment vials). Both with Exosome Bio-Technology to counteract hair loss and strengthen beard and hair density, with new signs of strength for the season change.",
+      "titolo": "November Barber Shop Promo",
+      "sottotitolo": "Stay Tuned",
+      "descrizione": "Keep following us on social media and in salon: in November you will discover an incredible promotion dedicated to you at the Barber Shop too. Don't miss it.",
       "prezzo": null,
       "prezzoOriginale": null,
       "sconto": "NEW",
-      "immagine": "galleria/promo-barber-ottobre.jpg",
-      "dataFine": "2026-10-31",
-      "pulsanteTesto": "Book on WhatsApp",
-      "waMessaggio": "Hello, I would like information about the October promo Nashi Argan Energy Line Life 15+Life 30 at the Barber Shop. Can I book a consultation?",
+      "immagine": "galleria/promo-barber-novembre.jpg",
+      "dataFine": "2026-11-30",
+      "pulsanteTesto": "Message us on WhatsApp",
+      "waMessaggio": "Hello, I would like to receive information about the November Barber Shop promo. Can you update me as soon as it is available?",
       "waNumero": "393888604444",
-      "icona": "fa-solid fa-dna"
+      "icona": "fa-solid fa-gift"
     }
   ]
 }

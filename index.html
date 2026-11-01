@@ -901,7 +901,15 @@
         .promo-card:hover::before { opacity:1; }
         .promo-card.inactive { opacity:0.55; filter:grayscale(0.6); }
         .promo-img { position:relative; aspect-ratio:16/10; overflow:hidden; background:var(--black-3); }
-        .promo-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 1.2s var(--ease-out-expo); }
+        .promo-img img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; transition:transform 1.2s var(--ease-out-expo); }
+        .promo-img { cursor:zoom-in; }
+        /* ===== LIGHTBOX LOCANDINE PROMO ===== */
+        .promo-lightbox { position:fixed; inset:0; z-index:9999; background:rgba(10,10,10,0.9); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); display:flex; align-items:center; justify-content:center; padding:56px 20px; opacity:0; visibility:hidden; transition:opacity 0.5s var(--ease-out-expo), visibility 0.5s var(--ease-out-expo); }
+        .promo-lightbox.open { opacity:1; visibility:visible; }
+        .promo-lightbox img { max-width:min(620px,94vw); max-height:86vh; width:auto; height:auto; object-fit:contain; border-radius:16px; border:1px solid rgba(201,168,76,0.3); box-shadow:0 40px 120px rgba(0,0,0,0.75); transform:scale(0.86) translateY(24px); transition:transform 0.5s var(--ease-out-expo); }
+        .promo-lightbox.open img { transform:scale(1) translateY(0); }
+        .promo-lightbox-close { position:absolute; top:28px; right:36px; width:52px; height:52px; border-radius:50%; background:rgba(26,26,26,0.6); border:1px solid rgba(201,168,76,0.3); color:var(--gold); font-size:1.1rem; cursor:pointer; transition:all 0.4s var(--ease-out-expo); display:flex; align-items:center; justify-content:center; }
+        .promo-lightbox-close:hover { background:var(--gold); color:var(--black); transform:rotate(90deg); }
         .promo-card:hover .promo-img img { transform:scale(1.08); }
         .promo-img::after { content:''; position:absolute; inset:0;
             background:linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(26,26,26,0.72) 100%); pointer-events:none; }
@@ -3794,6 +3802,46 @@ function setLang(l) {
         });
     }, 3600);
 })();
+
+/* ===== LIGHTBOX LOCANDINE PROMO ===== */
+function promoLightboxEl() {
+    var lb = document.getElementById('promoLightbox');
+    if (lb) return lb;
+    lb = document.createElement('div');
+    lb.id = 'promoLightbox';
+    lb.className = 'promo-lightbox';
+    lb.innerHTML = '<button class="promo-lightbox-close" type="button" aria-label="Chiudi"><i class="fas fa-xmark"></i></button><img alt="Locandina promozione">';
+    lb.addEventListener('click', function (e) { if (!e.target.closest('img')) closePromoLightbox(); });
+    document.body.appendChild(lb);
+    return lb;
+}
+function openPromoLightbox(src, alt) {
+    if (!src) return;
+    var lb = promoLightboxEl();
+    var img = lb.querySelector('img');
+    if (!img) return;
+    img.src = src;
+    img.alt = alt || 'Locandina promozione';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closePromoLightbox() {
+    var lb = document.getElementById('promoLightbox');
+    if (!lb) return;
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+}
+if (!window._promoLightboxBound) {
+    window._promoLightboxBound = true;
+    document.addEventListener('click', function (e) {
+        var box = e.target.closest ? e.target.closest('.promo-img') : null;
+        if (!box) return;
+        var img = box.querySelector('img');
+        if (!img || !img.getAttribute('src')) return;
+        openPromoLightbox(img.getAttribute('src'), img.alt);
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePromoLightbox(); });
+}
 
 // ===== CARICAMENTO PROMOZIONI DINAMICHE DA JSON =====
 (function () {
